@@ -1,8 +1,9 @@
 {
-  "name": "@openbeta/climbing-grades",
+  "name": "@openbeta/sandbag",
   "version": "0.0.1",
   "description": "Rock climbing grades and conversions",
-  "main": "src/index.js",
+  "repository": "https://github.com/OpenBeta/sandbag.git",
+  "main": "build/index.js",
   "scripts": {
     "prepare": "husky install",
     "lint": "ts-standard",
@@ -25,5 +26,9 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+    "rock climbing",
+    "climbing grades"
+  ]
 }
