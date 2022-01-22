@@ -1,15 +1,26 @@
 {
-  "name": "grades",
-  "version": "1.0.0",
+  "name": "climbing-grades",
+  "version": "0.0.1",
   "description": "Rock climbing grades and conversions",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --recursive src/**/__tests__/*.js"
+    "lint": "ts-standard",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "clean": "rm -rf build/*",
+    "build": "tsc  -p tsconfig.build.json"
   },
   "author": "Kevin Nadro",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^9.0.0"
+    "@types/jest": "^27.4.0",
+    "jest": "^27.4.7",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.4.0",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.5.5"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
