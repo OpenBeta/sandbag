@@ -1,5 +1,5 @@
 {
-  "name": "climbing-grades",
+  "name": "@openbeta/climbing-grades",
   "version": "0.0.1",
   "description": "Rock climbing grades and conversions",
   "main": "src/index.js",
