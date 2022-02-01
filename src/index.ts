@@ -1,3 +1,6 @@
+
+import { getScoreForGrade } from './vyds'
+
 // Free Climbing Grades
 // YDS
 // British - Tech
@@ -84,3 +87,5 @@ export const freeClimbing = {
 export const bouldering = {
 
 }
+
+export { getScoreForGrade }

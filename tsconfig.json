@@ -15,7 +15,8 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true
   },
   "include": [
     ".ts",
