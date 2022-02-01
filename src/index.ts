@@ -1,11 +1,12 @@
 
 import { getScoreForGrade } from './vyds'
-
+import { getScore, getScoreForSort, isVScale } from './GradeParser'
+import { GradeScales } from './GradeScale'
 // Free Climbing Grades
 // YDS
+// French
 // British - Tech
 // British - Adj
-// French
 // UIAA
 // Saxon
 // Ewbank (AUS, NZL)
@@ -88,4 +89,4 @@ export const bouldering = {
 
 }
 
-export { getScoreForGrade }
+export { getScoreForGrade, getScore, getScoreForSort, isVScale, GradeScales }
