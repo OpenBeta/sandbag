@@ -1,9 +1,10 @@
 {
   "name": "@openbeta/sandbag",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Rock climbing grades and conversions",
   "repository": "https://github.com/OpenBeta/sandbag.git",
-  "main": "build/index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "prepare": "husky install",
     "lint": "ts-standard",
