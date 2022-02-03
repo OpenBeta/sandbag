@@ -37,7 +37,7 @@ const YosemiteDecimal: GradeScale = {
     const basicScore = findScoreRange((r: Route) => {
       return r.yds === normalizedGrade
     }, routes)
-    
+
     if (wholeMatch !== normalizedGrade) {
       let otherGrade
       const plusSlash = plusOrSlash === undefined
