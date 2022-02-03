@@ -9,6 +9,7 @@
     "target": "ES5",
     "module": "CommonJS",
     "esModuleInterop": true,
+    "resolveJsonModule":true,
     "moduleResolution": "Node",
     "rootDir": "./src",
     "outDir": "build",
