@@ -17,8 +17,8 @@ const FontScale: GradeScale = {
       .map(b => b.score)
       .sort((a, b) => b - a)
 
-    const low = scores.at(0)
-    const high = scores.at(-1)
+    const low = scores[0]
+    const high = scores[scores.length - 1]
     if (low === undefined) {
       return 0
     }
