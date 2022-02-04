@@ -20,8 +20,8 @@ export const findScoreRange = (compareFn, list): number | Tuple => {
     .map(b => b.score)
     .sort((a, b) => a - b)
 
-  const low = scores.at(0)
-  const high = scores.at(-1)
+  const low = scores[0]
+  const high = scores[scores.length - 1]
   if (low === undefined) {
     return 0
   }
