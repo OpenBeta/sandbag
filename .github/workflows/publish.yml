@@ -1,13 +1,24 @@
 
 name: Publish Package to npmjs
-on:
-  release:
-    types: [created]
+on: [push]
+  branches:
+  - "develop"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.WRITE_TOKEN }}
+        with:
+          skip-tag:  'true'
+
+      - name: Install dependencies
+        run: yarn install --no-progress && yarn lint && yarn test && yarn build
+
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
