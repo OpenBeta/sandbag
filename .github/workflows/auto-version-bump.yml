@@ -1,5 +1,5 @@
 
-name: Auto tag based on commit msg
+name: Auto tag and npm publish based on commit msg
 on: 
   push:
     branches:
@@ -15,11 +15,32 @@ jobs:
         run: grep  '"version"' package.json
 
       - name:  'Automated Version Bump'
+        id: version-bump
         uses:  'phips28/gh-action-bump-version@master'
         with:
           minor-wording:  '[RELEASE]'
           skip-push:  'true'
           tag-prefix:  'v'
 
-      - name: 'Show next version'
-        run: grep  '"version"' package.json
+      - name: 'Output Step'
+        env:
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+          OLD_TAG: ${{ steps.version-bump.outputs.current }}
+        run: echo ${OLD_TAG} ${NEW_TAG}
+
+      # Setup .npmrc file to publish to npm
+      - name: Setup Node.js environment
+        if: $NEW_TAG != $OLD_TAG
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@openbeta'
+
+      - name: NPM publish
+        if: $NEW_TAG != $OLD_TAG
+        run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
