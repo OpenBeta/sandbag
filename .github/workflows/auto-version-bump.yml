@@ -4,10 +4,9 @@ on:
   push:
     branches:
     - 'develop'
-  pull_request:
-    types: [opened, reopened]
 jobs:
   build:
+    name: 'Bump version and npm publish'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout source code'
@@ -38,4 +37,3 @@ jobs:
         run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
