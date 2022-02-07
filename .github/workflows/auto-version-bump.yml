@@ -6,31 +6,26 @@ on:
     - 'develop'
 jobs:
   build:
+    name: 'Bump version and npm publish'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
 
-      - name: 'Show current version'
-        run: grep  '"version"' package.json
-
       - name:  'Automated Version Bump'
         id: version-bump
         uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          minor-wording:  '[RELEASE]'
-          skip-push:  'true'
+          patch-wording: '[Release]'
           tag-prefix:  'v'
 
-      - name: 'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-          OLD_TAG: ${{ steps.version-bump.outputs.current }}
-        run: echo ${OLD_TAG} ${NEW_TAG}
+      - name: 'Show current version'
+        run: grep  '"version"' package.json
 
       # Setup .npmrc file to publish to npm
       - name: Setup Node.js environment
-        if: $NEW_TAG != $OLD_TAG
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
@@ -39,8 +34,6 @@ jobs:
           scope: '@openbeta'
 
       - name: NPM publish
-        if: $NEW_TAG != $OLD_TAG
         run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-

@@ -1,6 +1,6 @@
 {
   "name": "@openbeta/sandbag",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "description": "Rock climbing grades and conversions",
   "repository": "https://github.com/OpenBeta/sandbag.git",
   "module": "dist/sandbag.esm.js",
@@ -27,7 +27,7 @@
     "typescript": "^4.5.5"
   },
   "engines": {
-    "node": ">=14.19.0"
+    "node": ">=14"
   },
   "dependencies": {},
   "keywords": [
