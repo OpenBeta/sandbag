@@ -4,20 +4,26 @@ on:
   push:
     branches:
     - "develop"
+    tags:
+    - v*
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:  
-          token: ${{ github.token }}
+      - name: 'Checkout source code'
+        uses: 'actions/checkout@v2'
+
+      - name: 'show current version'
+        run: grep  '"version"' package.json
 
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.WRITE_TOKEN }}
         with:
           skip-tag:  'true'
+          skip-push:  'true'
+
+      - name: 'show current version'
+        run: grep  '"version"' package.json
 
       - name: Install dependencies
         run: yarn install --no-progress && yarn lint && yarn test && yarn build
@@ -29,6 +35,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@openbeta'
+
       - run: yarn
       - run: yarn publish --access public
         env:
