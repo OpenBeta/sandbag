@@ -3,9 +3,7 @@ name: Publish Package to npmjs
 on: 
   push:
     branches:
-    - "develop"
-    tags:
-    - v*
+    - 'develop'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,16 +11,17 @@ jobs:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
 
-      - name: 'show current version'
+      - name: 'Show current version'
         run: grep  '"version"' package.json
 
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
         with:
-          skip-tag:  'true'
+          minor-wording:  '[RELEASE]'
           skip-push:  'true'
+          tag-prefix:  'v'
 
-      - name: 'show current version'
+      - name: 'Show next version'
         run: grep  '"version"' package.json
 
       - name: Install dependencies
