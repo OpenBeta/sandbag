@@ -26,6 +26,7 @@ jobs:
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
           OLD_TAG: ${{ steps.version-bump.outputs.current }}
+        run: echo ${OLD_TAG} ${NEW_TAG}
 
       # Setup .npmrc file to publish to npm
       - name: Setup Node.js environment
