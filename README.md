@@ -26,8 +26,8 @@ yarn add @openbeta/sandbag
 ```javascript
 import { YosemiteDecimal } from '@openbeta/sandbag'
 
-const easier = YosemiteDecimal.getScore('5.6')
-const harder = YosemiteDecimal.getScore('5.10')
+const easier = YosemiteDecimal.getScoreForSort('5.6')
+const harder = YosemiteDecimal.getScoreForSort('5.10')
 
 console.log('Is 5.6 easier than 5.10?', easier < harder)  // Output: true
 ```

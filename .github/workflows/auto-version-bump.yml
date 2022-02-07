@@ -34,6 +34,6 @@ jobs:
           scope: '@openbeta'
 
       - name: NPM publish
-        run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
+        run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
