@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:  
-          token: ${{ secrets.WRITE_TOKEN }}
+          token: ${{ github.token }}
 
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
