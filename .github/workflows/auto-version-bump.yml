@@ -4,6 +4,8 @@ on:
   push:
     branches:
     - 'develop'
+  pull_request:
+    types: [opened, reopened]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,7 +32,7 @@ jobs:
 
       # Setup .npmrc file to publish to npm
       - name: Setup Node.js environment
-        if: $NEW_TAG != $OLD_TAG
+        if: steps.version-bump.outputs.newTag != steps.version-bump.outputs.current
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
@@ -39,7 +41,7 @@ jobs:
           scope: '@openbeta'
 
       - name: NPM publish
-        if: $NEW_TAG != $OLD_TAG
+        if: steps.version-bump.outputs.newTag != steps.version-bump.outputs.current
         run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
