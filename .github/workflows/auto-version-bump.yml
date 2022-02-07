@@ -37,6 +37,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@openbeta'
+
+      - name: NPM publish
+        if: $NEW_TAG != $OLD_TAG
         run: yarn install --no-progress && yarn lint && yarn test && yarn publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
