@@ -1,12 +1,13 @@
 
-name: Auto tag and npm publish based on commit msg
-on: 
-  push:
+name: Auto tag based on commit msg
+on:   
+  pull_request: # only run on PR otherwise bot can't commit to protected branch
     branches:
-    - 'develop'
+    - develop
+
 jobs:
   build:
-    name: 'Bump version and npm publish'
+    name: 'Bump version and commit package.json'
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout source code'
@@ -18,22 +19,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          patch-wording: '[Release]'
+          patch-wording: '[npm release]'
           tag-prefix:  'v'
-
-      - name: 'Show current version'
-        run: grep  '"version"' package.json
-
-      # Setup .npmrc file to publish to npm
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@openbeta'
-
-      - name: NPM publish
-        run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
