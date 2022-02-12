@@ -2,13 +2,14 @@
 name: Auto tag based on commit msg
 on:   
   pull_request: # only run on PR otherwise bot can't commit to protected branch
-    branches:
-    - develop
+    types: [ closed ]
+    branches: ['develop']
 
 jobs:
   build:
     name: 'Bump version and commit package.json'
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
