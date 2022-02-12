@@ -9,7 +9,9 @@ jobs:
   build:
     name: 'Bump version and commit package.json'
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: |
+      github.event.pull_request.merged == true &&
+      !contains(github.event.head_commit.message, 'skip ci')
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v2'
