@@ -1,12 +1,12 @@
 
 import GradeScale, { GradeScales, Tuple } from './GradeScale'
-import { VScale, YosemiteDecimal, Font } from './scales'
+import { VScale, YosemiteDecimal, Font, French } from './scales'
 
 const scales: Record<GradeScales, GradeScale | null> = {
   [GradeScales.VScale]: VScale,
   [GradeScales.Yds]: YosemiteDecimal,
   [GradeScales.Font]: Font,
-  [GradeScales.French]: null
+  [GradeScales.French]: French
 }
 
 /**
@@ -47,6 +47,8 @@ export const convert = (grade: string, fromType: GradeScales, toType: GradeScale
       return VScale.getGrade(score)
     case GradeScales.Font:
       return Font.getGrade(score)
+    case GradeScales.French:
+      return French.getGrade(score)
     default:
       return 'unknown'
   }

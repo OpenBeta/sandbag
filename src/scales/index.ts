@@ -1,7 +1,8 @@
 import VScale from './v'
 import YosemiteDecimal from './yds'
 import Font from './font'
-export { VScale, Font, YosemiteDecimal }
+import French from './french'
+export { VScale, Font, YosemiteDecimal, French }
 
 export interface Boulder {
   score: number
