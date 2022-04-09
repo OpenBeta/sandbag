@@ -1,4 +1,4 @@
-import { French } from '../../scales'
+import { French, Font } from '../../scales'
 
 describe('French', () => {
   describe('Get Score', () => {
