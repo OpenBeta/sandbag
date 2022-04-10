@@ -1,4 +1,4 @@
-import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
+import GradeScale, { /* findScoreRange, getAvgScore, */ GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
 
