@@ -35,7 +35,7 @@ const harder = YosemiteDecimal.getScoreForSort('5.10')
 console.log('Is 5.6 easier than 5.10?', easier < harder)  // Output: true
 ```
 
-See [unit tests](./tree/develop/src/__tests__) for more examples.
+See [unit tests](./src/__tests__) for more examples.
 
 ### Development (TBD)
 
