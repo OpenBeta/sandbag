@@ -24,7 +24,7 @@ describe('V', () => {
   })
 
   test('v20+ > V20', () => {
-    expect(getScoreForGrade('V20+')).toBeGreaterThan(getScoreForGrade('V20'))
+    expect(getScoreForGrade('v20+')).toBeGreaterThan(getScoreForGrade('V20'))
   })
   
   test('V5 > V5-', () => {
