@@ -23,7 +23,25 @@ describe('V', () => {
     expect(getScoreForGrade('v2-3')).toBeGreaterThan(getScoreForGrade('V2'))
   })
 
-  test('v20 > V20+', () => {
+  test('v20 < V20+', () => {
     expect(getScoreForGrade('V20+')).toBeGreaterThan(getScoreForGrade('V20'))
+  })
+  
+  test('V5 > V5-', () => {
+    expect(getScoreForGrade('V5')).toBeGreaterThan(getScoreForGrade('V5-'))
+  })
+})
+
+describe('french', () => {
+  test('6b > 5b', () => {
+    expect(getScoreForGrade('6b')).toBeGreaterThan(getScoreForGrade('5b'))
+  })
+
+  test('5b > 5a', () => {
+    expect(getScoreForGrade('5b')).toBeGreaterThan(getScoreForGrade('5a'))
+  })
+
+  test('5b+ > 5b', () => {
+    expect(getScoreForGrade('5b+')).toBeGreaterThan(getScoreForGrade('5.b'))
   })
 })
