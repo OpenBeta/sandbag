@@ -7,7 +7,7 @@ const vGradeIrregular = /^V-([a-zA-Z]*)/i
  * 10x number + 2 for each letter + 1 for a slash grade or +
  *
  * 5.11a = 112 // 110 for 11, 2 for "a"
- * 5.11b/c = 113 // 110 for 11, 4 for "b", 1 for "/b"
+ * 5.11b/c = 113 // 110 for 11, 4 for "b", 1 for "/c"
  * 5.9+ = 91 // 90 for 9, 0 for the letter & 1 for "+"
  *
  * Bouldering starts at 1000
