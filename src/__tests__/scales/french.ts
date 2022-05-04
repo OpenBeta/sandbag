@@ -1,4 +1,6 @@
 import { French, Font } from '../../scales'
+import { getScoreForSort } from '../../GradeParser'
+import { GradeScales } from '../../index'
 
 describe('French', () => {
   describe('Get Score', () => {
@@ -16,6 +18,23 @@ describe('French', () => {
 
     test('top of range', () => {
       expect(Font.getGrade(1000)).toBe('9c+')
+    })
+  })
+
+  describe('Verify getScoreForSort()', () => {
+    test('6b > 5b', () => {
+      expect(getScoreForSort('6b', GradeScales.French))
+        .toBeGreaterThan(getScoreForSort('5b', GradeScales.French))
+    })
+
+    test('5b > 5a', () => {
+      expect(getScoreForSort('5b', GradeScales.French))
+        .toBeGreaterThan(getScoreForSort('5a', GradeScales.French))
+    })
+
+    test('5b+ > 5b', () => {
+      expect(getScoreForSort('5b+', GradeScales.French))
+        .toBeGreaterThan(getScoreForSort('5.b', GradeScales.French))
     })
   })
 })
