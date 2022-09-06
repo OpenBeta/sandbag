@@ -4,49 +4,51 @@ import { Route } from '.'
 
 export type YdsType = 'yds'
 
-const ydsRegex = /(^5\.([0-9]{1,2})([a-zA-Z])?)([/+])?([/-])?([a-zA-Z]?)/i
-
+const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
+const REGEX_5_10_LETTER = /(^5\.(1[0-6]))([abcd])(\/[abcd])?$/i
 // const unicodeAlphabetStart = 96
+
+const isYds = (grade: string): RegExpMatchArray | null => grade.match(REGEX_5_X) ?? grade.match(REGEX_5_10_LETTER)
 
 const YosemiteDecimal: GradeScale = {
   displayName: 'Yosemite Decimal System',
   name: GradeScales.Yds,
   offset: 1000,
   isType: (grade: string): boolean => {
-    const isYds = grade.match(ydsRegex)
-    if (isYds === null) {
+    if (isYds(grade) === null) {
       return false
     }
     return true
   },
 
   getScore: (grade: string): number | Tuple => {
-    const parse = grade.match(ydsRegex)
-    if (parse == null) {
-      // not a valid V scale
+    const parse = isYds(grade)
+    if (parse === null) {
+      console.warn(`Unexpected grade format: ${grade}`)
       return 0
     }
-    const [wholeMatch, basicGrade, number, letter, plusOrSlash, hasMinus] = parse
+    const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse
     let normalizedGrade = basicGrade
-    const isLargeNonLetter = parseInt(number, 10) > 9 && letter === undefined
+    const plusSlash = ['+', '/'].includes(plusOrMinusOrSlash)
+    const minus = plusOrMinusOrSlash === '-'
+    let normalizedLetter = letter
+    const isLargeNonLetter = parseInt(number, 10) > 9 && normalizedLetter === ''
     if (isLargeNonLetter) {
-      // 11-, 13+
-      const letter = hasMinus === '-' ? 'a' : plusOrSlash === '+' ? 'c' : 'b'
-      normalizedGrade = basicGrade + letter
+      // 11-, 13+, 12
+      normalizedLetter = minus ? 'a' : plusSlash ? 'c' : 'b'
     }
+    normalizedGrade = basicGrade + normalizedLetter
     const basicScore = findScoreRange((r: Route) => {
       return r.yds === normalizedGrade
     }, routes)
 
     if (wholeMatch !== normalizedGrade) {
       let otherGrade
-      const plusSlash = plusOrSlash === undefined
-      const minus = hasMinus !== undefined
-      // V5+, V2-3
+      // 5.11+, 5.10a/b
       if (plusSlash || isLargeNonLetter) {
         otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
       } else if (minus) {
-        // V5-, V2-
+        // 5.11-
         otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
       }
 
