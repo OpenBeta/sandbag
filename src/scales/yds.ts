@@ -5,7 +5,10 @@ import { Route } from '.'
 export type YdsType = 'yds'
 
 const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
+// Support 5.0 to 5.16 with + and -
 const REGEX_5_10_LETTER = /(^5\.(1[0-6]))([abcd])(\/[abcd])?$/i
+// Support 5.10x to 5.16x where x can be a,b,c,d. Allows for slash grade
+
 // const unicodeAlphabetStart = 96
 
 const isYds = (grade: string): RegExpMatchArray | null => grade.match(REGEX_5_X) ?? grade.match(REGEX_5_10_LETTER)
