@@ -7865,6 +7865,11 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
+win-node-env@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/win-node-env/-/win-node-env-0.6.1.tgz#6684e136ec064aa4d47093899b13d4027ed2778b"
+  integrity sha512-oR+MLQ6jdvwqkLEkKBYxRvBOYbTlQV9dJKn8vLzjA4HCzcqdlCE6H1oOvA7lAdCgNXiOX0xfjl/Y47ZcZN6FDA==
+
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
