@@ -20,6 +20,11 @@ describe('YosemiteDecimal', () => {
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
 
+    test('5.12a > 5.11d', () => {
+      const lowGrade = YosemiteDecimal.getScore('5.11d')
+      const highGrade = YosemiteDecimal.getScore('5.12a')
+      expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+    })
     describe('invalid grade format', () => {
       jest.spyOn(console, 'warn').mockImplementation()
       beforeEach(() => {
