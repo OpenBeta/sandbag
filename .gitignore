@@ -108,3 +108,7 @@ build
 
 # Mac files
 .DS_Store
+
+# prettier
+prettier*
+.prettier*

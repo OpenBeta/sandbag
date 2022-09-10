@@ -20,6 +20,11 @@ describe('YosemiteDecimal', () => {
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
 
+    test('5.12a > 5.11d', () => {
+      const lowGrade = YosemiteDecimal.getScore('5.11d')
+      const highGrade = YosemiteDecimal.getScore('5.12a')
+      expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+    })
     describe('invalid grade format', () => {
       jest.spyOn(console, 'warn').mockImplementation()
       beforeEach(() => {
@@ -90,6 +95,19 @@ describe('YosemiteDecimal', () => {
 
     test('top of range', () => {
       expect(YosemiteDecimal.getGrade(1000)).toBe('5.16a')
+    })
+
+    test('single score provided', () => {
+      expect(YosemiteDecimal.getGrade(68)).toBe('5.11a')
+      expect(YosemiteDecimal.getGrade(84)).toBe('5.13b')
+      expect(YosemiteDecimal.getGrade(65)).toBe('5.10c')
+    })
+
+    test('range of scores provided', () => {
+      expect(YosemiteDecimal.getGrade([51, 56])).toBe('5.8/5.9')
+      expect(YosemiteDecimal.getGrade([63, 65])).toBe('5.10b/c')
+      expect(YosemiteDecimal.getGrade([56, 59])).toBe('5.9/5.10a')
+      expect(YosemiteDecimal.getGrade([74, 75])).toBe('5.11d/5.12a')
     })
   })
 })

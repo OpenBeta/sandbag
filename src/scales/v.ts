@@ -10,10 +10,11 @@ const VScale: GradeScale = {
   displayName: 'V Scale',
   name: GradeScales.VScale,
   offset: 1000,
+  allowableConversionType: [GradeScales.Font],
   isType: (grade: string): boolean => {
-    const isVGrade = (grade.match(vGradeRegex) !== null) || grade.match(vGradeIrregular)
+    const isVGrade = grade.match(vGradeRegex) !== null || grade.match(vGradeIrregular)
     // If there isn't a match sort it to the bottom
-    if ((isVGrade === null)) {
+    if (isVGrade === null) {
       return false
     }
     return true
@@ -52,17 +53,18 @@ const VScale: GradeScale = {
   },
   getGrade: (score: number | Tuple): string => {
     function validateScore (score: number): number {
-      return Math.min(Math.max(0, score), boulder.length - 1)
+      const validScore = Number.isInteger(score) ? score : Math.ceil(score)
+      return Math.min(Math.max(0, validScore), boulder.length - 1)
     }
 
     if (typeof score === 'number') {
-      const validScore = validateScore(score)
-      return boulder[validScore].v
+      return boulder[validateScore(score)].v
     }
 
     const low: string = boulder[validateScore(score[0])].v
     const high: string = boulder[validateScore(score[1])].v
-    return `${low}/${high}`
+    if (low === high) return low
+    return `${low}-${high}`
   }
 }
 
@@ -87,8 +89,9 @@ export const getScoreCommon = (match: RegExpMatchArray): number => {
   let score = 0
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   const [_, num, hasPlus, hasMinus, secondNumber] = match
-  const minus = (hasMinus !== undefined && secondNumber === undefined) ? -1 : 0 // check minus is not a V1-2
-  const plus = (hasMinus !== undefined && secondNumber !== undefined) || (hasPlus !== undefined) ? 1 : 0 // grade V1+ the same as V1-2
+  const minus = hasMinus !== undefined && secondNumber === undefined ? -1 : 0 // check minus is not a V1-2
+  const plus =
+    (hasMinus !== undefined && secondNumber !== undefined) || hasPlus !== undefined ? 1 : 0 // grade V1+ the same as V1-2
   score = (parseInt(num, 10) + 1) * 10 + minus + plus // V0 = 10, leave room for V-easy to be below 0
 
   return score

@@ -8,15 +8,19 @@ const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
 // Support 5.0 to 5.16 with + and -
 const REGEX_5_10_LETTER = /(^5\.(1[0-6]))([abcd])(\/[abcd])?$/i
 // Support 5.10x to 5.16x where x can be a,b,c,d. Allows for slash grade
+const REGEX_5_X_LETTER = /(^5\.(?:[0-9]|1[0-6]))([abcd])?$/i
+// Support 5.0(x) to 5.16(x) where x can be a,b,c,d.
 
 // const unicodeAlphabetStart = 96
 
-const isYds = (grade: string): RegExpMatchArray | null => grade.match(REGEX_5_X) ?? grade.match(REGEX_5_10_LETTER)
+const isYds = (grade: string): RegExpMatchArray | null =>
+  grade.match(REGEX_5_X) ?? grade.match(REGEX_5_10_LETTER)
 
 const YosemiteDecimal: GradeScale = {
   displayName: 'Yosemite Decimal System',
   name: GradeScales.Yds,
   offset: 1000,
+  allowableConversionType: [GradeScales.French],
   isType: (grade: string): boolean => {
     if (isYds(grade) === null) {
       return false
@@ -56,12 +60,9 @@ const YosemiteDecimal: GradeScale = {
       }
 
       if (otherGrade !== undefined) {
-        const nextGrade = findScoreRange(
-          (r: Route) => {
-            return r.yds.toLowerCase() === routes[Math.max(otherGrade, 0)].yds.toLowerCase()
-          },
-          routes
-        )
+        const nextGrade = findScoreRange((r: Route) => {
+          return r.yds.toLowerCase() === routes[Math.max(otherGrade, 0)].yds.toLowerCase()
+        }, routes)
         return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
       }
     }
@@ -77,8 +78,17 @@ const YosemiteDecimal: GradeScale = {
     }
     const low: string = routes[validateScore(score[0])].yds
     const high: string = routes[validateScore(score[1])].yds
+    if (low === high) return low
 
-    return `${low}/${high}`
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const [_, lowBasicGrade, lowLetter] = low.match(REGEX_5_X_LETTER) ?? []
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const [__, highBasicGrade, highLetter] = high.match(REGEX_5_X_LETTER) ?? []
+
+    if (lowBasicGrade !== highBasicGrade) {
+      return `${low}/${high}`
+    }
+    return `${lowBasicGrade}${lowLetter}/${highLetter}`
   }
 }
 

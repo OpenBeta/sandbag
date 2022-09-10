@@ -7,6 +7,7 @@ export default interface GradeScale {
   displayName: string
   name: string
   offset: number
+  allowableConversionType: GradeScales[]
 }
 export enum GradeScales {
   VScale ='vscale',
