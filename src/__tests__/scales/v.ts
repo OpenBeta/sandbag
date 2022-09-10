@@ -61,5 +61,17 @@ describe('V', () => {
     test('top of range', () => {
       expect(VScale.getGrade(1000)).toBe('V22')
     })
+
+    test('single score provided', () => {
+      expect(VScale.getGrade(62)).toBe('V3')
+      expect(VScale.getGrade(61)).toBe('V3')
+      expect(VScale.getGrade(63)).toBe('V4')
+    })
+
+    test('range of scores provided', () => {
+      expect(VScale.getGrade([51, 56])).toBe('V1-V2')
+      expect(VScale.getGrade([77, 80])).toBe('V8-V9')
+      expect(VScale.getGrade([66, 72])).toBe('V4-V6')
+    })
   })
 })

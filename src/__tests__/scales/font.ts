@@ -14,16 +14,18 @@ describe('Font', () => {
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
 
-    test('1a/1a+ > 1a', () => {
+    test('1a/1a+ > 1a, one grade away', () => {
       const highGrade = Font.getScore('1a/1a+')
       const lowGrade = Font.getScore('1a')
-      expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+      expect(highGrade[0] < lowGrade[1] && highGrade[0] > lowGrade[0])
+      expect(highGrade[1]).toBeGreaterThan(lowGrade[1])
     })
 
-    test('4a > 3a+/4a', () => {
-      const lowGrade = Font.getScore('3a+/4a')
+    test('4a > 3c+/4a, one grade away', () => {
       const highGrade = Font.getScore('4a')
-      expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+      const lowGrade = Font.getScore('3c+/4a')
+      expect(highGrade[0] < lowGrade[1] && highGrade[0] > lowGrade[0])
+      expect(highGrade[1]).toBeGreaterThan(lowGrade[1])
     })
 
     describe('invalid grade format', () => {
@@ -78,10 +80,15 @@ describe('Font', () => {
       expect(Font.getGrade(1000)).toBe('9c+')
     })
 
-    test('slash grade', () => {
-      expect(Font.getGrade(1.5)).toBe('1a/1a+')
-      expect(Font.getGrade(3.5)).toBe('1a+/1b')
-      expect(Font.getGrade(11.5)).toBe('1c+/2a')
+    test('single score provided', () => {
+      expect(Font.getGrade(34)).toBe('3c+')
+      expect(Font.getGrade(34.5)).toBe('3c+')
+      expect(Font.getGrade(35)).toBe('3c+')
+    })
+    test('range of scores provided', () => {
+      expect(Font.getGrade([0.5, 2])).toBe('1a/1a+')
+      expect(Font.getGrade([8, 12])).toBe('1c/2a')
+      expect(Font.getGrade([16, 17])).toBe('2b')
     })
   })
 })
