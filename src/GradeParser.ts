@@ -62,8 +62,8 @@ export const convertGrade = (
   if (fromScale === null || toScale === null) {
     return ''
   }
-  const checkGradeToConvert: boolean = fromScale.allowableConversionType.includes(toType)
-  if (!checkGradeToConvert) {
+  const checkScaleToConvert: boolean = fromScale.allowableConversionType.includes(toType)
+  if (!checkScaleToConvert) {
     console.warn(
       `Scale: ${fromScale.displayName} doesn't support converting to Scale: ${toScale.displayName}`
     )
