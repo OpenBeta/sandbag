@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "lint": "ts-standard",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "clean": "rm -rf build/*",
     "build": "tsdx build  --tsconfig tsconfig.build.json"
   },
@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^27.4.0",
+    "cross-env": "^7.0.3",
     "csv-parser": "^3.0.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
@@ -33,8 +34,5 @@
   "keywords": [
     "rock climbing",
     "climbing grades"
-  ],
-  "optionalDependencies": {
-    "win-node-env": "^0.6.1"
-  }
+  ]
 }
