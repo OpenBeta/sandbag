@@ -1,17 +1,16 @@
+name: npm publish
+on:
+  workflow_call:
 
-name: npm publish based on commit msg
-on: 
-  push:
-    branches:
-    - 'develop'
 jobs:
   build:
     name: 'npm publish'
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, '[npm release]')"
     steps:
       - name: 'Checkout source code'
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v3'
+        with:
+          ref: develop
 
       - name: 'Show current version'
         run: grep  '"version"' package.json
