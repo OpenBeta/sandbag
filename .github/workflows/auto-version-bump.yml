@@ -18,7 +18,7 @@ jobs:
         id: version-bump
         uses:  'phips28/gh-action-bump-version@master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.VIET_PERSONAL_TOKEN }}
         with:
           patch-wording: '[npm release]'
           tag-prefix:  'v'
