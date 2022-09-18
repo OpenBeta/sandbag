@@ -1,4 +1,3 @@
-
 name: Auto tag based on commit msg
 on:   
   pull_request: # only run on PR otherwise bot can't commit to protected branch
