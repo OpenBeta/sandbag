@@ -1,8 +1,6 @@
-
 name: Auto tag based on commit msg
 on:   
-  pull_request: # only run on PR otherwise bot can't commit to protected branch
-    types: [ closed ]
+  push:
     branches: ['develop']
 
 jobs:
@@ -10,8 +8,6 @@ jobs:
     name: 'Bump version and commit package.json'
     runs-on: ubuntu-latest
     environment: production
-    if: |
-      github.event.pull_request.merged == true
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v3'
@@ -30,5 +26,5 @@ jobs:
           target-branch: 'develop'
   call-npm-publish-workflow:
     needs: build
-    if: "startsWith(github.event.pull_request.title, '[npm publish]')"
+    if: "startsWith(github.event.head_commit.message, '[npm release]')"
     uses: ./.github/workflows/npm-publish.yml
