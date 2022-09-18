@@ -6,7 +6,7 @@ jobs:
   build:
     name: 'npm publish'
     runs-on: ubuntu-latest
-    environment: production
+    environment: Production
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v3'
@@ -28,4 +28,4 @@ jobs:
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
