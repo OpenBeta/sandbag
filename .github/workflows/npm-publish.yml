@@ -6,7 +6,7 @@ jobs:
   build:
     name: 'npm publish'
     runs-on: ubuntu-latest
-    environment: Production
+    environment: production
     steps:
       - name: 'Checkout source code'
         uses: 'actions/checkout@v3'
