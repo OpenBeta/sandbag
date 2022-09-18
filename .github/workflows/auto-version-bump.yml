@@ -8,22 +8,26 @@ jobs:
   build:
     name: 'Bump version and commit package.json'
     runs-on: ubuntu-latest
+    environment: production
     if: |
       github.event.pull_request.merged == true
     steps:
       - name: 'Checkout source code'
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v3'
+        with:
+          token: ${{ secrets.BOT_USER_TOKEN }}
+          ref: 'develop'
 
       - name:  'Automated Version Bump'
         id: version-bump
         uses:  'phips28/gh-action-bump-version@master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BOT_USER_TOKEN }}
         with:
           patch-wording: '[npm release]'
           tag-prefix:  'v'
           target-branch: 'develop'
   call-npm-publish-workflow:
     needs: build
-    if: "startsWith(github.event.pull_request.title, '[npm release]')"
+    if: "startsWith(github.event.pull_request.title, '[npm publish]')"
     uses: ./.github/workflows/npm-publish.yml
