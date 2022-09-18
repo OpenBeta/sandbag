@@ -26,5 +26,5 @@ jobs:
           target-branch: 'develop'
   call-npm-publish-workflow:
     needs: build
-    if: "startsWith(github.event.head_commit.message, '[npm release]')"
+    if: "startsWith(github.event.head_commit.message, '[npm publish]')"
     uses: ./.github/workflows/npm-publish.yml
