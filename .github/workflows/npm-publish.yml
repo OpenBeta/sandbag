@@ -31,6 +31,6 @@ jobs:
       - run: npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_TOKEN }} 
 
       - name: NPM publish
-        run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
+        run: yarn install --no-progress && yarn lint && yarn test && yarn build && npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
