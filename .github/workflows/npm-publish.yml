@@ -22,8 +22,12 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+          always-auth: true
           # Defaults to the user or organization that owns the workflow file
           scope: '@openbeta'
+
+      - name NPM hack (see https://github.com/actions/setup-node/issues/81)
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
