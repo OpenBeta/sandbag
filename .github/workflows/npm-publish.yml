@@ -21,9 +21,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
           always-auth: true
           scope: '@openbeta'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: npm config set @openbeta https://registry.npmjs.org
+
+      - run: npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_TOKEN }} 
 
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
