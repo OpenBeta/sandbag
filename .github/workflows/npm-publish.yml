@@ -25,6 +25,9 @@ jobs:
           node-version: '16.x'
           always-auth: true
           scope: '@openbeta'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
 
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && yarn publish --access public
