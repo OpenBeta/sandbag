@@ -28,7 +28,11 @@ jobs:
 
       - run: npm config set @openbeta https://registry.npmjs.org
 
-      - run: npm set "//registry.npmjs.org/:_authToken" ${{ secrets.NPM_TOKEN }} 
+      - run: echo ${{ secrets.NPM_TOKEN }} 
+
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+
+      - run cat ~/.npmrc
 
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && npm publish --access public
