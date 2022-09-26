@@ -34,5 +34,8 @@
   "keywords": [
     "rock climbing",
     "climbing grades"
-  ]
+  ],
+  "publishConfig": {
+    "@openbeta:registry": "https://registry.npmjs.org"
+  }
 }
