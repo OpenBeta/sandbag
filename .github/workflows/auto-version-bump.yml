@@ -31,3 +31,5 @@ jobs:
     needs: build
     if: "startsWith(github.event.pull_request.title, '[npm publish]')"
     uses: ./.github/workflows/npm-publish.yml
+    secrets: inherit
+
