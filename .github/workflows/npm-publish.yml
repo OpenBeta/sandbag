@@ -32,7 +32,7 @@ jobs:
 
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
 
-      - run cat ~/.npmrc
+      - run: cat ~/.npmrc
 
       - name: NPM publish
         run: yarn install --no-progress && yarn lint && yarn test && yarn build && npm publish --access public
