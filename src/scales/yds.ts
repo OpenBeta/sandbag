@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
-import { routeScoreToBand } from '../GradeParser'
+import { routeScoreToBand } from '../GradeBands'
 
 const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
 // Support 5.0 to 5.16 with + and -
@@ -28,44 +28,7 @@ const YosemiteDecimal: GradeScale = {
   },
 
   getScore: (grade: string): number | Tuple => {
-    const parse = isYds(grade)
-    if (parse === null) {
-      console.warn(`Unexpected grade format: ${grade}`)
-      return -1
-    }
-    const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse
-    let normalizedGrade = basicGrade
-    const plusSlash = ['+', '/'].includes(plusOrMinusOrSlash)
-    const minus = plusOrMinusOrSlash === '-'
-    let normalizedLetter = letter
-    const isLargeNonLetter = parseInt(number, 10) > 9 && normalizedLetter === ''
-    if (isLargeNonLetter) {
-      // 11-, 13+, 12
-      normalizedLetter = minus ? 'a' : plusSlash ? 'c' : 'b'
-    }
-    normalizedGrade = basicGrade + normalizedLetter
-    const basicScore = findScoreRange((r: Route) => {
-      return r.yds === normalizedGrade
-    }, routes)
-
-    if (wholeMatch !== normalizedGrade) {
-      let otherGrade
-      // 5.11+, 5.10a/b
-      if (plusSlash || isLargeNonLetter) {
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
-      } else if (minus) {
-        // 5.11-
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
-      }
-
-      if (otherGrade !== undefined) {
-        const nextGrade = findScoreRange((r: Route) => {
-          return r.yds.toLowerCase() === routes[Math.max(otherGrade, 0)].yds.toLowerCase()
-        }, routes)
-        return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
-      }
-    }
-    return basicScore
+    return getScore(grade)
   },
   getGrade: (score: number | Tuple): string => {
     function validateScore (score: number): number {
@@ -89,7 +52,51 @@ const YosemiteDecimal: GradeScale = {
     }
     return `${lowBasicGrade}${lowLetter}/${highLetter}`
   },
-  getGradeBand: (score: number): string => routeScoreToBand(score)
+  getGradeBand: (grade: string): string => {
+    const score = getScore(grade)
+    return routeScoreToBand(getAvgScore(score))
+  }
+}
+
+const getScore = (grade: string): number | Tuple => {
+  const parse = isYds(grade)
+  if (parse === null) {
+    console.warn(`Unexpected grade format: ${grade}`)
+    return -1
+  }
+  const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse
+  let normalizedGrade = basicGrade
+  const plusSlash = ['+', '/'].includes(plusOrMinusOrSlash)
+  const minus = plusOrMinusOrSlash === '-'
+  let normalizedLetter = letter
+  const isLargeNonLetter = parseInt(number, 10) > 9 && normalizedLetter === ''
+  if (isLargeNonLetter) {
+    // 11-, 13+, 12
+    normalizedLetter = minus ? 'a' : plusSlash ? 'c' : 'b'
+  }
+  normalizedGrade = basicGrade + normalizedLetter
+  const basicScore = findScoreRange((r: Route) => {
+    return r.yds === normalizedGrade
+  }, routes)
+
+  if (wholeMatch !== normalizedGrade) {
+    let otherGrade
+    // 5.11+, 5.10a/b
+    if (plusSlash || isLargeNonLetter) {
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
+    } else if (minus) {
+      // 5.11-
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
+    }
+
+    if (otherGrade !== undefined) {
+      const nextGrade = findScoreRange((r: Route) => {
+        return r.yds.toLowerCase() === routes[Math.max(otherGrade, 0)].yds.toLowerCase()
+      }, routes)
+      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+    }
+  }
+  return basicScore
 }
 
 export default YosemiteDecimal

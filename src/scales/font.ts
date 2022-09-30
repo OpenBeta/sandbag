@@ -2,7 +2,7 @@ import boulder from '../data/boulder.json'
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 
 import { Boulder } from '.'
-import { boulderScoreToBand } from '../GradeParser'
+import { boulderScoreToBand } from '../GradeBands'
 
 const fontGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -22,31 +22,7 @@ const FontScale: GradeScale = {
     return true
   },
   getScore: (grade: string): number | Tuple => {
-    const parse = isFont(grade)
-    if (parse == null) {
-      console.warn(`Unexpected grade format: ${grade}`)
-      return -1
-    }
-    const [wholeMatch, basicGrade, slash] = parse
-    const basicScore = findScoreRange((b: Boulder) => {
-      return b.font === basicGrade
-    }, boulder)
-
-    if (wholeMatch !== basicGrade) {
-      // 5a/5a+
-      let otherGrade
-      if (slash !== null) {
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
-      }
-      if (otherGrade !== undefined) {
-        const nextGrade = findScoreRange(
-          (r: Boulder) => r.font.toLowerCase() === boulder[otherGrade].font.toLowerCase(),
-          boulder
-        )
-        return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
-      }
-    }
-    return basicScore
+    return getScore(grade)
   },
   getGrade: (score: number | Tuple): string => {
     const validateScore = (score: number): number => {
@@ -63,7 +39,38 @@ const FontScale: GradeScale = {
     if (low === high) return low
     return `${low}/${high}`
   },
-  getGradeBand: (score: number): string => boulderScoreToBand(score)
+  getGradeBand: (grade: string): string => {
+    const score = getScore(grade)
+    return boulderScoreToBand(getAvgScore(score))
+  }
+}
+
+const getScore = (grade: string): number | Tuple => {
+  const parse = isFont(grade)
+  if (parse == null) {
+    console.warn(`Unexpected grade format: ${grade}`)
+    return -1
+  }
+  const [wholeMatch, basicGrade, slash] = parse
+  const basicScore = findScoreRange((b: Boulder) => {
+    return b.font === basicGrade
+  }, boulder)
+
+  if (wholeMatch !== basicGrade) {
+    // 5a/5a+
+    let otherGrade
+    if (slash !== null) {
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
+    }
+    if (otherGrade !== undefined) {
+      const nextGrade = findScoreRange(
+        (r: Boulder) => r.font.toLowerCase() === boulder[otherGrade].font.toLowerCase(),
+        boulder
+      )
+      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+    }
+  }
+  return basicScore
 }
 
 export default FontScale

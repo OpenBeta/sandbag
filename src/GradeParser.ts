@@ -1,12 +1,5 @@
 import GradeScale, { GradeScales, GradeScalesTypes, Tuple } from './GradeScale'
-import { VScale, YosemiteDecimal, Font, French } from './scales'
-
-const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeScale | null> = {
-  [GradeScales.VSCALE]: VScale,
-  [GradeScales.YDS]: YosemiteDecimal,
-  [GradeScales.FONT]: Font,
-  [GradeScales.FRENCH]: French
-}
+import { scales } from './scales'
 
 /**
  *
@@ -69,7 +62,7 @@ export const convertGrade = (
     )
     return ''
   }
-  const toScore = getScore(fromGrade, fromGradeScaleType)
+  const toScore = fromScale.getScore(fromGrade)
   return toScale.getGrade(toScore)
 }
 
@@ -79,77 +72,4 @@ export const isVScale = (grade: string): boolean => {
     return false
   }
   return scale.isType(grade)
-}
-
-export const GradeBands = {
-  UNKNOWN: 'unknown',
-  BEGINNER: 'beginner',
-  INTERMEDIATE: 'intermediate',
-  ADVANCED: 'advanced',
-  EXPERT: 'expert'
-} as const
-
-type GradeBandTypes = typeof GradeBands[keyof typeof GradeBands]
-
-/**
- * Convert grade to band
- * @param grade grade based on grade scale type
- * @param gradeScaleType grade scale type
- * @returns GradeBand
- */
-
-export const getGradeBand = (grade: string, gradeScaleType: GradeScalesTypes): string => {
-  const score = getScoreForSort(grade, gradeScaleType)
-  const scale = getScale(gradeScaleType)
-  if (scale === null) {
-    return GradeBands.UNKNOWN
-  }
-  return scale.getGradeBand(score)
-}
-
-/**
- *
- * @param score universal grade score
- * @param distribution GradeBandTypes to corresponding scores
- * @returns GradeBandType for passed in score
- */
-const scoreToBand = (score: number, distribution: Record<Exclude<GradeBandTypes, 'unknown'>, number>): string => {
-  const gradeBands = Object.keys(distribution).sort((a, b) => distribution[b] - distribution[a])
-  const gradeBand = gradeBands.find(gradeBand => distribution[gradeBand] <= score)
-  if (gradeBand === undefined) {
-    return GradeBands.UNKNOWN
-  }
-  return gradeBand
-}
-
-/**
- *
- * @param score universal grade score
- * @returns GradeBandType for passed in score based on routes
- */
-export const routeScoreToBand = (score: number): string => {
-  const distribution = {
-    [GradeBands.UNKNOWN]: -1,
-    [GradeBands.BEGINNER]: 0,
-    [GradeBands.INTERMEDIATE]: 54,
-    [GradeBands.ADVANCED]: 67.5,
-    [GradeBands.EXPERT]: 82.5
-  }
-  return scoreToBand(score, distribution)
-}
-
-/**
- *
- * @param score universal grade score
- * @returns GradeBandType for passed in score based on bouldering
- */
-export const boulderScoreToBand = (score: number): string => {
-  const distribution = {
-    [GradeBands.UNKNOWN]: -1,
-    [GradeBands.BEGINNER]: 0,
-    [GradeBands.INTERMEDIATE]: 50,
-    [GradeBands.ADVANCED]: 60,
-    [GradeBands.EXPERT]: 72
-  }
-  return scoreToBand(score, distribution)
 }

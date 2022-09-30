@@ -1,4 +1,4 @@
-import { GradeBands } from '../../GradeParser'
+import { GradeBands } from '../../GradeBands'
 import { YosemiteDecimal } from '../../scales'
 
 describe('YosemiteDecimal', () => {
@@ -114,8 +114,8 @@ describe('YosemiteDecimal', () => {
 
   describe('Get Grade Band', () => {
     test('gets Gradeband', () => {
-      expect(YosemiteDecimal.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
-      expect(YosemiteDecimal.getGradeBand(82.5)).toEqual(GradeBands.EXPERT)
+      expect(YosemiteDecimal.getGradeBand('5.8')).toEqual(GradeBands.BEGINNER)
+      expect(YosemiteDecimal.getGradeBand('5.15a')).toEqual(GradeBands.EXPERT)
     })
   })
 })

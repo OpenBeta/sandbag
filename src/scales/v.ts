@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import boulder from '../data/boulder.json'
 import { Boulder } from '.'
-import { boulderScoreToBand } from '../GradeParser'
+import { boulderScoreToBand } from '../GradeBands'
 
 const vGradeRegex = /^(V[0-9]{1,2})([/+])?([/-])?([0-9]{1,2})?$/i
 const vGradeIrregular = /^V-([a-zA-Z]*)$/i
@@ -20,37 +20,7 @@ const VScale: GradeScale = {
     return true
   },
   getScore: (grade: string): number | Tuple => {
-    const parse = grade.match(vGradeRegex)
-    if (parse == null) {
-      // not a valid V scale
-      console.warn(`Unexpected grade format: ${grade}`)
-      return -1
-    }
-    const [wholeMatch, basicGrade, plus, dash, secondGrade] = parse
-
-    const basicScore = findScoreRange(
-      (r: Boulder) => r.v.toLowerCase() === basicGrade.toLowerCase(),
-      boulder
-    )
-    // ugly but working will fix later (says ever dev ever)
-    if (wholeMatch !== basicGrade) {
-      let otherGrade
-      // V5+, V2-3
-      if (plus !== undefined || secondGrade !== undefined) {
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
-      } else if (dash !== undefined) {
-        // V5-, V2-
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
-      }
-      if (otherGrade !== undefined) {
-        const nextGrade = findScoreRange(
-          (r: Boulder) => r.v.toLowerCase() === boulder[otherGrade].v.toLowerCase(),
-          boulder
-        )
-        return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
-      }
-    }
-    return basicScore
+    return getScore(grade)
   },
   getGrade: (score: number | Tuple): string => {
     function validateScore (score: number): number {
@@ -67,7 +37,10 @@ const VScale: GradeScale = {
     if (low === high) return low
     return `${low}-${high}`
   },
-  getGradeBand: (score: number): string => boulderScoreToBand(score)
+  getGradeBand: (grade: string): string => {
+    const score = getScore(grade)
+    return boulderScoreToBand(getAvgScore(score))
+  }
 }
 
 export default VScale
@@ -97,4 +70,38 @@ export const getScoreCommon = (match: RegExpMatchArray): number => {
   score = (parseInt(num, 10) + 1) * 10 + minus + plus // V0 = 10, leave room for V-easy to be below 0
 
   return score
+}
+
+const getScore = (grade: string): number | Tuple => {
+  const parse = grade.match(vGradeRegex)
+  if (parse == null) {
+    // not a valid V scale
+    console.warn(`Unexpected grade format: ${grade}`)
+    return -1
+  }
+  const [wholeMatch, basicGrade, plus, dash, secondGrade] = parse
+
+  const basicScore = findScoreRange(
+    (r: Boulder) => r.v.toLowerCase() === basicGrade.toLowerCase(),
+    boulder
+  )
+  // ugly but working will fix later (says ever dev ever)
+  if (wholeMatch !== basicGrade) {
+    let otherGrade
+    // V5+, V2-3
+    if (plus !== undefined || secondGrade !== undefined) {
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
+    } else if (dash !== undefined) {
+      // V5-, V2-
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
+    }
+    if (otherGrade !== undefined) {
+      const nextGrade = findScoreRange(
+        (r: Boulder) => r.v.toLowerCase() === boulder[otherGrade].v.toLowerCase(),
+        boulder
+      )
+      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+    }
+  }
+  return basicScore
 }

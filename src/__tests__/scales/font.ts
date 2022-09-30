@@ -1,4 +1,4 @@
-import { GradeBands } from '../../GradeParser'
+import { GradeBands } from '../../GradeBands'
 import { Font } from '../../scales'
 
 describe('Font', () => {
@@ -95,8 +95,8 @@ describe('Font', () => {
 
   describe('Get Grade Band', () => {
     test('gets Gradeband', () => {
-      expect(Font.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
-      expect(Font.getGradeBand(72)).toEqual(GradeBands.EXPERT)
+      expect(Font.getGradeBand('1a')).toEqual(GradeBands.BEGINNER)
+      expect(Font.getGradeBand('9c+')).toEqual(GradeBands.EXPERT)
     })
   })
 })

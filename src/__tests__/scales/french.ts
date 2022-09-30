@@ -1,4 +1,4 @@
-import { GradeBands } from '../../GradeParser'
+import { GradeBands } from '../../GradeBands'
 import { French } from '../../scales'
 
 describe('French', () => {
@@ -95,8 +95,8 @@ describe('French', () => {
 
   describe('Get Grade Band', () => {
     test('gets Gradeband', () => {
-      expect(French.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
-      expect(French.getGradeBand(82.5)).toEqual(GradeBands.EXPERT)
+      expect(French.getGradeBand('1a')).toEqual(GradeBands.BEGINNER)
+      expect(French.getGradeBand('9c+')).toEqual(GradeBands.EXPERT)
     })
   })
 })

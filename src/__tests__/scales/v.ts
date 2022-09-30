@@ -1,4 +1,4 @@
-import { GradeBands } from '../../GradeParser'
+import { GradeBands } from '../../GradeBands'
 import { VScale } from '../../scales'
 
 describe('V', () => {
@@ -78,8 +78,8 @@ describe('V', () => {
 
   describe('Get Grade Band', () => {
     test('gets Gradeband', () => {
-      expect(VScale.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
-      expect(VScale.getGradeBand(72)).toEqual(GradeBands.EXPERT)
+      expect(VScale.getGradeBand('V0')).toEqual(GradeBands.BEGINNER)
+      expect(VScale.getGradeBand('V22')).toEqual(GradeBands.EXPERT)
     })
   })
 })

@@ -4,7 +4,7 @@ export default interface GradeScale {
   isType: (grade: string) => boolean
   getScore: (grade: string) => number | Tuple
   getGrade: (score: number | Tuple) => string
-  getGradeBand: (score: number) => string
+  getGradeBand: (grade: string) => string
   displayName: string
   name: GradeScalesTypes
   offset: number

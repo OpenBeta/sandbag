@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
-import { routeScoreToBand } from '../GradeParser'
+import { routeScoreToBand } from '../GradeBands'
 
 const frenchGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -21,31 +21,7 @@ const FrenchScale: GradeScale = {
     return true
   },
   getScore: (grade: string): number | Tuple => {
-    const parse = isFrench(grade)
-    if (parse == null) {
-      console.warn(`Unexpected grade format: ${grade}`)
-      return -1
-    }
-    const [wholeMatch, basicGrade, slash] = parse
-    const basicScore = findScoreRange((r: Route) => {
-      return r.french === basicGrade
-    }, routes)
-
-    if (wholeMatch !== basicGrade) {
-      // 5a/5a+
-      let otherGrade
-      if (slash !== null) {
-        otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
-      }
-      if (otherGrade !== undefined) {
-        const nextGrade = findScoreRange(
-          (r: Route) => r.french.toLowerCase() === routes[otherGrade].french.toLowerCase(),
-          routes
-        )
-        return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
-      }
-    }
-    return basicScore
+    return getScore(grade)
   },
   getGrade: (score: number | Tuple): string => {
     const validateScore = (score: number): number => {
@@ -62,8 +38,38 @@ const FrenchScale: GradeScale = {
     if (low === high) return low
     return `${low}/${high}`
   },
-  getGradeBand: (score: number): string => routeScoreToBand(score)
+  getGradeBand: (grade: string): string => {
+    const score = getScore(grade)
+    return routeScoreToBand(getAvgScore(score))
+  }
+}
 
+const getScore = (grade: string): number | Tuple => {
+  const parse = isFrench(grade)
+  if (parse == null) {
+    console.warn(`Unexpected grade format: ${grade}`)
+    return -1
+  }
+  const [wholeMatch, basicGrade, slash] = parse
+  const basicScore = findScoreRange((r: Route) => {
+    return r.french === basicGrade
+  }, routes)
+
+  if (wholeMatch !== basicGrade) {
+    // 5a/5a+
+    let otherGrade
+    if (slash !== null) {
+      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
+    }
+    if (otherGrade !== undefined) {
+      const nextGrade = findScoreRange(
+        (r: Route) => r.french.toLowerCase() === routes[otherGrade].french.toLowerCase(),
+        routes
+      )
+      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+    }
+  }
+  return basicScore
 }
 
 export default FrenchScale
