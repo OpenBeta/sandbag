@@ -2,10 +2,10 @@ import GradeScale, { GradeScales, GradeScalesTypes, Tuple } from './GradeScale'
 import { VScale, YosemiteDecimal, Font, French } from './scales'
 
 const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeScale | null> = {
-  [GradeScales.VScale]: VScale,
-  [GradeScales.Yds]: YosemiteDecimal,
-  [GradeScales.Font]: Font,
-  [GradeScales.French]: French
+  [GradeScales.VSCALE]: VScale,
+  [GradeScales.YDS]: YosemiteDecimal,
+  [GradeScales.FONT]: Font,
+  [GradeScales.FRENCH]: French
 }
 
 /**
@@ -74,7 +74,7 @@ export const convertGrade = (
 }
 
 export const isVScale = (grade: string): boolean => {
-  const scale = scales[GradeScales.VScale]
+  const scale = scales[GradeScales.VSCALE]
   if (scale == null) {
     return false
   }

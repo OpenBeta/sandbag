@@ -11,9 +11,9 @@ const isFrench = (grade: string): RegExpMatchArray | null => grade.match(frenchG
 
 const FrenchScale: GradeScale = {
   displayName: 'French Scale',
-  name: GradeScales.French,
+  name: GradeScales.FRENCH,
   offset: 1000,
-  allowableConversionType: [GradeScales.Yds],
+  allowableConversionType: [GradeScales.YDS],
   isType: (grade: string): boolean => {
     if (isFrench(grade) === null) {
       return false

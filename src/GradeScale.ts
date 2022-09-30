@@ -12,10 +12,10 @@ export default interface GradeScale {
 }
 
 export const GradeScales = {
-  VScale: 'vscale',
-  Yds: 'yds',
-  Font: 'font',
-  French: 'french'
+  VSCALE: 'vscale',
+  YDS: 'yds',
+  FONT: 'font',
+  FRENCH: 'french'
 } as const
 
 export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]

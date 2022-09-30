@@ -17,9 +17,9 @@ const isYds = (grade: string): RegExpMatchArray | null =>
 
 const YosemiteDecimal: GradeScale = {
   displayName: 'Yosemite Decimal System',
-  name: GradeScales.Yds,
+  name: GradeScales.YDS,
   offset: 1000,
-  allowableConversionType: [GradeScales.French],
+  allowableConversionType: [GradeScales.FRENCH],
   isType: (grade: string): boolean => {
     if (isYds(grade) === null) {
       return false

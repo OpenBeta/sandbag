@@ -8,9 +8,9 @@ const vGradeIrregular = /^V-([a-zA-Z]*)$/i
 
 const VScale: GradeScale = {
   displayName: 'V Scale',
-  name: GradeScales.VScale,
+  name: GradeScales.VSCALE,
   offset: 1000,
-  allowableConversionType: [GradeScales.Font],
+  allowableConversionType: [GradeScales.FONT],
   isType: (grade: string): boolean => {
     const isVGrade = grade.match(vGradeRegex) !== null || grade.match(vGradeIrregular)
     // If there isn't a match sort it to the bottom

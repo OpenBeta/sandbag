@@ -12,9 +12,9 @@ const isFont = (grade: string): RegExpMatchArray | null => grade.match(fontGrade
 
 const FontScale: GradeScale = {
   displayName: 'Fontainebleau',
-  name: GradeScales.Font,
+  name: GradeScales.FONT,
   offset: 1000,
-  allowableConversionType: [GradeScales.VScale],
+  allowableConversionType: [GradeScales.VSCALE],
   isType: (grade: string): boolean => {
     if (isFont(grade) === null) {
       return false
