@@ -1,4 +1,4 @@
-import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
+import { getScoreForSort, convertGrade, getScale, getGradeBand, GradeBands } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
 import { VScale, Font, YosemiteDecimal, French } from '../scales'
 
@@ -196,5 +196,21 @@ describe('Grade Scales', () => {
         expect.stringContaining("Scale: French Scale doesn't support converting to Scale: V Scale")
       )
     })
+  })
+})
+
+describe('GradeBands', () => {
+  test('returns grade band based on grade and grade scale type', () => {
+    expect(getGradeBand('v0', GradeScales.VScale)).toEqual(GradeBands.BEGINNER)
+    expect(getGradeBand('v2', GradeScales.VScale)).toEqual(GradeBands.INTERMEDIATE)
+    expect(getGradeBand('v5', GradeScales.VScale)).toEqual(GradeBands.ADVANCED)
+    expect(getGradeBand('v7', GradeScales.VScale)).toEqual(GradeBands.EXPERT)
+
+    expect(getGradeBand('5.9', GradeScales.Yds)).toEqual(GradeBands.INTERMEDIATE)
+    expect(getGradeBand('7a', GradeScales.Font)).toEqual(GradeBands.EXPERT)
+    expect(getGradeBand('7a', GradeScales.French)).toEqual(GradeBands.ADVANCED)
+  })
+  test('returns unknown gradeband if grade and grade scale type are mismatched', () => {
+    expect(getGradeBand('5.9', GradeScales.VScale)).toEqual(GradeBands.UNKNOWN)
   })
 })

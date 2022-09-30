@@ -2,7 +2,7 @@ import boulder from '../data/boulder.json'
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 
 import { Boulder } from '.'
-export type FontScaleType = 'fontScale'
+import { boulderScoreToBand } from '../GradeParser'
 
 const fontGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -25,7 +25,7 @@ const FontScale: GradeScale = {
     const parse = isFont(grade)
     if (parse == null) {
       console.warn(`Unexpected grade format: ${grade}`)
-      return 0
+      return -1
     }
     const [wholeMatch, basicGrade, slash] = parse
     const basicScore = findScoreRange((b: Boulder) => {
@@ -62,7 +62,8 @@ const FontScale: GradeScale = {
     const high: string = boulder[validateScore(score[1])].font
     if (low === high) return low
     return `${low}/${high}`
-  }
+  },
+  getGradeBand: (score: number): string => boulderScoreToBand(score)
 }
 
 export default FontScale

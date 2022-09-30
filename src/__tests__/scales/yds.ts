@@ -1,3 +1,4 @@
+import { GradeBands } from '../../GradeParser'
 import { YosemiteDecimal } from '../../scales'
 
 describe('YosemiteDecimal', () => {
@@ -35,21 +36,21 @@ describe('YosemiteDecimal', () => {
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 5.10a+')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('missing 5. prefix', () => {
         const invalidGrade = YosemiteDecimal.getScore('12a')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 12a')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('not yds scale', () => {
         const invalidGrade = YosemiteDecimal.getScore('v11')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: v11')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
     })
   })
@@ -108,6 +109,13 @@ describe('YosemiteDecimal', () => {
       expect(YosemiteDecimal.getGrade([63, 65])).toBe('5.10b/c')
       expect(YosemiteDecimal.getGrade([56, 59])).toBe('5.9/5.10a')
       expect(YosemiteDecimal.getGrade([74, 75])).toBe('5.11d/5.12a')
+    })
+  })
+
+  describe('Get Grade Band', () => {
+    test('gets Gradeband', () => {
+      expect(YosemiteDecimal.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
+      expect(YosemiteDecimal.getGradeBand(82.5)).toEqual(GradeBands.EXPERT)
     })
   })
 })

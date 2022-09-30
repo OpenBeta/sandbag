@@ -1,3 +1,4 @@
+import { GradeBands } from '../../GradeParser'
 import { French } from '../../scales'
 
 describe('French', () => {
@@ -39,56 +40,63 @@ describe('French', () => {
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining('Unexpected grade format: 5a++')
       )
-      expect(invalidGrade).toEqual(0)
+      expect(invalidGrade).toEqual(-1)
     })
     test('invalid minus modifier', () => {
       const invalidGrade = French.getScore('5a-')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining('Unexpected grade format: 5a-')
       )
-      expect(invalidGrade).toEqual(0)
+      expect(invalidGrade).toEqual(-1)
     })
     test('extra slash grade', () => {
       const invalidGrade = French.getScore('5a/5a+/5b+')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining('Unexpected grade format: 5a/5a+/5b+')
       )
-      expect(invalidGrade).toEqual(0)
+      expect(invalidGrade).toEqual(-1)
     })
     test('extra slash', () => {
       const invalidGrade = French.getScore('5a/')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining('Unexpected grade format: 5a/')
       )
-      expect(invalidGrade).toEqual(0)
+      expect(invalidGrade).toEqual(-1)
     })
     test('not French scale', () => {
       const invalidGrade = French.getScore('v11')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining('Unexpected grade format: v11')
       )
-      expect(invalidGrade).toEqual(0)
+      expect(invalidGrade).toEqual(-1)
     })
   })
-})
 
-describe('Get Grade', () => {
-  test('bottom of range', () => {
-    expect(French.getGrade(0)).toBe('1a')
+  describe('Get Grade', () => {
+    test('bottom of range', () => {
+      expect(French.getGrade(0)).toBe('1a')
+    })
+
+    test('top of range', () => {
+      expect(French.getGrade(1000)).toBe('9c+')
+    })
+
+    test('single score provided', () => {
+      expect(French.getGrade(34)).toBe('3c+')
+      expect(French.getGrade(34.5)).toBe('3c+')
+      expect(French.getGrade(35)).toBe('3c+')
+    })
+    test('range of scores provided', () => {
+      expect(French.getGrade([0.5, 2])).toBe('1a/1a+')
+      expect(French.getGrade([8, 12])).toBe('1c/2a')
+      expect(French.getGrade([16, 17])).toBe('2b')
+    })
   })
 
-  test('top of range', () => {
-    expect(French.getGrade(1000)).toBe('9c+')
-  })
-
-  test('single score provided', () => {
-    expect(French.getGrade(34)).toBe('3c+')
-    expect(French.getGrade(34.5)).toBe('3c+')
-    expect(French.getGrade(35)).toBe('3c+')
-  })
-  test('range of scores provided', () => {
-    expect(French.getGrade([0.5, 2])).toBe('1a/1a+')
-    expect(French.getGrade([8, 12])).toBe('1c/2a')
-    expect(French.getGrade([16, 17])).toBe('2b')
+  describe('Get Grade Band', () => {
+    test('gets Gradeband', () => {
+      expect(French.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
+      expect(French.getGradeBand(82.5)).toEqual(GradeBands.EXPERT)
+    })
   })
 })

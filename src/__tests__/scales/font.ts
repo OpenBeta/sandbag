@@ -1,3 +1,4 @@
+import { GradeBands } from '../../GradeParser'
 import { Font } from '../../scales'
 
 describe('Font', () => {
@@ -38,35 +39,35 @@ describe('Font', () => {
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 5a++')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('invalid minus modifier', () => {
         const invalidGrade = Font.getScore('5a-')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 5a-')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('extra slash grade', () => {
         const invalidGrade = Font.getScore('5a/5a+/5b+')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 5a/5a+/5b+')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('extra slash', () => {
         const invalidGrade = Font.getScore('5a/')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: 5a/')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
       test('not font scale', () => {
         const invalidGrade = Font.getScore('v11')
         expect(console.warn).toHaveBeenCalledWith(
           expect.stringContaining('Unexpected grade format: v11')
         )
-        expect(invalidGrade).toEqual(0)
+        expect(invalidGrade).toEqual(-1)
       })
     })
   })
@@ -89,6 +90,13 @@ describe('Font', () => {
       expect(Font.getGrade([0.5, 2])).toBe('1a/1a+')
       expect(Font.getGrade([8, 12])).toBe('1c/2a')
       expect(Font.getGrade([16, 17])).toBe('2b')
+    })
+  })
+
+  describe('Get Grade Band', () => {
+    test('gets Gradeband', () => {
+      expect(Font.getGradeBand(0)).toEqual(GradeBands.BEGINNER)
+      expect(Font.getGradeBand(72)).toEqual(GradeBands.EXPERT)
     })
   })
 })

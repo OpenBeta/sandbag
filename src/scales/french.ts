@@ -1,6 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
+import { routeScoreToBand } from '../GradeParser'
 
 const frenchGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -23,7 +24,7 @@ const FrenchScale: GradeScale = {
     const parse = isFrench(grade)
     if (parse == null) {
       console.warn(`Unexpected grade format: ${grade}`)
-      return 0
+      return -1
     }
     const [wholeMatch, basicGrade, slash] = parse
     const basicScore = findScoreRange((r: Route) => {
@@ -60,7 +61,9 @@ const FrenchScale: GradeScale = {
     const high: string = routes[validateScore(score[1])].french
     if (low === high) return low
     return `${low}/${high}`
-  }
+  },
+  getGradeBand: (score: number): string => routeScoreToBand(score)
+
 }
 
 export default FrenchScale

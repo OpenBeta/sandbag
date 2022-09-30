@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import boulder from '../data/boulder.json'
 import { Boulder } from '.'
-export type VScaleType = 'vScale'
+import { boulderScoreToBand } from '../GradeParser'
 
 const vGradeRegex = /^(V[0-9]{1,2})([/+])?([/-])?([0-9]{1,2})?$/i
 const vGradeIrregular = /^V-([a-zA-Z]*)$/i
@@ -23,7 +23,8 @@ const VScale: GradeScale = {
     const parse = grade.match(vGradeRegex)
     if (parse == null) {
       // not a valid V scale
-      return 0
+      console.warn(`Unexpected grade format: ${grade}`)
+      return -1
     }
     const [wholeMatch, basicGrade, plus, dash, secondGrade] = parse
 
@@ -65,7 +66,8 @@ const VScale: GradeScale = {
     const high: string = boulder[validateScore(score[1])].v
     if (low === high) return low
     return `${low}-${high}`
-  }
+  },
+  getGradeBand: (score: number): string => boulderScoreToBand(score)
 }
 
 export default VScale

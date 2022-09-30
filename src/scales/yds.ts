@@ -1,8 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
-
-export type YdsType = 'yds'
+import { routeScoreToBand } from '../GradeParser'
 
 const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
 // Support 5.0 to 5.16 with + and -
@@ -32,7 +31,7 @@ const YosemiteDecimal: GradeScale = {
     const parse = isYds(grade)
     if (parse === null) {
       console.warn(`Unexpected grade format: ${grade}`)
-      return 0
+      return -1
     }
     const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse
     let normalizedGrade = basicGrade
@@ -89,7 +88,8 @@ const YosemiteDecimal: GradeScale = {
       return `${low}/${high}`
     }
     return `${lowBasicGrade}${lowLetter}/${highLetter}`
-  }
+  },
+  getGradeBand: (score: number): string => routeScoreToBand(score)
 }
 
 export default YosemiteDecimal
