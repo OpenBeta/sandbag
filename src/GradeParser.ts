@@ -15,7 +15,7 @@ export const getScale = (gradeScaleType: GradeScalesTypes): GradeScale | null =>
 }
 
 /**
- *
+ * @deprecated Replace with individual grade scale's getScore
  * @param grade grade based on grade scale type
  * @param gradeScaleType grade scale type
  * @returns  the score range, allows us to show the range of overlap for other grading systems
@@ -29,6 +29,7 @@ export const getScore = (grade: string, gradeScaleType: GradeScalesTypes): numbe
 }
 
 /**
+ * @deprecated Replace with individual grade scale's getScore
  * @param grade grade based on grade scale type
  * @param gradeScaleType grade scale type
  * @returns the average score of the grade for sorting across different scales

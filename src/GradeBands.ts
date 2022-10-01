@@ -1,6 +1,3 @@
-// import { getScale, getScoreForSort } from './GradeParser'
-// import { getAvgScore, GradeScalesTypes } from './GradeScale'
-
 export const GradeBands = {
   UNKNOWN: 'unknown',
   BEGINNER: 'beginner',
@@ -9,7 +6,7 @@ export const GradeBands = {
   EXPERT: 'expert'
 } as const
 
-type GradeBandTypes = typeof GradeBands[keyof typeof GradeBands]
+export type GradeBandTypes = typeof GradeBands[keyof typeof GradeBands]
 
 /**
  *
