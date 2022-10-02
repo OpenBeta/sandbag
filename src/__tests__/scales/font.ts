@@ -36,37 +36,30 @@ describe('Font', () => {
       })
       test('extra plus modifier', () => {
         const invalidGrade = Font.getScore('5a++')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 5a++')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a++ for grade scale font')
         expect(invalidGrade).toEqual(-1)
       })
       test('invalid minus modifier', () => {
         const invalidGrade = Font.getScore('5a-')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 5a-')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a- for grade scale font')
         expect(invalidGrade).toEqual(-1)
       })
       test('extra slash grade', () => {
         const invalidGrade = Font.getScore('5a/5a+/5b+')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 5a/5a+/5b+')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/5a+/5b+ for grade scale font')
+
         expect(invalidGrade).toEqual(-1)
       })
       test('extra slash', () => {
         const invalidGrade = Font.getScore('5a/')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 5a/')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/ for grade scale font')
+
         expect(invalidGrade).toEqual(-1)
       })
       test('not font scale', () => {
         const invalidGrade = Font.getScore('v11')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: v11')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale font')
+
         expect(invalidGrade).toEqual(-1)
       })
     })

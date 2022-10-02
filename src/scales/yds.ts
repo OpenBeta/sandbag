@@ -61,7 +61,7 @@ const YosemiteDecimal: GradeScale = {
 const getScore = (grade: string): number | Tuple => {
   const parse = isYds(grade)
   if (parse === null) {
-    console.warn(`Unexpected grade format: ${grade}`)
+    console.warn(`Unexpected grade format: ${grade} for grade scale yds`)
     return -1
   }
   const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse

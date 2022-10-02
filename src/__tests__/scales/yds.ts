@@ -33,23 +33,17 @@ describe('YosemiteDecimal', () => {
       })
       test('extra modifier', () => {
         const invalidGrade = YosemiteDecimal.getScore('5.10a+')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 5.10a+')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5.10a+ for grade scale yds')
         expect(invalidGrade).toEqual(-1)
       })
       test('missing 5. prefix', () => {
         const invalidGrade = YosemiteDecimal.getScore('12a')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: 12a')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 12a for grade scale yds')
         expect(invalidGrade).toEqual(-1)
       })
       test('not yds scale', () => {
         const invalidGrade = YosemiteDecimal.getScore('v11')
-        expect(console.warn).toHaveBeenCalledWith(
-          expect.stringContaining('Unexpected grade format: v11')
-        )
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale yds')
         expect(invalidGrade).toEqual(-1)
       })
     })

@@ -47,7 +47,7 @@ const FrenchScale: GradeScale = {
 const getScore = (grade: string): number | Tuple => {
   const parse = isFrench(grade)
   if (parse == null) {
-    console.warn(`Unexpected grade format: ${grade}`)
+    console.warn(`Unexpected grade format: ${grade} for grade scale french`)
     return -1
   }
   const [wholeMatch, basicGrade, slash] = parse

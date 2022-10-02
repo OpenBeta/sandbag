@@ -48,7 +48,7 @@ const FontScale: GradeScale = {
 const getScore = (grade: string): number | Tuple => {
   const parse = isFont(grade)
   if (parse == null) {
-    console.warn(`Unexpected grade format: ${grade}`)
+    console.warn(`Unexpected grade format: ${grade} for grade scale font`)
     return -1
   }
   const [wholeMatch, basicGrade, slash] = parse

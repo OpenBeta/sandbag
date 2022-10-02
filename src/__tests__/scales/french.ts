@@ -37,37 +37,27 @@ describe('French', () => {
     })
     test('extra plus modifier', () => {
       const invalidGrade = French.getScore('5a++')
-      expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Unexpected grade format: 5a++')
-      )
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a++ for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
     test('invalid minus modifier', () => {
       const invalidGrade = French.getScore('5a-')
-      expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Unexpected grade format: 5a-')
-      )
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a- for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
     test('extra slash grade', () => {
       const invalidGrade = French.getScore('5a/5a+/5b+')
-      expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Unexpected grade format: 5a/5a+/5b+')
-      )
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/5a+/5b+ for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
     test('extra slash', () => {
       const invalidGrade = French.getScore('5a/')
-      expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Unexpected grade format: 5a/')
-      )
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/ for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
     test('not French scale', () => {
       const invalidGrade = French.getScore('v11')
-      expect(console.warn).toHaveBeenCalledWith(
-        expect.stringContaining('Unexpected grade format: v11')
-      )
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale french')
       expect(invalidGrade).toEqual(-1)
     })
   })

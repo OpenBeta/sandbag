@@ -76,7 +76,7 @@ const getScore = (grade: string): number | Tuple => {
   const parse = grade.match(vGradeRegex)
   if (parse == null) {
     // not a valid V scale
-    console.warn(`Unexpected grade format: ${grade}`)
+    console.warn(`Unexpected grade format: ${grade} for grade scale v scale`)
     return -1
   }
   const [wholeMatch, basicGrade, plus, dash, secondGrade] = parse
