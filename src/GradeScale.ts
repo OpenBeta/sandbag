@@ -1,10 +1,12 @@
+import { GradeBandTypes } from './GradeBands'
+
 export type Tuple = [number, number]
 
 export default interface GradeScale {
   isType: (grade: string) => boolean
   getScore: (grade: string) => number | Tuple
   getGrade: (score: number | Tuple) => string
-  getGradeBand: (grade: string) => string
+  getGradeBand: (grade: string) => GradeBandTypes
   displayName: string
   name: GradeScalesTypes
   offset: number

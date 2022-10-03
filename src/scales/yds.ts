@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
-import { routeScoreToBand } from '../GradeBands'
+import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
 const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
 // Support 5.0 to 5.16 with + and -
@@ -52,7 +52,7 @@ const YosemiteDecimal: GradeScale = {
     }
     return `${lowBasicGrade}${lowLetter}/${highLetter}`
   },
-  getGradeBand: (grade: string): string => {
+  getGradeBand: (grade: string): GradeBandTypes => {
     const score = getScore(grade)
     return routeScoreToBand(getAvgScore(score))
   }

@@ -2,7 +2,7 @@ import boulder from '../data/boulder.json'
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 
 import { Boulder } from '.'
-import { boulderScoreToBand } from '../GradeBands'
+import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
 const fontGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -39,7 +39,7 @@ const FontScale: GradeScale = {
     if (low === high) return low
     return `${low}/${high}`
   },
-  getGradeBand: (grade: string): string => {
+  getGradeBand: (grade: string): GradeBandTypes => {
     const score = getScore(grade)
     return boulderScoreToBand(getAvgScore(score))
   }

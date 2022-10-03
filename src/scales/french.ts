@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
-import { routeScoreToBand } from '../GradeBands'
+import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
 const frenchGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
@@ -38,7 +38,7 @@ const FrenchScale: GradeScale = {
     if (low === high) return low
     return `${low}/${high}`
   },
-  getGradeBand: (grade: string): string => {
+  getGradeBand: (grade: string): GradeBandTypes => {
     const score = getScore(grade)
     return routeScoreToBand(getAvgScore(score))
   }

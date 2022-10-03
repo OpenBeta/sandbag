@@ -14,12 +14,9 @@ export type GradeBandTypes = typeof GradeBands[keyof typeof GradeBands]
  * @param distribution GradeBandTypes to corresponding scores
  * @returns GradeBandType for passed in score
  */
-const scoreToBand = (score: number, distribution: Record<Exclude<GradeBandTypes, 'unknown'>, number>): string => {
-  const gradeBands = Object.keys(distribution).sort((a, b) => distribution[b] - distribution[a])
-  const gradeBand = gradeBands.find(gradeBand => distribution[gradeBand] <= score)
-  if (gradeBand === undefined) {
-    return GradeBands.UNKNOWN
-  }
+const scoreToBand = (score: number, distribution: Record<GradeBandTypes, number>): GradeBandTypes => {
+  const gradeBands = Object.keys(distribution).sort((a, b) => distribution[b] - distribution[a]) as GradeBandTypes[]
+  const gradeBand: GradeBandTypes = gradeBands.find((gradeBand: GradeBandTypes) => distribution[gradeBand] <= score) ?? GradeBands.UNKNOWN
   return gradeBand
 }
 
@@ -28,7 +25,7 @@ const scoreToBand = (score: number, distribution: Record<Exclude<GradeBandTypes,
  * @param score universal grade score
  * @returns GradeBandType for passed in score based on routes
  */
-export const routeScoreToBand = (score: number): string => {
+export const routeScoreToBand = (score: number): GradeBandTypes => {
   const distribution = {
     [GradeBands.UNKNOWN]: -1,
     [GradeBands.BEGINNER]: 0,
@@ -44,7 +41,7 @@ export const routeScoreToBand = (score: number): string => {
  * @param score universal grade score
  * @returns GradeBandType for passed in score based on bouldering
  */
-export const boulderScoreToBand = (score: number): string => {
+export const boulderScoreToBand = (score: number): GradeBandTypes => {
   const distribution = {
     [GradeBands.UNKNOWN]: -1,
     [GradeBands.BEGINNER]: 0,

@@ -1,7 +1,7 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
 import boulder from '../data/boulder.json'
 import { Boulder } from '.'
-import { boulderScoreToBand } from '../GradeBands'
+import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
 const vGradeRegex = /^(V[0-9]{1,2})([/+])?([/-])?([0-9]{1,2})?$/i
 const vGradeIrregular = /^V-([a-zA-Z]*)$/i
@@ -37,7 +37,7 @@ const VScale: GradeScale = {
     if (low === high) return low
     return `${low}-${high}`
   },
-  getGradeBand: (grade: string): string => {
+  getGradeBand: (grade: string): GradeBandTypes => {
     const score = getScore(grade)
     return boulderScoreToBand(getAvgScore(score))
   }
