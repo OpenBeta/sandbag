@@ -1,20 +1,26 @@
+import { GradeBandTypes } from './GradeBands'
+
 export type Tuple = [number, number]
 
 export default interface GradeScale {
   isType: (grade: string) => boolean
   getScore: (grade: string) => number | Tuple
   getGrade: (score: number | Tuple) => string
+  getGradeBand: (grade: string) => GradeBandTypes
   displayName: string
-  name: string
+  name: GradeScalesTypes
   offset: number
-  allowableConversionType: GradeScales[]
+  allowableConversionType: GradeScalesTypes[]
 }
-export enum GradeScales {
-  VScale ='vscale',
-  Yds = 'yds',
-  Font = 'font',
-  French = 'french'
-}
+
+export const GradeScales = {
+  VSCALE: 'vscale',
+  YDS: 'yds',
+  FONT: 'font',
+  FRENCH: 'french'
+} as const
+
+export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]
 
 export const findScoreRange = (compareFn, list): number | Tuple => {
   const scores = list.filter(compareFn)

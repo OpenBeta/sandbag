@@ -1,3 +1,4 @@
+import { GradeBands } from '../../GradeBands'
 import { VScale } from '../../scales'
 
 describe('V', () => {
@@ -72,6 +73,13 @@ describe('V', () => {
       expect(VScale.getGrade([51, 56])).toBe('V1-V2')
       expect(VScale.getGrade([77, 80])).toBe('V8-V9')
       expect(VScale.getGrade([66, 72])).toBe('V4-V6')
+    })
+  })
+
+  describe('Get Grade Band', () => {
+    test('gets Gradeband', () => {
+      expect(VScale.getGradeBand('V0')).toEqual(GradeBands.BEGINNER)
+      expect(VScale.getGradeBand('V22')).toEqual(GradeBands.EXPERT)
     })
   })
 })
