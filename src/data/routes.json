@@ -1,1 +1,758 @@
-[{"score":0,"yds":"5.0","french":"1a","band":"beginner"},{"score":1,"yds":"5.0","french":"1a","band":"beginner"},{"score":2,"yds":"5.0","french":"1a+","band":"beginner"},{"score":3,"yds":"5.0","french":"1a+","band":"beginner"},{"score":4,"yds":"5.0","french":"1b","band":"beginner"},{"score":5,"yds":"5.0","french":"1b","band":"beginner"},{"score":6,"yds":"5.0","french":"1b+","band":"beginner"},{"score":7,"yds":"5.0","french":"1b+","band":"beginner"},{"score":8,"yds":"5.0","french":"1c","band":"beginner"},{"score":9,"yds":"5.0","french":"1c","band":"beginner"},{"score":10,"yds":"5.0","french":"1c+","band":"beginner"},{"score":11,"yds":"5.0","french":"1c+","band":"beginner"},{"score":12,"yds":"5.1","french":"2a","band":"beginner"},{"score":13,"yds":"5.1","french":"2a","band":"beginner"},{"score":14,"yds":"5.1","french":"2a+","band":"beginner"},{"score":15,"yds":"5.1","french":"2a+","band":"beginner"},{"score":16,"yds":"5.1","french":"2b","band":"beginner"},{"score":17,"yds":"5.1","french":"2b","band":"beginner"},{"score":18,"yds":"5.2","french":"2b+","band":"beginner"},{"score":19,"yds":"5.2","french":"2b+","band":"beginner"},{"score":20,"yds":"5.2","french":"2c","band":"beginner"},{"score":21,"yds":"5.2","french":"2c","band":"beginner"},{"score":22,"yds":"5.3","french":"2c+","band":"beginner"},{"score":23,"yds":"5.3","french":"2c+","band":"beginner"},{"score":24,"yds":"5.3","french":"3a","band":"beginner"},{"score":25,"yds":"5.3","french":"3a","band":"beginner"},{"score":26,"yds":"5.4","french":"3a+","band":"beginner"},{"score":27,"yds":"5.4","french":"3a+","band":"beginner"},{"score":28,"yds":"5.4","french":"3b","band":"beginner"},{"score":29,"yds":"5.4","french":"3b","band":"beginner"},{"score":30,"yds":"5.4","french":"3b+","band":"beginner"},{"score":31,"yds":"5.5","french":"3b+","band":"beginner"},{"score":32,"yds":"5.5","french":"3c","band":"beginner"},{"score":33,"yds":"5.5","french":"3c","band":"beginner"},{"score":34,"yds":"5.5","french":"3c+","band":"beginner"},{"score":35,"yds":"5.5","french":"3c+","band":"beginner"},{"score":36,"yds":"5.6","french":"4a","band":"intermediate"},{"score":37,"yds":"5.6","french":"4a","band":"intermediate"},{"score":38,"yds":"5.6","french":"4a+","band":"intermediate"},{"score":39,"yds":"5.6","french":"4a+","band":"intermediate"},{"score":40,"yds":"5.6","french":"4b","band":"intermediate"},{"score":41,"yds":"5.7","french":"4b","band":"intermediate"},{"score":42,"yds":"5.7","french":"4b+","band":"intermediate"},{"score":43,"yds":"5.7","french":"4b+","band":"intermediate"},{"score":44,"yds":"5.7","french":"4c","band":"intermediate"},{"score":45,"yds":"5.7","french":"4c","band":"intermediate"},{"score":46,"yds":"5.8","french":"4c+","band":"intermediate"},{"score":47,"yds":"5.8","french":"4c+","band":"intermediate"},{"score":48,"yds":"5.8","french":"5a","band":"intermediate"},{"score":49,"yds":"5.8","french":"5a","band":"intermediate"},{"score":50,"yds":"5.8","french":"5a+","band":"intermediate"},{"score":51,"yds":"5.8","french":"5a+","band":"intermediate"},{"score":52,"yds":"5.9","french":"5b","band":"intermediate"},{"score":53,"yds":"5.9","french":"5b","band":"intermediate"},{"score":54,"yds":"5.9","french":"5b+","band":"intermediate"},{"score":55,"yds":"5.9","french":"5b+","band":"intermediate"},{"score":56,"yds":"5.9","french":"5c","band":"intermediate"},{"score":57,"yds":"5.10a","french":"5c","band":"intermediate"},{"score":58,"yds":"5.10a","french":"5c+","band":"intermediate"},{"score":59,"yds":"5.10a","french":"5c+","band":"intermediate"},{"score":60,"yds":"5.10a","french":"6a","band":"intermediate"},{"score":61,"yds":"5.10a","french":"6a","band":"intermediate"},{"score":62,"yds":"5.10b","french":"6a+","band":"experienced"},{"score":63,"yds":"5.10b","french":"6a+","band":"experienced"},{"score":64,"yds":"5.10c","french":"6b","band":"experienced"},{"score":65,"yds":"5.10c","french":"6b","band":"experienced"},{"score":66,"yds":"5.10d","french":"6b+","band":"experienced"},{"score":67,"yds":"5.11a","french":"6b+","band":"experienced"},{"score":68,"yds":"5.11a","french":"6c","band":"experienced"},{"score":69,"yds":"5.11b","french":"6c","band":"experienced"},{"score":70,"yds":"5.11b","french":"6c+","band":"experienced"},{"score":71,"yds":"5.11c","french":"6c+","band":"experienced"},{"score":72,"yds":"5.11c","french":"7a","band":"experienced"},{"score":73,"yds":"5.11d","french":"7a","band":"experienced"},{"score":74,"yds":"5.11d","french":"7a+","band":"experienced"},{"score":75,"yds":"5.12a","french":"7a+","band":"experienced"},{"score":76,"yds":"5.12b","french":"7b","band":"expert"},{"score":77,"yds":"5.12b","french":"7b","band":"expert"},{"score":78,"yds":"5.12c","french":"7b+","band":"expert"},{"score":79,"yds":"5.12c","french":"7b+","band":"expert"},{"score":80,"yds":"5.12d","french":"7c","band":"expert"},{"score":81,"yds":"5.12d","french":"7c","band":"expert"},{"score":82,"yds":"5.13a","french":"7c+","band":"expert"},{"score":83,"yds":"5.13a","french":"7c+","band":"expert"},{"score":84,"yds":"5.13b","french":"8a","band":"expert"},{"score":85,"yds":"5.13b","french":"8a","band":"expert"},{"score":86,"yds":"5.13c","french":"8a+","band":"expert"},{"score":87,"yds":"5.13c","french":"8a+","band":"expert"},{"score":88,"yds":"5.13d","french":"8b","band":"expert"},{"score":89,"yds":"5.13d","french":"8b","band":"expert"},{"score":90,"yds":"5.14a","french":"8b+","band":"expert"},{"score":91,"yds":"5.14a","french":"8b+","band":"expert"},{"score":92,"yds":"5.14b","french":"8c","band":"elite"},{"score":93,"yds":"5.14b","french":"8c","band":"elite"},{"score":94,"yds":"5.14c","french":"8c+","band":"elite"},{"score":95,"yds":"5.14c","french":"8c+","band":"elite"},{"score":96,"yds":"5.14d","french":"9a","band":"elite"},{"score":97,"yds":"5.14d","french":"9a","band":"elite"},{"score":98,"yds":"5.15a","french":"9a+","band":"elite"},{"score":99,"yds":"5.15a","french":"9a+","band":"elite"},{"score":100,"yds":"5.15b","french":"9b","band":"elite"},{"score":101,"yds":"5.15b","french":"9b","band":"elite"},{"score":102,"yds":"5.15c","french":"9b+","band":"elite"},{"score":103,"yds":"5.15c","french":"9b+","band":"elite"},{"score":104,"yds":"5.15d","french":"9c","band":"elite"},{"score":105,"yds":"5.15d","french":"9c","band":"elite"},{"score":106,"yds":"5.16a","french":"9c+","band":"elite"},{"score":107,"yds":"5.16a","french":"9c+","band":"elite"}]
+[
+    {
+      "score": 0,
+      "yds": "5.0",
+      "french": "1a",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 1,
+      "yds": "5.0",
+      "french": "1a",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 2,
+      "yds": "5.0",
+      "french": "1a+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 3,
+      "yds": "5.0",
+      "french": "1a+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 4,
+      "yds": "5.0",
+      "french": "1b",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 5,
+      "yds": "5.0",
+      "french": "1b",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 6,
+      "yds": "5.0",
+      "french": "1b+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 7,
+      "yds": "5.0",
+      "french": "1b+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 8,
+      "yds": "5.0",
+      "french": "1c",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 9,
+      "yds": "5.0",
+      "french": "1c",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 10,
+      "yds": "5.0",
+      "french": "1c+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 11,
+      "yds": "5.0",
+      "french": "1c+",
+      "uiaa": "1",
+      "band": "beginner"
+    },
+    {
+      "score": 12,
+      "yds": "5.1",
+      "french": "2a",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 13,
+      "yds": "5.1",
+      "french": "2a",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 14,
+      "yds": "5.1",
+      "french": "2a+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 15,
+      "yds": "5.1",
+      "french": "2a+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 16,
+      "yds": "5.1",
+      "french": "2b",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 17,
+      "yds": "5.1",
+      "french": "2b",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 18,
+      "yds": "5.2",
+      "french": "2b+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 19,
+      "yds": "5.2",
+      "french": "2b+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 20,
+      "yds": "5.2",
+      "french": "2c",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 21,
+      "yds": "5.2",
+      "french": "2c",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 22,
+      "yds": "5.3",
+      "french": "2c+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 23,
+      "yds": "5.3",
+      "french": "2c+",
+      "uiaa": "2",
+      "band": "beginner"
+    },
+    {
+      "score": 24,
+      "yds": "5.3",
+      "french": "3a",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 25,
+      "yds": "5.3",
+      "french": "3a",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 26,
+      "yds": "5.4",
+      "french": "3a+",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 27,
+      "yds": "5.4",
+      "french": "3a+",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 28,
+      "yds": "5.4",
+      "french": "3b",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 29,
+      "yds": "5.4",
+      "french": "3b",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 30,
+      "yds": "5.4",
+      "french": "3b+",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 31,
+      "yds": "5.5",
+      "french": "3b+",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 32,
+      "yds": "5.5",
+      "french": "3c",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 33,
+      "yds": "5.5",
+      "french": "3c",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 34,
+      "yds": "5.5",
+      "french": "3c+",
+      "uiaa": "3",
+      "band": "beginner"
+    },
+    {
+      "score": 35,
+      "yds": "5.5",
+      "french": "3c+",
+      "uiaa": "3+",
+      "band": "beginner"
+    },
+    {
+      "score": 36,
+      "yds": "5.6",
+      "french": "4a",
+      "uiaa": "4",
+      "band": "intermediate"
+    },
+    {
+      "score": 37,
+      "yds": "5.6",
+      "french": "4a",
+      "uiaa": "4",
+      "band": "intermediate"
+    },
+    {
+      "score": 38,
+      "yds": "5.6",
+      "french": "4a+",
+      "uiaa": "4+",
+      "band": "intermediate"
+    },
+    {
+      "score": 39,
+      "yds": "5.6",
+      "french": "4a+",
+      "uiaa": "4+",
+      "band": "intermediate"
+    },
+    {
+      "score": 40,
+      "yds": "5.6",
+      "french": "4b",
+      "uiaa": "4+",
+      "band": "intermediate"
+    },
+    {
+      "score": 41,
+      "yds": "5.7",
+      "french": "4b",
+      "uiaa": "4+",
+      "band": "intermediate"
+    },
+    {
+      "score": 42,
+      "yds": "5.7",
+      "french": "4b+",
+      "uiaa": "5-",
+      "band": "intermediate"
+    },
+    {
+      "score": 43,
+      "yds": "5.7",
+      "french": "4b+",
+      "uiaa": "5-",
+      "band": "intermediate"
+    },
+    {
+      "score": 44,
+      "yds": "5.7",
+      "french": "4c",
+      "uiaa": "5-",
+      "band": "intermediate"
+    },
+    {
+      "score": 45,
+      "yds": "5.7",
+      "french": "4c",
+      "uiaa": "5-",
+      "band": "intermediate"
+    },
+    {
+      "score": 46,
+      "yds": "5.8",
+      "french": "4c+",
+      "uiaa": "5",
+      "band": "intermediate"
+    },
+    {
+      "score": 47,
+      "yds": "5.8",
+      "french": "4c+",
+      "uiaa": "5",
+      "band": "intermediate"
+    },
+    {
+      "score": 48,
+      "yds": "5.8",
+      "french": "5a",
+      "uiaa": "5",
+      "band": "intermediate"
+    },
+    {
+      "score": 49,
+      "yds": "5.8",
+      "french": "5a",
+      "uiaa": "5",
+      "band": "intermediate"
+    },
+    {
+      "score": 50,
+      "yds": "5.8",
+      "french": "5a+",
+      "uiaa": "5+",
+      "band": "intermediate"
+    },
+    {
+      "score": 51,
+      "yds": "5.8",
+      "french": "5a+",
+      "uiaa": "5+",
+      "band": "intermediate"
+    },
+    {
+      "score": 52,
+      "yds": "5.9",
+      "french": "5b",
+      "uiaa": "5+",
+      "band": "intermediate"
+    },
+    {
+      "score": 53,
+      "yds": "5.9",
+      "french": "5b",
+      "uiaa": "5+",
+      "band": "intermediate"
+    },
+    {
+      "score": 54,
+      "yds": "5.9",
+      "french": "5b+",
+      "uiaa": "6-",
+      "band": "intermediate"
+    },
+    {
+      "score": 55,
+      "yds": "5.9",
+      "french": "5b+",
+      "uiaa": "6-",
+      "band": "intermediate"
+    },
+    {
+      "score": 56,
+      "yds": "5.9",
+      "french": "5c",
+      "uiaa": "6",
+      "band": "intermediate"
+    },
+    {
+      "score": 57,
+      "yds": "5.10a",
+      "french": "5c",
+      "uiaa": "6",
+      "band": "intermediate"
+    },
+    {
+      "score": 58,
+      "yds": "5.10a",
+      "french": "5c+",
+      "uiaa": "6+",
+      "band": "intermediate"
+    },
+    {
+      "score": 59,
+      "yds": "5.10a",
+      "french": "5c+",
+      "uiaa": "6+",
+      "band": "intermediate"
+    },
+    {
+      "score": 60,
+      "yds": "5.10a",
+      "french": "6a",
+      "uiaa": "6+",
+      "band": "intermediate"
+    },
+    {
+      "score": 61,
+      "yds": "5.10a",
+      "french": "6a",
+      "uiaa": "6+",
+      "band": "intermediate"
+    },
+    {
+      "score": 62,
+      "yds": "5.10b",
+      "french": "6a+",
+      "uiaa": "7-",
+      "band": "experienced"
+    },
+    {
+      "score": 63,
+      "yds": "5.10b",
+      "french": "6a+",
+      "uiaa": "7-",
+      "band": "experienced"
+    },
+    {
+      "score": 64,
+      "yds": "5.10c",
+      "french": "6b",
+      "uiaa": "7",
+      "band": "experienced"
+    },
+    {
+      "score": 65,
+      "yds": "5.10c",
+      "french": "6b",
+      "uiaa": "7",
+      "band": "experienced"
+    },
+    {
+      "score": 66,
+      "yds": "5.10d",
+      "french": "6b+",
+      "uiaa": "7+",
+      "band": "experienced"
+    },
+    {
+      "score": 67,
+      "yds": "5.11a",
+      "french": "6b+",
+      "uiaa": "7+",
+      "band": "experienced"
+    },
+    {
+      "score": 68,
+      "yds": "5.11a",
+      "french": "6c",
+      "uiaa": "7+/8-",
+      "band": "experienced"
+    },
+    {
+      "score": 69,
+      "yds": "5.11b",
+      "french": "6c",
+      "uiaa": "7+/8-",
+      "band": "experienced"
+    },
+    {
+      "score": 70,
+      "yds": "5.11b",
+      "french": "6c+",
+      "uiaa": "8-",
+      "band": "experienced"
+    },
+    {
+      "score": 71,
+      "yds": "5.11c",
+      "french": "6c+",
+      "uiaa": "8-",
+      "band": "experienced"
+    },
+    {
+      "score": 72,
+      "yds": "5.11c",
+      "french": "7a",
+      "uiaa": "8",
+      "band": "experienced"
+    },
+    {
+      "score": 73,
+      "yds": "5.11d",
+      "french": "7a",
+      "uiaa": "8",
+      "band": "experienced"
+    },
+    {
+      "score": 74,
+      "yds": "5.11d",
+      "french": "7a+",
+      "uiaa": "8+",
+      "band": "experienced"
+    },
+    {
+      "score": 75,
+      "yds": "5.12a",
+      "french": "7a+",
+      "uiaa": "8+",
+      "band": "experienced"
+    },
+    {
+      "score": 76,
+      "yds": "5.12b",
+      "french": "7b",
+      "uiaa": "8+/9-",
+      "band": "expert"
+    },
+    {
+      "score": 77,
+      "yds": "5.12b",
+      "french": "7b",
+      "uiaa": "8+/9-",
+      "band": "expert"
+    },
+    {
+      "score": 78,
+      "yds": "5.12c",
+      "french": "7b+",
+      "uiaa": "9-",
+      "band": "expert"
+    },
+    {
+      "score": 79,
+      "yds": "5.12c",
+      "french": "7b+",
+      "uiaa": "9-",
+      "band": "expert"
+    },
+    {
+      "score": 80,
+      "yds": "5.12d",
+      "french": "7c",
+      "uiaa": "9",
+      "band": "expert"
+    },
+    {
+      "score": 81,
+      "yds": "5.12d",
+      "french": "7c",
+      "uiaa": "9",
+      "band": "expert"
+    },
+    {
+      "score": 82,
+      "yds": "5.13a",
+      "french": "7c+",
+      "uiaa": "9+",
+      "band": "expert"
+    },
+    {
+      "score": 83,
+      "yds": "5.13a",
+      "french": "7c+",
+      "uiaa": "9+",
+      "band": "expert"
+    },
+    {
+      "score": 84,
+      "yds": "5.13b",
+      "french": "8a",
+      "uiaa": "10-",
+      "band": "expert"
+    },
+    {
+      "score": 85,
+      "yds": "5.13b",
+      "french": "8a",
+      "uiaa": "10-",
+      "band": "expert"
+    },
+    {
+      "score": 86,
+      "yds": "5.13c",
+      "french": "8a+",
+      "uiaa": "10",
+      "band": "expert"
+    },
+    {
+      "score": 87,
+      "yds": "5.13c",
+      "french": "8a+",
+      "uiaa": "10",
+      "band": "expert"
+    },
+    {
+      "score": 88,
+      "yds": "5.13d",
+      "french": "8b",
+      "uiaa": "10+",
+      "band": "expert"
+    },
+    {
+      "score": 89,
+      "yds": "5.13d",
+      "french": "8b",
+      "uiaa": "10+",
+      "band": "expert"
+    },
+    {
+      "score": 90,
+      "yds": "5.14a",
+      "french": "8b+",
+      "uiaa": "10+/11-",
+      "band": "elite"
+    },
+    {
+      "score": 91,
+      "yds": "5.14a",
+      "french": "8b+",
+      "uiaa": "10+/11-",
+      "band": "elite"
+    },
+    {
+      "score": 92,
+      "yds": "5.14b",
+      "french": "8c",
+      "uiaa": "11-",
+      "band": "elite"
+    },
+    {
+      "score": 93,
+      "yds": "5.14b",
+      "french": "8c",
+      "uiaa": "11-",
+      "band": "elite"
+    },
+    {
+      "score": 94,
+      "yds": "5.14c",
+      "french": "8c+",
+      "uiaa": "11",
+      "band": "elite"
+    },
+    {
+      "score": 95,
+      "yds": "5.14c",
+      "french": "8c+",
+      "uiaa": "11",
+      "band": "elite"
+    },
+    {
+      "score": 96,
+      "yds": "5.14d",
+      "french": "9a",
+      "uiaa": "11",
+      "band": "elite"
+    },
+    {
+      "score": 97,
+      "yds": "5.14d",
+      "french": "9a",
+      "uiaa": "11",
+      "band": "elite"
+    },
+    {
+      "score": 98,
+      "yds": "5.15a",
+      "french": "9a+",
+      "uiaa": "11/11+",
+      "band": "elite"
+    },
+    {
+      "score": 99,
+      "yds": "5.15a",
+      "french": "9a+",
+      "uiaa": "11/11+",
+      "band": "elite"
+    },
+    {
+      "score": 100,
+      "yds": "5.15b",
+      "french": "9b",
+      "uiaa": "11+",
+      "band": "elite"
+    },
+    {
+      "score": 101,
+      "yds": "5.15b",
+      "french": "9b",
+      "uiaa": "11+",
+      "band": "elite"
+    },
+    {
+      "score": 102,
+      "yds": "5.15c",
+      "french": "9b+",
+      "uiaa": "11+/12-",
+      "band": "elite"
+    },
+    {
+      "score": 103,
+      "yds": "5.15c",
+      "french": "9b+",
+      "uiaa": "11+/12-",
+      "band": "elite"
+    },
+    {
+      "score": 104,
+      "yds": "5.15d",
+      "french": "9c",
+      "uiaa": "12-",
+      "band": "elite"
+    },
+    {
+      "score": 105,
+      "yds": "5.15d",
+      "french": "9c",
+      "uiaa": "12-",
+      "band": "elite"
+    },
+    {
+      "score": 106,
+      "yds": "5.16a",
+      "french": "9c+",
+      "uiaa": "12",
+      "band": "elite"
+    },
+    {
+      "score": 107,
+      "yds": "5.16a",
+      "french": "9c+",
+      "uiaa": "12",
+      "band": "elite"
+    }
+   ]

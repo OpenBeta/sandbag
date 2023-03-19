@@ -40,6 +40,7 @@ fs.createReadStream('./routes.csv')
       score: parseInt(data.Score, 10),
       yds: data.Yosemite,
       french: data.French,
+      uiaa: data.UIAA,
       band: data['Level Bands']
     })
   })
