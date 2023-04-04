@@ -3,8 +3,9 @@ import YosemiteDecimal from './yds'
 import Font from './font'
 import French from './french'
 import UIAA from './uiaa'
+import Ewbank from './ewbank'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { VScale, Font, YosemiteDecimal, French, UIAA }
+export { VScale, Font, YosemiteDecimal, French, UIAA, Ewbank }
 
 export interface Boulder {
   score: number
@@ -18,6 +19,7 @@ export interface Route {
   yds: string
   french: string
   uiaa: string
+  ewbank: string
   band: 'beginner' | 'intermediate' | 'elite' | 'experienced'
 }
 
@@ -26,5 +28,6 @@ export const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeS
   [GradeScales.YDS]: YosemiteDecimal,
   [GradeScales.FONT]: Font,
   [GradeScales.FRENCH]: French,
-  [GradeScales.UIAA]: UIAA
+  [GradeScales.UIAA]: UIAA,
+  [GradeScales.EWBANK]: Ewbank
 }

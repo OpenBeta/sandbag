@@ -4,6 +4,7 @@
       "yds": "5.0",
       "french": "1a",
       "uiaa": "1",
+      "ewbank": "1",
       "band": "beginner"
     },
     {
@@ -11,6 +12,7 @@
       "yds": "5.0",
       "french": "1a",
       "uiaa": "1",
+      "ewbank": "1",
       "band": "beginner"
     },
     {
@@ -18,6 +20,7 @@
       "yds": "5.0",
       "french": "1a+",
       "uiaa": "1",
+      "ewbank": "1",
       "band": "beginner"
     },
     {
@@ -25,6 +28,7 @@
       "yds": "5.0",
       "french": "1a+",
       "uiaa": "1",
+      "ewbank": "1",
       "band": "beginner"
     },
     {
@@ -32,6 +36,7 @@
       "yds": "5.0",
       "french": "1b",
       "uiaa": "1",
+      "ewbank": "1",
       "band": "beginner"
     },
     {
@@ -39,6 +44,7 @@
       "yds": "5.0",
       "french": "1b",
       "uiaa": "1",
+      "ewbank": "2",
       "band": "beginner"
     },
     {
@@ -46,6 +52,7 @@
       "yds": "5.0",
       "french": "1b+",
       "uiaa": "1",
+      "ewbank": "2",
       "band": "beginner"
     },
     {
@@ -53,6 +60,7 @@
       "yds": "5.0",
       "french": "1b+",
       "uiaa": "1",
+      "ewbank": "2",
       "band": "beginner"
     },
     {
@@ -60,6 +68,7 @@
       "yds": "5.0",
       "french": "1c",
       "uiaa": "1",
+      "ewbank": "2",
       "band": "beginner"
     },
     {
@@ -67,6 +76,7 @@
       "yds": "5.0",
       "french": "1c",
       "uiaa": "1",
+      "ewbank": "2",
       "band": "beginner"
     },
     {
@@ -74,13 +84,15 @@
       "yds": "5.0",
       "french": "1c+",
       "uiaa": "1",
+      "ewbank": "3",
       "band": "beginner"
     },
     {
       "score": 11,
-      "yds": "5.0",
+      "yds": "5",
       "french": "1c+",
       "uiaa": "1",
+      "ewbank": "4",
       "band": "beginner"
     },
     {
@@ -88,6 +100,7 @@
       "yds": "5.1",
       "french": "2a",
       "uiaa": "2",
+      "ewbank": "5",
       "band": "beginner"
     },
     {
@@ -95,6 +108,7 @@
       "yds": "5.1",
       "french": "2a",
       "uiaa": "2",
+      "ewbank": "5",
       "band": "beginner"
     },
     {
@@ -102,6 +116,7 @@
       "yds": "5.1",
       "french": "2a+",
       "uiaa": "2",
+      "ewbank": "5",
       "band": "beginner"
     },
     {
@@ -109,6 +124,7 @@
       "yds": "5.1",
       "french": "2a+",
       "uiaa": "2",
+      "ewbank": "6",
       "band": "beginner"
     },
     {
@@ -116,6 +132,7 @@
       "yds": "5.1",
       "french": "2b",
       "uiaa": "2",
+      "ewbank": "6",
       "band": "beginner"
     },
     {
@@ -123,6 +140,7 @@
       "yds": "5.1",
       "french": "2b",
       "uiaa": "2",
+      "ewbank": "6",
       "band": "beginner"
     },
     {
@@ -130,6 +148,7 @@
       "yds": "5.2",
       "french": "2b+",
       "uiaa": "2",
+      "ewbank": "7",
       "band": "beginner"
     },
     {
@@ -137,6 +156,7 @@
       "yds": "5.2",
       "french": "2b+",
       "uiaa": "2",
+      "ewbank": "7",
       "band": "beginner"
     },
     {
@@ -144,6 +164,7 @@
       "yds": "5.2",
       "french": "2c",
       "uiaa": "2",
+      "ewbank": "7",
       "band": "beginner"
     },
     {
@@ -151,6 +172,7 @@
       "yds": "5.2",
       "french": "2c",
       "uiaa": "2",
+      "ewbank": "7",
       "band": "beginner"
     },
     {
@@ -158,6 +180,7 @@
       "yds": "5.3",
       "french": "2c+",
       "uiaa": "2",
+      "ewbank": "8",
       "band": "beginner"
     },
     {
@@ -165,6 +188,7 @@
       "yds": "5.3",
       "french": "2c+",
       "uiaa": "2",
+      "ewbank": "8",
       "band": "beginner"
     },
     {
@@ -172,6 +196,7 @@
       "yds": "5.3",
       "french": "3a",
       "uiaa": "3",
+      "ewbank": "9",
       "band": "beginner"
     },
     {
@@ -179,6 +204,7 @@
       "yds": "5.3",
       "french": "3a",
       "uiaa": "3",
+      "ewbank": "9",
       "band": "beginner"
     },
     {
@@ -186,6 +212,7 @@
       "yds": "5.4",
       "french": "3a+",
       "uiaa": "3",
+      "ewbank": "10",
       "band": "beginner"
     },
     {
@@ -193,6 +220,7 @@
       "yds": "5.4",
       "french": "3a+",
       "uiaa": "3",
+      "ewbank": "10",
       "band": "beginner"
     },
     {
@@ -200,6 +228,7 @@
       "yds": "5.4",
       "french": "3b",
       "uiaa": "3",
+      "ewbank": "10",
       "band": "beginner"
     },
     {
@@ -207,6 +236,7 @@
       "yds": "5.4",
       "french": "3b",
       "uiaa": "3",
+      "ewbank": "10",
       "band": "beginner"
     },
     {
@@ -214,6 +244,7 @@
       "yds": "5.4",
       "french": "3b+",
       "uiaa": "3",
+      "ewbank": "10",
       "band": "beginner"
     },
     {
@@ -221,6 +252,7 @@
       "yds": "5.5",
       "french": "3b+",
       "uiaa": "3",
+      "ewbank": "11",
       "band": "beginner"
     },
     {
@@ -228,6 +260,7 @@
       "yds": "5.5",
       "french": "3c",
       "uiaa": "3",
+      "ewbank": "11",
       "band": "beginner"
     },
     {
@@ -235,6 +268,7 @@
       "yds": "5.5",
       "french": "3c",
       "uiaa": "3",
+      "ewbank": "12",
       "band": "beginner"
     },
     {
@@ -242,13 +276,15 @@
       "yds": "5.5",
       "french": "3c+",
       "uiaa": "3",
+      "ewbank": "12",
       "band": "beginner"
     },
     {
       "score": 35,
       "yds": "5.5",
       "french": "3c+",
-      "uiaa": "3+",
+      "uiaa": "3",
+      "ewbank": "12",
       "band": "beginner"
     },
     {
@@ -256,6 +292,7 @@
       "yds": "5.6",
       "french": "4a",
       "uiaa": "4",
+      "ewbank": "13",
       "band": "intermediate"
     },
     {
@@ -263,6 +300,7 @@
       "yds": "5.6",
       "french": "4a",
       "uiaa": "4",
+      "ewbank": "13",
       "band": "intermediate"
     },
     {
@@ -270,6 +308,7 @@
       "yds": "5.6",
       "french": "4a+",
       "uiaa": "4+",
+      "ewbank": "13",
       "band": "intermediate"
     },
     {
@@ -277,6 +316,7 @@
       "yds": "5.6",
       "french": "4a+",
       "uiaa": "4+",
+      "ewbank": "13",
       "band": "intermediate"
     },
     {
@@ -284,6 +324,7 @@
       "yds": "5.6",
       "french": "4b",
       "uiaa": "4+",
+      "ewbank": "13",
       "band": "intermediate"
     },
     {
@@ -291,6 +332,7 @@
       "yds": "5.7",
       "french": "4b",
       "uiaa": "4+",
+      "ewbank": "14",
       "band": "intermediate"
     },
     {
@@ -298,6 +340,7 @@
       "yds": "5.7",
       "french": "4b+",
       "uiaa": "5-",
+      "ewbank": "14",
       "band": "intermediate"
     },
     {
@@ -305,6 +348,7 @@
       "yds": "5.7",
       "french": "4b+",
       "uiaa": "5-",
+      "ewbank": "14",
       "band": "intermediate"
     },
     {
@@ -312,6 +356,7 @@
       "yds": "5.7",
       "french": "4c",
       "uiaa": "5-",
+      "ewbank": "15",
       "band": "intermediate"
     },
     {
@@ -319,6 +364,7 @@
       "yds": "5.7",
       "french": "4c",
       "uiaa": "5-",
+      "ewbank": "15",
       "band": "intermediate"
     },
     {
@@ -326,6 +372,7 @@
       "yds": "5.8",
       "french": "4c+",
       "uiaa": "5",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -333,6 +380,7 @@
       "yds": "5.8",
       "french": "4c+",
       "uiaa": "5",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -340,6 +388,7 @@
       "yds": "5.8",
       "french": "5a",
       "uiaa": "5",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -347,6 +396,7 @@
       "yds": "5.8",
       "french": "5a",
       "uiaa": "5",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -354,6 +404,7 @@
       "yds": "5.8",
       "french": "5a+",
       "uiaa": "5+",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -361,6 +412,7 @@
       "yds": "5.8",
       "french": "5a+",
       "uiaa": "5+",
+      "ewbank": "16",
       "band": "intermediate"
     },
     {
@@ -368,6 +420,7 @@
       "yds": "5.9",
       "french": "5b",
       "uiaa": "5+",
+      "ewbank": "17",
       "band": "intermediate"
     },
     {
@@ -375,6 +428,7 @@
       "yds": "5.9",
       "french": "5b",
       "uiaa": "5+",
+      "ewbank": "17",
       "band": "intermediate"
     },
     {
@@ -382,6 +436,7 @@
       "yds": "5.9",
       "french": "5b+",
       "uiaa": "6-",
+      "ewbank": "17",
       "band": "intermediate"
     },
     {
@@ -389,6 +444,7 @@
       "yds": "5.9",
       "french": "5b+",
       "uiaa": "6-",
+      "ewbank": "17",
       "band": "intermediate"
     },
     {
@@ -396,6 +452,7 @@
       "yds": "5.9",
       "french": "5c",
       "uiaa": "6",
+      "ewbank": "17",
       "band": "intermediate"
     },
     {
@@ -403,6 +460,7 @@
       "yds": "5.10a",
       "french": "5c",
       "uiaa": "6",
+      "ewbank": "18",
       "band": "intermediate"
     },
     {
@@ -410,6 +468,7 @@
       "yds": "5.10a",
       "french": "5c+",
       "uiaa": "6+",
+      "ewbank": "18",
       "band": "intermediate"
     },
     {
@@ -417,6 +476,7 @@
       "yds": "5.10a",
       "french": "5c+",
       "uiaa": "6+",
+      "ewbank": "18",
       "band": "intermediate"
     },
     {
@@ -424,6 +484,7 @@
       "yds": "5.10a",
       "french": "6a",
       "uiaa": "6+",
+      "ewbank": "18",
       "band": "intermediate"
     },
     {
@@ -431,6 +492,7 @@
       "yds": "5.10a",
       "french": "6a",
       "uiaa": "6+",
+      "ewbank": "18",
       "band": "intermediate"
     },
     {
@@ -438,6 +500,7 @@
       "yds": "5.10b",
       "french": "6a+",
       "uiaa": "7-",
+      "ewbank": "19",
       "band": "experienced"
     },
     {
@@ -445,6 +508,7 @@
       "yds": "5.10b",
       "french": "6a+",
       "uiaa": "7-",
+      "ewbank": "19",
       "band": "experienced"
     },
     {
@@ -452,6 +516,7 @@
       "yds": "5.10c",
       "french": "6b",
       "uiaa": "7",
+      "ewbank": "20",
       "band": "experienced"
     },
     {
@@ -459,6 +524,7 @@
       "yds": "5.10c",
       "french": "6b",
       "uiaa": "7",
+      "ewbank": "20",
       "band": "experienced"
     },
     {
@@ -466,6 +532,7 @@
       "yds": "5.10d",
       "french": "6b+",
       "uiaa": "7+",
+      "ewbank": "20",
       "band": "experienced"
     },
     {
@@ -473,6 +540,7 @@
       "yds": "5.11a",
       "french": "6b+",
       "uiaa": "7+",
+      "ewbank": "21",
       "band": "experienced"
     },
     {
@@ -480,6 +548,7 @@
       "yds": "5.11a",
       "french": "6c",
       "uiaa": "7+/8-",
+      "ewbank": "21",
       "band": "experienced"
     },
     {
@@ -487,6 +556,7 @@
       "yds": "5.11b",
       "french": "6c",
       "uiaa": "7+/8-",
+      "ewbank": "22",
       "band": "experienced"
     },
     {
@@ -494,6 +564,7 @@
       "yds": "5.11b",
       "french": "6c+",
       "uiaa": "8-",
+      "ewbank": "22",
       "band": "experienced"
     },
     {
@@ -501,6 +572,7 @@
       "yds": "5.11c",
       "french": "6c+",
       "uiaa": "8-",
+      "ewbank": "23",
       "band": "experienced"
     },
     {
@@ -508,6 +580,7 @@
       "yds": "5.11c",
       "french": "7a",
       "uiaa": "8",
+      "ewbank": "23",
       "band": "experienced"
     },
     {
@@ -515,6 +588,7 @@
       "yds": "5.11d",
       "french": "7a",
       "uiaa": "8",
+      "ewbank": "23",
       "band": "experienced"
     },
     {
@@ -522,6 +596,7 @@
       "yds": "5.11d",
       "french": "7a+",
       "uiaa": "8+",
+      "ewbank": "24",
       "band": "experienced"
     },
     {
@@ -529,6 +604,7 @@
       "yds": "5.12a",
       "french": "7a+",
       "uiaa": "8+",
+      "ewbank": "24",
       "band": "experienced"
     },
     {
@@ -536,6 +612,7 @@
       "yds": "5.12b",
       "french": "7b",
       "uiaa": "8+/9-",
+      "ewbank": "25",
       "band": "expert"
     },
     {
@@ -543,6 +620,7 @@
       "yds": "5.12b",
       "french": "7b",
       "uiaa": "8+/9-",
+      "ewbank": "25",
       "band": "expert"
     },
     {
@@ -550,6 +628,7 @@
       "yds": "5.12c",
       "french": "7b+",
       "uiaa": "9-",
+      "ewbank": "26",
       "band": "expert"
     },
     {
@@ -557,6 +636,7 @@
       "yds": "5.12c",
       "french": "7b+",
       "uiaa": "9-",
+      "ewbank": "26",
       "band": "expert"
     },
     {
@@ -564,6 +644,7 @@
       "yds": "5.12d",
       "french": "7c",
       "uiaa": "9",
+      "ewbank": "27",
       "band": "expert"
     },
     {
@@ -571,6 +652,7 @@
       "yds": "5.12d",
       "french": "7c",
       "uiaa": "9",
+      "ewbank": "27",
       "band": "expert"
     },
     {
@@ -578,6 +660,7 @@
       "yds": "5.13a",
       "french": "7c+",
       "uiaa": "9+",
+      "ewbank": "28",
       "band": "expert"
     },
     {
@@ -585,6 +668,7 @@
       "yds": "5.13a",
       "french": "7c+",
       "uiaa": "9+",
+      "ewbank": "28",
       "band": "expert"
     },
     {
@@ -592,6 +676,7 @@
       "yds": "5.13b",
       "french": "8a",
       "uiaa": "10-",
+      "ewbank": "29",
       "band": "expert"
     },
     {
@@ -599,6 +684,7 @@
       "yds": "5.13b",
       "french": "8a",
       "uiaa": "10-",
+      "ewbank": "29",
       "band": "expert"
     },
     {
@@ -606,6 +692,7 @@
       "yds": "5.13c",
       "french": "8a+",
       "uiaa": "10",
+      "ewbank": "30",
       "band": "expert"
     },
     {
@@ -613,6 +700,7 @@
       "yds": "5.13c",
       "french": "8a+",
       "uiaa": "10",
+      "ewbank": "30",
       "band": "expert"
     },
     {
@@ -620,6 +708,7 @@
       "yds": "5.13d",
       "french": "8b",
       "uiaa": "10+",
+      "ewbank": "31",
       "band": "expert"
     },
     {
@@ -627,6 +716,7 @@
       "yds": "5.13d",
       "french": "8b",
       "uiaa": "10+",
+      "ewbank": "31",
       "band": "expert"
     },
     {
@@ -634,6 +724,7 @@
       "yds": "5.14a",
       "french": "8b+",
       "uiaa": "10+/11-",
+      "ewbank": "32",
       "band": "elite"
     },
     {
@@ -641,6 +732,7 @@
       "yds": "5.14a",
       "french": "8b+",
       "uiaa": "10+/11-",
+      "ewbank": "32",
       "band": "elite"
     },
     {
@@ -648,6 +740,7 @@
       "yds": "5.14b",
       "french": "8c",
       "uiaa": "11-",
+      "ewbank": "33",
       "band": "elite"
     },
     {
@@ -655,6 +748,7 @@
       "yds": "5.14b",
       "french": "8c",
       "uiaa": "11-",
+      "ewbank": "33",
       "band": "elite"
     },
     {
@@ -662,6 +756,7 @@
       "yds": "5.14c",
       "french": "8c+",
       "uiaa": "11",
+      "ewbank": "34",
       "band": "elite"
     },
     {
@@ -669,6 +764,7 @@
       "yds": "5.14c",
       "french": "8c+",
       "uiaa": "11",
+      "ewbank": "34",
       "band": "elite"
     },
     {
@@ -676,6 +772,7 @@
       "yds": "5.14d",
       "french": "9a",
       "uiaa": "11",
+      "ewbank": "35",
       "band": "elite"
     },
     {
@@ -683,6 +780,7 @@
       "yds": "5.14d",
       "french": "9a",
       "uiaa": "11",
+      "ewbank": "35",
       "band": "elite"
     },
     {
@@ -690,6 +788,7 @@
       "yds": "5.15a",
       "french": "9a+",
       "uiaa": "11/11+",
+      "ewbank": "36",
       "band": "elite"
     },
     {
@@ -697,6 +796,7 @@
       "yds": "5.15a",
       "french": "9a+",
       "uiaa": "11/11+",
+      "ewbank": "36",
       "band": "elite"
     },
     {
@@ -704,6 +804,7 @@
       "yds": "5.15b",
       "french": "9b",
       "uiaa": "11+",
+      "ewbank": "37",
       "band": "elite"
     },
     {
@@ -711,6 +812,7 @@
       "yds": "5.15b",
       "french": "9b",
       "uiaa": "11+",
+      "ewbank": "37",
       "band": "elite"
     },
     {
@@ -718,6 +820,7 @@
       "yds": "5.15c",
       "french": "9b+",
       "uiaa": "11+/12-",
+      "ewbank": "38",
       "band": "elite"
     },
     {
@@ -725,6 +828,7 @@
       "yds": "5.15c",
       "french": "9b+",
       "uiaa": "11+/12-",
+      "ewbank": "38",
       "band": "elite"
     },
     {
@@ -732,6 +836,7 @@
       "yds": "5.15d",
       "french": "9c",
       "uiaa": "12-",
+      "ewbank": "39",
       "band": "elite"
     },
     {
@@ -739,6 +844,7 @@
       "yds": "5.15d",
       "french": "9c",
       "uiaa": "12-",
+      "ewbank": "39",
       "band": "elite"
     },
     {
@@ -746,6 +852,7 @@
       "yds": "5.16a",
       "french": "9c+",
       "uiaa": "12",
+      "ewbank": "40",
       "band": "elite"
     },
     {
@@ -753,6 +860,7 @@
       "yds": "5.16a",
       "french": "9c+",
       "uiaa": "12",
+      "ewbank": "40",
       "band": "elite"
     }
-   ]
+]

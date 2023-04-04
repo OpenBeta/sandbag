@@ -41,6 +41,7 @@ fs.createReadStream('./routes.csv')
       yds: data.Yosemite,
       french: data.French,
       uiaa: data.UIAA,
+      ewbank: data.Ewbank,
       band: data['Level Bands']
     })
   })
