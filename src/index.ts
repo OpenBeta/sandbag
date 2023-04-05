@@ -60,6 +60,14 @@ const UIAA_ARRAY = [
   '12-', '12'
 ]
 
+const EWBANK_ARRAY = [
+  '1', '2', '3', '4', '5', '6', '7', '8', '9',
+  '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+  '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+  '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+  '40'
+]
+
 const CLASS_ARRAY = [
   'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5'
 ]
@@ -80,7 +88,8 @@ export const freeClimbing = {
     britishTech: BRITISH_TECH_ARRAY,
     britishAdj: BRITISH_ADJ_ARRAY,
     French: FRENCH_ARRAY,
-    UIAA: UIAA_ARRAY
+    UIAA: UIAA_ARRAY,
+    Ewbank: EWBANK_ARRAY
   },
   community: {
 

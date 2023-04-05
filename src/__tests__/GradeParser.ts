@@ -36,6 +36,14 @@ describe('Grade Scales', () => {
       expect(convertGrade('5.11a', GradeScales.YDS, GradeScales.FRENCH)).toEqual('6b+/6c')
     })
 
+    test('convert YDS to Ewbank', () => {
+      expect(convertGrade('5.11a', GradeScales.YDS, GradeScales.EWBANK)).toEqual('21')
+    })
+
+    xtest('convert YDS to Ewbank where range coverages more than 2 grades', () => {
+      expect(convertGrade('5.0', GradeScales.YDS, GradeScales.EWBANK)).toEqual('1-4')
+    })
+
     test('convert YDS to VSCALE is not allowed', () => {
       expect(convertGrade('5.11a', GradeScales.YDS, GradeScales.VSCALE)).toEqual('')
       expect(console.warn).toHaveBeenCalledWith(
@@ -179,6 +187,10 @@ describe('Grade Scales', () => {
 
     test('convert FRENCH to YDS', () => {
       expect(convertGrade('3a', GradeScales.FRENCH, GradeScales.YDS)).toEqual('5.3')
+    })
+
+    test('convert FRENCH to Ewbank', () => {
+      expect(convertGrade('4b', GradeScales.FRENCH, GradeScales.EWBANK)).toEqual('13/14')
     })
 
     test('convert FRENCH to FONT is not allowed', () => {
