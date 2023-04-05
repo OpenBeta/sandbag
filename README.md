@@ -22,7 +22,7 @@ Javascript utilities for working with rock climbing grades.
 
 Code contributions are most welcome!
 
-We're also looking for a project maintainer to help us improve the API and expand supports for other systems.  Email `viet at openbeta dot io` if interested.
+We're also looking for a **project maintainer** to help us improve the API and expand support for other systems.  Email `viet at openbeta dot io` if interested.
 
 ### Questions?
 Join us on [Discord](https://discord.gg/fY9DbRav8h).
