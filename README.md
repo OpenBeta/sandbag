@@ -6,10 +6,28 @@
 
 Javascript utilities for working with rock climbing grades.
 
-** Only YDS and V scale are supported at the moment. Code contributions are most welcome!**
+### Supported systems 
 
-Questions?  Join us on [Discord](https://discord.gg/fY9DbRav8h).
+**Sport & Traditional climbing**
+- [x] Yosemite Decimal System
+- [x] French
+- [x] UIAA
+- [x] Ewbanks
 
+**Bouldering**
+- [x] Vermin (V-scale)
+- [x] Fontainebleau
+
+### Help Wanted
+
+Code contributions are most welcome!
+
+We're also looking for a **project maintainer** to help us improve the API and expand support for other systems.  Email `viet at openbeta dot io` if interested.
+
+### Questions?
+Join us on [Discord](https://discord.gg/fY9DbRav8h).
+
+---
 
 ### How to use the library
 
@@ -43,6 +61,9 @@ See [unit tests](./src/__tests__) for more examples.
 yarn install
 yarn test
 ```
+
+#### How to publish a new release to NPM
+Submit a PR with commit message `[npm publish]`
 
 ### License
 
