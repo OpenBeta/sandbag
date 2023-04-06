@@ -1,5 +1,4 @@
 
-import { getScoreForGrade } from './vyds'
 import { GradeScales, GradeScalesTypes } from './GradeScale'
 import { getScale, getScore, getScoreForSort, isVScale } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
@@ -100,4 +99,4 @@ export const bouldering = {
 
 }
 
-export { getScoreForGrade, getScore, getScoreForSort, isVScale, getScale, GradeScales, GradeScalesTypes, GradeBands, GradeBandTypes }
+export { getScore, getScoreForSort, isVScale, getScale, GradeScales, GradeScalesTypes, GradeBands, GradeBandTypes }
