@@ -6,7 +6,7 @@
 
 Javascript utilities for working with rock climbing grades.
 
-### Supported systems 
+### Supported systems
 
 **Sport & Traditional climbing**
 - [x] Yosemite Decimal System
@@ -18,6 +18,10 @@ Javascript utilities for working with rock climbing grades.
 **Bouldering**
 - [x] Vermin (V-scale)
 - [x] Fontainebleau
+
+**Aid**
+- [x] A# & C#
+- [ ] Aid  with mandatory free climbing (5.8 A0, etc)
 
 **Ice**
 - [x] Winter Ice (WI#)

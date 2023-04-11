@@ -7,10 +7,11 @@ import Ewbank from './ewbank'
 import Saxon from './saxon'
 import Norwegian from './norwegian'
 import AI from './ai'
+import Aid from './aid'
 import WI from './wi'
 import UIAA from './uiaa'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian }
+export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian }
 
 export interface Boulder {
   score: number
@@ -36,6 +37,11 @@ export interface IceGrade {
   wi: string
 }
 
+export interface AidGrade {
+  score: number
+  aid: string
+}
+
 export const scales: Record<
   typeof GradeScales[keyof typeof GradeScales],
 GradeScale | null
@@ -49,5 +55,6 @@ GradeScale | null
   [GradeScales.SAXON]: Saxon,
   [GradeScales.NORWEGIAN]: Norwegian,
   [GradeScales.AI]: AI,
-  [GradeScales.WI]: WI
+  [GradeScales.WI]: WI,
+  [GradeScales.AID]: Aid
 }

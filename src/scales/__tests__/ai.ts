@@ -64,7 +64,7 @@ describe('AI', () => {
       expect(score).toEqual(-1)
     })
 
-    test('not aid scale', () => {
+    test('not AI scale', () => {
       const score = AI.getScore('v11')
       expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale AI')
       expect(score).toEqual(-1)
