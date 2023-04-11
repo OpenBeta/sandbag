@@ -3,7 +3,7 @@
 
 import csv from 'csv-parser'
 import * as fs from 'fs'
-import { Boulder, Route, IceGrade } from '../scales'
+import { AidGrade, Boulder, Route, IceGrade } from '../scales'
 import path from 'path'
 
 const boulderGrades: Boulder[] = []
@@ -69,4 +69,21 @@ fs.createReadStream(path.join(process.cwd(), 'src/data/ice.csv'))
   .on('end', () => {
     const data = JSON.stringify(iceGrades)
     fs.writeFileSync(`${writeDir}/ice.json`, data)
+  })
+
+const aidGrades: AidGrade[] = []
+fs.createReadStream(path.join(process.cwd(), 'src/data/aid.csv'))
+  .pipe(csv())
+  .on('data', (data) => {
+    if (data.Aid === '' && data.Aid === '') {
+      return
+    }
+    aidGrades.push({
+      score: parseInt(data.Score, 10),
+      aid: data.Aid
+    })
+  })
+  .on('end', () => {
+    const data = JSON.stringify(aidGrades)
+    fs.writeFileSync(`${writeDir}/aid.json`, data)
   })

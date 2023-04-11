@@ -64,7 +64,7 @@ describe('WI', () => {
       expect(score).toEqual(-1)
     })
 
-    test('not aid scale', () => {
+    test('not WI scale', () => {
       const score = WI.getScore('v11')
       expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: v11 for grade scale WI')
       expect(score).toEqual(-1)

@@ -8,7 +8,7 @@ import {
   convertGrade
 } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
-import { AI, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal } from './scales'
+import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal } from './scales'
 
 // Free Climbing Grades
 // YDS
@@ -302,6 +302,7 @@ export {
 
 export {
   AI,
+  Aid,
   Ewbank,
   Font,
   French,
