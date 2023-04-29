@@ -19,7 +19,8 @@ export const GradeScales = {
   FONT: 'font',
   FRENCH: 'french',
   UIAA: 'uiaa',
-  EWBANK: 'ewbank'
+  EWBANK: 'ewbank',
+  SAXON: 'saxon'
 } as const
 
 export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]

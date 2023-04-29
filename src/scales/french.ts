@@ -13,7 +13,7 @@ const FrenchScale: GradeScale = {
   displayName: 'French Scale',
   name: GradeScales.FRENCH,
   offset: 1000,
-  allowableConversionType: [GradeScales.YDS, GradeScales.EWBANK],
+  allowableConversionType: [GradeScales.YDS, GradeScales.EWBANK, GradeScales.SAXON],
   isType: (grade: string): boolean => {
     if (isFrench(grade) === null) {
       return false

@@ -1,6 +1,6 @@
 import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
-import { VScale, Font, YosemiteDecimal, French } from '../scales'
+import { VScale, Font, YosemiteDecimal, French, Saxon } from '../scales'
 
 describe('Grade Scales', () => {
   beforeAll(() => {
@@ -206,6 +206,60 @@ describe('Grade Scales', () => {
       expect(convertGrade('3a', GradeScales.FRENCH, GradeScales.VSCALE)).toEqual('')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining("Scale: French Scale doesn't support converting to Scale: V Scale")
+      )
+    })
+  })
+
+  describe('SAXON', () => {
+    test('6 > 5', () => {
+      expect(getScoreForSort('6', GradeScales.SAXON)).toBeGreaterThan(
+        getScoreForSort('5', GradeScales.SAXON)
+      )
+    })
+
+    test('7b > 7a', () => {
+      expect(getScoreForSort('7b', GradeScales.SAXON)).toBeGreaterThan(
+        getScoreForSort('7a', GradeScales.SAXON)
+      )
+    })
+
+    test('7c > 7b', () => {
+      expect(getScoreForSort('7c', GradeScales.SAXON)).toBeGreaterThan(
+        getScoreForSort('7b', GradeScales.SAXON)
+      )
+    })
+
+    test('8a > 7c', () => {
+      expect(getScoreForSort('8a', GradeScales.SAXON)).toBeGreaterThan(
+        getScoreForSort('7c', GradeScales.SAXON)
+      )
+    })
+
+    test('returns a GradeScale given the name', () => {
+      expect(getScale(GradeScales.SAXON)).toEqual(Saxon)
+    })
+
+    test('convert SAXON to YDS', () => {
+      expect(convertGrade('7a', GradeScales.SAXON, GradeScales.YDS)).toEqual('5.8/5.9')
+    })
+
+    test('convert SAXON to Ewbank', () => {
+      expect(convertGrade('5', GradeScales.SAXON, GradeScales.EWBANK)).toEqual('13/15')
+    })
+
+    test('convert SAXON to FONT is not allowed', () => {
+      expect(convertGrade('3a', GradeScales.SAXON, GradeScales.FONT)).toEqual('')
+      expect(console.warn).toHaveBeenCalledWith(
+        expect.stringContaining(
+          "Scale: Saxon Scale doesn't support converting to Scale: Fontainebleau"
+        )
+      )
+    })
+
+    test('convert SAXON to VSCALE is not allowed', () => {
+      expect(convertGrade('3a', GradeScales.SAXON, GradeScales.VSCALE)).toEqual('')
+      expect(console.warn).toHaveBeenCalledWith(
+        expect.stringContaining("Scale: Saxon Scale doesn't support converting to Scale: V Scale")
       )
     })
   })

@@ -15,7 +15,7 @@ const EwbankScale: GradeScale = {
   displayName: 'Ewbank Grade',
   name: GradeScales.EWBANK,
   offset: 1000,
-  allowableConversionType: [GradeScales.YDS, GradeScales.FRENCH],
+  allowableConversionType: [GradeScales.YDS, GradeScales.FRENCH, GradeScales.SAXON],
   isType: (grade: string): boolean => {
     if (isEwbank(grade) === null) {
       return false
@@ -26,17 +26,18 @@ const EwbankScale: GradeScale = {
     return getScore(grade)
   },
   getGrade: (score: number | Tuple): string => {
-    const validateScore = (score: number): number => {
+    const validateScore = (score: number): string => {
       const validScore = Number.isInteger(score) ? score : Math.ceil(score)
-      return Math.min(Math.max(0, validScore), routes.length - 1)
+      const index = Math.min(Math.max(0, validScore), routes.length - 1)
+      return routes[index].ewbank
     }
 
     if (typeof score === 'number') {
-      return routes[validateScore(score)].ewbank
+      return validateScore(score)
     }
 
-    const low: string = routes[validateScore(score[0])].ewbank
-    const high: string = routes[validateScore(score[1])].ewbank
+    const low: string = validateScore(score[0])
+    const high: string = validateScore(score[1])
     if (low === high) return low
     return `${low}/${high}`
   },

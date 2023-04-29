@@ -19,7 +19,7 @@ const YosemiteDecimal: GradeScale = {
   displayName: 'Yosemite Decimal System',
   name: GradeScales.YDS,
   offset: 1000,
-  allowableConversionType: [GradeScales.FRENCH, GradeScales.EWBANK],
+  allowableConversionType: [GradeScales.FRENCH, GradeScales.EWBANK, GradeScales.SAXON],
   isType: (grade: string): boolean => {
     if (isYds(grade) === null) {
       return false
