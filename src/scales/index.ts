@@ -4,9 +4,11 @@ import Font from './font'
 import French from './french'
 import Ewbank from './ewbank'
 import Saxon from './saxon'
-import GradeScale, { GradeScales } from '../GradeScale'
+import AI from './ai'
+import WI from './wi'
 import UIAA from './uiaa'
-export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank }
+import GradeScale, { GradeScales } from '../GradeScale'
+export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI }
 
 export interface Boulder {
   score: number
@@ -25,6 +27,12 @@ export interface Route {
   band: 'beginner' | 'intermediate' | 'elite' | 'experienced'
 }
 
+export interface IceGrade {
+  score: number
+  ai: string
+  wi: string
+}
+
 export const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeScale | null> = {
   [GradeScales.VSCALE]: VScale,
   [GradeScales.YDS]: YosemiteDecimal,
@@ -32,5 +40,7 @@ export const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeS
   [GradeScales.FRENCH]: French,
   [GradeScales.UIAA]: UIAA,
   [GradeScales.EWBANK]: Ewbank,
-  [GradeScales.SAXON]: Saxon
+  [GradeScales.SAXON]: Saxon,
+  [GradeScales.AI]: AI,
+  [GradeScales.WI]: WI
 }

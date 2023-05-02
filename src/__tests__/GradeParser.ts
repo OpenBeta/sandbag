@@ -1,6 +1,6 @@
 import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
-import { VScale, Font, YosemiteDecimal, French, Saxon } from '../scales'
+import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI } from '../scales'
 
 describe('Grade Scales', () => {
   beforeAll(() => {
@@ -9,6 +9,7 @@ describe('Grade Scales', () => {
   beforeEach(() => {
     jest.clearAllMocks()
   })
+
   describe('YDS', () => {
     test('5.9 > 5.8', () => {
       expect(getScoreForSort('5.9', GradeScales.YDS)).toBeGreaterThan(
@@ -260,6 +261,64 @@ describe('Grade Scales', () => {
       expect(convertGrade('3a', GradeScales.SAXON, GradeScales.VSCALE)).toEqual('')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining("Scale: Saxon Scale doesn't support converting to Scale: V Scale")
+      )
+    })
+  })
+
+  describe('AI', () => {
+    test('AI8+ > AI1', () => {
+      expect(getScoreForSort('AI8+', GradeScales.AI)).toBeGreaterThan(
+        getScoreForSort('AI1', GradeScales.AI)
+      )
+    })
+
+    test('returns a GradeScale given the name', () => {
+      expect(getScale(GradeScales.AI)).toEqual(AI)
+    })
+
+    test('convert AI to WI', () => {
+      expect(convertGrade('AI3+', GradeScales.AI, GradeScales.WI)).toEqual('WI3+')
+    })
+
+    test.failing('convert slash grade of AI to WI', () => {
+      expect(convertGrade('AI4/AI4+', GradeScales.AI, GradeScales.AI)).toEqual('WI4/WI4+')
+    })
+
+    test('convert AI to Font is not allowed', () => {
+      expect(convertGrade('AI3', GradeScales.AI, GradeScales.FONT)).toEqual('')
+      expect(console.warn).toHaveBeenCalledWith(
+        expect.stringContaining(
+          "Scale: AI Grade doesn't support converting to Scale: Font"
+        )
+      )
+    })
+  })
+
+  describe('WI', () => {
+    test('WI8+ > WI1', () => {
+      expect(getScoreForSort('WI8+', GradeScales.WI)).toBeGreaterThan(
+        getScoreForSort('WI1', GradeScales.WI)
+      )
+    })
+
+    test('returns a GradeScale given the name', () => {
+      expect(getScale(GradeScales.WI)).toEqual(WI)
+    })
+
+    test('convert WI to AI', () => {
+      expect(convertGrade('WI3+', GradeScales.WI, GradeScales.AI)).toEqual('AI3+')
+    })
+
+    test.failing('convert slash grade of WI to AI', () => {
+      expect(convertGrade('WI4/WI4+', GradeScales.WI, GradeScales.AI)).toEqual('AI4/AI4+')
+    })
+
+    test('convert WI to French is not allowed', () => {
+      expect(convertGrade('WI3', GradeScales.WI, GradeScales.FRENCH)).toEqual('')
+      expect(console.warn).toHaveBeenCalledWith(
+        expect.stringContaining(
+          "Scale: WI Grade doesn't support converting to Scale: French"
+        )
       )
     })
   })
