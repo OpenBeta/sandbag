@@ -1,5 +1,5 @@
 import { GradeBands } from '../../GradeBands'
-import { Saxon } from '../../scales'
+import {Saxon} from '../../scales'
 
 describe('Saxon', () => {
   describe('Get Score', () => {
@@ -38,8 +38,8 @@ describe('Saxon', () => {
       jest.clearAllMocks()
     })
     test('plus modifier', () => {
-      const invalidGrade = Saxon.getScore('20+')
-      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 20+ for grade scale Saxon')
+      const invalidGrade = Saxon.getScore('5+')
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5+ for grade scale Saxon')
       expect(invalidGrade).toEqual(-1)
     })
     test('invalid plus modifier', () => {
@@ -68,6 +68,11 @@ describe('Saxon', () => {
       expect(console.warn).toHaveBeenCalledWith(
         'Unexpected grade format: V11 for grade scale Saxon'
       )
+      expect(invalidGrade).toEqual(-1)
+    })
+    test('invalid character', () => {
+      const invalidGrade = Saxon.getScore('5a')
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a for grade scale Saxon')
       expect(invalidGrade).toEqual(-1)
     })
   })

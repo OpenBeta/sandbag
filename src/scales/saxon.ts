@@ -3,7 +3,7 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
-const saxonGradeRegex = /^(([1-9]|1[0-3])([a-c])?){1}(?:(\/)(([1-9]|1[0-3])([a-c])?))?$/i
+const saxonGradeRegex = /^((([7-9]|1[0-3])([a-c]))|([1-6]))$/i
 // Saxon grading system, predominant in Central Europe (esp. Germany, Austria, Switzerland)
 // Supports 1 -> 13c, slash grades i.e. 7a/7b
 // Uses Arabic numerals with letters from a-c, e.g. "7a" , "7b", or "7c" (hardest)
