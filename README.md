@@ -19,6 +19,10 @@ Javascript utilities for working with rock climbing grades.
 - [x] Vermin (V-scale)
 - [x] Fontainebleau
 
+**Ice**
+- [x] Winter Ice (WI#)
+- [x] Alpine Ice (AI#)
+
 ### Help Wanted
 
 Code contributions are most welcome!

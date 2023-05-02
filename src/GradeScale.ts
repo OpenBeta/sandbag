@@ -14,6 +14,8 @@ export default interface GradeScale {
 }
 
 export const GradeScales = {
+  AI: 'ai',
+  WI: 'wi',
   VSCALE: 'vscale',
   YDS: 'yds',
   FONT: 'font',
