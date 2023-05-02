@@ -6,7 +6,7 @@ import Ewbank from './ewbank'
 import Saxon from './saxon'
 import GradeScale, { GradeScales } from '../GradeScale'
 import UIAA from './uiaa'
-export { VScale, Font, YosemiteDecimal , French, Saxon, UIAA, Ewbank }
+export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank }
 
 export interface Boulder {
   score: number

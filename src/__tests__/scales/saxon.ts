@@ -1,5 +1,5 @@
 import { GradeBands } from '../../GradeBands'
-import {Saxon} from '../../scales'
+import { Saxon } from '../../scales'
 
 describe('Saxon', () => {
   describe('Get Score', () => {
