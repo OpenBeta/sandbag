@@ -30,9 +30,7 @@
   "engines": {
     "node": ">=14"
   },
-  "dependencies": {
-    "@openbeta/sandbag": "^0.0.38"
-  },
+  "dependencies": {},
   "keywords": [
     "rock climbing",
     "climbing grades"
