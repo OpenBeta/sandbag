@@ -72,6 +72,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "TaliaMalia",
+      "name": "Talia Aleyna Hortac",
+      "avatar_url": "https://avatars.githubusercontent.com/u/131688085?v=4",
+      "profile": "https://github.com/TaliaMalia",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
