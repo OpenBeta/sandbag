@@ -44,15 +44,83 @@ Using Yarn
 yarn add @openbeta/sandbag
 ```
 
-#### Compare YDS grades
+#### Sample Usage
+
+- Convert Grades to Scores
+
 ```javascript
-import { YosemiteDecimal } from '@openbeta/sandbag'
+import { French, YosemiteDecimal } from '@openbeta/sandbag'
 
-const easier = YosemiteDecimal.getScoreForSort('5.6')
-const harder = YosemiteDecimal.getScoreForSort('5.10')
+const score = French.getScore('8a') // Output [ 84, 85 ]
 
-console.log('Is 5.6 easier than 5.10?', easier < harder)  // Output: true
+// Support slash grade
+const slashGradeScore=French.getScore('7c+/8a') // Output [ 82.5, 84.5 ]
+
+// Accept +/- modifier
+const plusGrade= YosemiteDecimal.getScore('5.12+') // Output [ 78.5, 80.5 ]
 ```
+
+- Convert Scores to Grades
+
+```javascript
+import { Font } from '@openbeta/sandbag'
+
+// Single score provided
+Font.getGrade(80) // Output '7c'
+
+// Support a range of scores 
+Font.getGrade([79,81]) // Output'7b+/7c'
+
+```
+
+- Validate Grading Scales
+``` javascript
+import { VScale , Font }from '@openbeta/sandbag'
+
+console.log('Is 6A a V Scale?',VScale.isType('6A'))  // Output false
+console.log('Is 6A a Font Scale?',Font.isType('6A')) // Output true
+
+```
+
+- Convert Grades Across Scales
+
+``` javascript
+import {convertGrade , GradeScales }from '@openbeta/sandbag'
+
+const ydsInFrench=convertGrade('5.11a',GradeScales.YDS,GradeScales.FRENCH) // Output '6b+/6c'
+
+const fontInVScale=convertGrade('6a',GradeScales.FONT,GradeScales.VSCALE) //OutPut 'V3'
+
+// Conversions across different disciplines are not allowed
+const sportToBoulder=convertGrade('5.11a',GradeScales.YDS,GradeScales.VSCALE)
+// Output: Scale: Yosemite Decimal System doesn't support converting to Scale: V Scale
+// ''
+```
+
+- Get Gradeband
+
+```javascript
+import { Ewbank } from '@openbeta/sandbag'
+
+Ewbank.getGradeBand('10') // Output: 'beginner'
+Ewbank.getGradeBand('30') // Output: 'expert'
+Ewbank.getGradeBand('6a') // Output: Unexpected grade format: 6a for grade scale Ewbank 'unknown'
+
+```
+- Compare Grades
+
+```javascript
+
+import { French, YosemiteDecimal } from '@openbeta/sandbag'
+
+const harder = French.getScore('8a')  // Output: [ 84, 85 ]
+const easier = YosemiteDecimal.getScore('5.13a') // Output: [ 82, 83 ]
+
+console.log('Is 8a harder than 5.13a?',harder > easier) // Output: true
+
+```
+
+
 
 See [unit tests](./src/__tests__) for more examples.
 
