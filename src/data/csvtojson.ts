@@ -42,6 +42,7 @@ fs.createReadStream('./routes.csv')
       french: data.French,
       uiaa: data.UIAA,
       ewbank: data.Ewbank,
+      saxon: data.Saxon,
       band: data['Level Bands']
     })
   })
@@ -49,7 +50,7 @@ fs.createReadStream('./routes.csv')
     const data = JSON.stringify(routeGrades)
     fs.writeFileSync('routes.json', data)
   // [
-  //  { score: 26, yds: '5.10a', french: '3a+', band: 'beginner' },
-  //  { score: 27, yds: '5.10a', french: '3b', band: 'beginner' },
+  //  { score: 26, yds: '5.10a', french: '3a+',saxon: '3', band: 'beginner' },
+  //  { score: 27, yds: '5.10a', french: '3b',saxon: '3', band: 'beginner' },
   // ]
   })

@@ -4,7 +4,8 @@
       "yds": "5.0",
       "french": "1a",
       "uiaa": "1",
-      "ewbank": "1",
+      "ewbank":"1",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -13,6 +14,7 @@
       "french": "1a",
       "uiaa": "1",
       "ewbank": "1",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -21,6 +23,7 @@
       "french": "1a+",
       "uiaa": "1",
       "ewbank": "1",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -29,6 +32,7 @@
       "french": "1a+",
       "uiaa": "1",
       "ewbank": "1",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -37,6 +41,7 @@
       "french": "1b",
       "uiaa": "1",
       "ewbank": "1",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -45,6 +50,7 @@
       "french": "1b",
       "uiaa": "1",
       "ewbank": "2",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -53,6 +59,7 @@
       "french": "1b+",
       "uiaa": "1",
       "ewbank": "2",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -61,6 +68,7 @@
       "french": "1b+",
       "uiaa": "1",
       "ewbank": "2",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -69,6 +77,7 @@
       "french": "1c",
       "uiaa": "1",
       "ewbank": "2",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -77,6 +86,7 @@
       "french": "1c",
       "uiaa": "1",
       "ewbank": "2",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -85,6 +95,7 @@
       "french": "1c+",
       "uiaa": "1",
       "ewbank": "3",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -93,6 +104,7 @@
       "french": "1c+",
       "uiaa": "1",
       "ewbank": "4",
+      "saxon": "1",
       "band": "beginner"
     },
     {
@@ -101,6 +113,7 @@
       "french": "2a",
       "uiaa": "2",
       "ewbank": "5",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -109,6 +122,7 @@
       "french": "2a",
       "uiaa": "2",
       "ewbank": "5",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -117,6 +131,7 @@
       "french": "2a+",
       "uiaa": "2",
       "ewbank": "5",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -125,6 +140,7 @@
       "french": "2a+",
       "uiaa": "2",
       "ewbank": "6",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -133,6 +149,7 @@
       "french": "2b",
       "uiaa": "2",
       "ewbank": "6",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -141,6 +158,7 @@
       "french": "2b",
       "uiaa": "2",
       "ewbank": "6",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -149,6 +167,7 @@
       "french": "2b+",
       "uiaa": "2",
       "ewbank": "7",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -157,6 +176,7 @@
       "french": "2b+",
       "uiaa": "2",
       "ewbank": "7",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -165,6 +185,7 @@
       "french": "2c",
       "uiaa": "2",
       "ewbank": "7",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -173,6 +194,7 @@
       "french": "2c",
       "uiaa": "2",
       "ewbank": "7",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -181,6 +203,7 @@
       "french": "2c+",
       "uiaa": "2",
       "ewbank": "8",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -189,6 +212,7 @@
       "french": "2c+",
       "uiaa": "2",
       "ewbank": "8",
+      "saxon": "2",
       "band": "beginner"
     },
     {
@@ -197,6 +221,7 @@
       "french": "3a",
       "uiaa": "3",
       "ewbank": "9",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -205,6 +230,7 @@
       "french": "3a",
       "uiaa": "3",
       "ewbank": "9",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -213,6 +239,7 @@
       "french": "3a+",
       "uiaa": "3",
       "ewbank": "10",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -221,6 +248,7 @@
       "french": "3a+",
       "uiaa": "3",
       "ewbank": "10",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -229,6 +257,7 @@
       "french": "3b",
       "uiaa": "3",
       "ewbank": "10",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -237,6 +266,7 @@
       "french": "3b",
       "uiaa": "3",
       "ewbank": "10",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -245,6 +275,7 @@
       "french": "3b+",
       "uiaa": "3",
       "ewbank": "10",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -253,6 +284,7 @@
       "french": "3b+",
       "uiaa": "3",
       "ewbank": "11",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -261,6 +293,7 @@
       "french": "3c",
       "uiaa": "3",
       "ewbank": "11",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -269,6 +302,7 @@
       "french": "3c",
       "uiaa": "3",
       "ewbank": "12",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -277,6 +311,7 @@
       "french": "3c+",
       "uiaa": "3",
       "ewbank": "12",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -285,6 +320,7 @@
       "french": "3c+",
       "uiaa": "3",
       "ewbank": "12",
+      "saxon": "3",
       "band": "beginner"
     },
     {
@@ -293,6 +329,7 @@
       "french": "4a",
       "uiaa": "4",
       "ewbank": "13",
+      "saxon": "4",
       "band": "intermediate"
     },
     {
@@ -301,6 +338,7 @@
       "french": "4a",
       "uiaa": "4",
       "ewbank": "13",
+      "saxon": "4",
       "band": "intermediate"
     },
     {
@@ -309,6 +347,7 @@
       "french": "4a+",
       "uiaa": "4+",
       "ewbank": "13",
+      "saxon": "4",
       "band": "intermediate"
     },
     {
@@ -317,6 +356,7 @@
       "french": "4a+",
       "uiaa": "4+",
       "ewbank": "13",
+      "saxon": "4",
       "band": "intermediate"
     },
     {
@@ -325,6 +365,7 @@
       "french": "4b",
       "uiaa": "4+",
       "ewbank": "13",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -333,6 +374,7 @@
       "french": "4b",
       "uiaa": "4+",
       "ewbank": "14",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -341,6 +383,7 @@
       "french": "4b+",
       "uiaa": "5-",
       "ewbank": "14",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -349,6 +392,7 @@
       "french": "4b+",
       "uiaa": "5-",
       "ewbank": "14",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -357,6 +401,7 @@
       "french": "4c",
       "uiaa": "5-",
       "ewbank": "15",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -365,6 +410,7 @@
       "french": "4c",
       "uiaa": "5-",
       "ewbank": "15",
+      "saxon": "5",
       "band": "intermediate"
     },
     {
@@ -373,6 +419,7 @@
       "french": "4c+",
       "uiaa": "5",
       "ewbank": "16",
+      "saxon": "6",
       "band": "intermediate"
     },
     {
@@ -381,6 +428,7 @@
       "french": "4c+",
       "uiaa": "5",
       "ewbank": "16",
+      "saxon": "6",
       "band": "intermediate"
     },
     {
@@ -389,6 +437,7 @@
       "french": "5a",
       "uiaa": "5",
       "ewbank": "16",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -397,6 +446,7 @@
       "french": "5a",
       "uiaa": "5",
       "ewbank": "16",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -405,6 +455,7 @@
       "french": "5a+",
       "uiaa": "5+",
       "ewbank": "16",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -413,6 +464,7 @@
       "french": "5a+",
       "uiaa": "5+",
       "ewbank": "16",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -421,6 +473,7 @@
       "french": "5b",
       "uiaa": "5+",
       "ewbank": "17",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -429,6 +482,7 @@
       "french": "5b",
       "uiaa": "5+",
       "ewbank": "17",
+      "saxon": "7a",
       "band": "intermediate"
     },
     {
@@ -437,6 +491,7 @@
       "french": "5b+",
       "uiaa": "6-",
       "ewbank": "17",
+      "saxon": "7b",
       "band": "intermediate"
     },
     {
@@ -445,6 +500,7 @@
       "french": "5b+",
       "uiaa": "6-",
       "ewbank": "17",
+      "saxon": "7b",
       "band": "intermediate"
     },
     {
@@ -453,6 +509,7 @@
       "french": "5c",
       "uiaa": "6",
       "ewbank": "17",
+      "saxon": "7b",
       "band": "intermediate"
     },
     {
@@ -461,6 +518,7 @@
       "french": "5c",
       "uiaa": "6",
       "ewbank": "18",
+      "saxon": "7b",
       "band": "intermediate"
     },
     {
@@ -469,6 +527,7 @@
       "french": "5c+",
       "uiaa": "6+",
       "ewbank": "18",
+      "saxon": "7c",
       "band": "intermediate"
     },
     {
@@ -477,6 +536,7 @@
       "french": "5c+",
       "uiaa": "6+",
       "ewbank": "18",
+      "saxon": "7c",
       "band": "intermediate"
     },
     {
@@ -485,6 +545,7 @@
       "french": "6a",
       "uiaa": "6+",
       "ewbank": "18",
+      "saxon": "7c",
       "band": "intermediate"
     },
     {
@@ -493,6 +554,7 @@
       "french": "6a",
       "uiaa": "6+",
       "ewbank": "18",
+      "saxon": "7c",
       "band": "intermediate"
     },
     {
@@ -501,6 +563,7 @@
       "french": "6a+",
       "uiaa": "7-",
       "ewbank": "19",
+      "saxon": "8a",
       "band": "experienced"
     },
     {
@@ -509,6 +572,7 @@
       "french": "6a+",
       "uiaa": "7-",
       "ewbank": "19",
+      "saxon": "8a",
       "band": "experienced"
     },
     {
@@ -517,6 +581,7 @@
       "french": "6b",
       "uiaa": "7",
       "ewbank": "20",
+      "saxon": "8b",
       "band": "experienced"
     },
     {
@@ -525,6 +590,7 @@
       "french": "6b",
       "uiaa": "7",
       "ewbank": "20",
+      "saxon": "8b",
       "band": "experienced"
     },
     {
@@ -533,6 +599,7 @@
       "french": "6b+",
       "uiaa": "7+",
       "ewbank": "20",
+      "saxon": "8c",
       "band": "experienced"
     },
     {
@@ -541,6 +608,7 @@
       "french": "6b+",
       "uiaa": "7+",
       "ewbank": "21",
+      "saxon": "8c",
       "band": "experienced"
     },
     {
@@ -549,6 +617,7 @@
       "french": "6c",
       "uiaa": "7+/8-",
       "ewbank": "21",
+      "saxon": "9a",
       "band": "experienced"
     },
     {
@@ -557,6 +626,7 @@
       "french": "6c",
       "uiaa": "7+/8-",
       "ewbank": "22",
+      "saxon": "9a",
       "band": "experienced"
     },
     {
@@ -565,6 +635,7 @@
       "french": "6c+",
       "uiaa": "8-",
       "ewbank": "22",
+      "saxon": "9a",
       "band": "experienced"
     },
     {
@@ -573,6 +644,7 @@
       "french": "6c+",
       "uiaa": "8-",
       "ewbank": "23",
+      "saxon": "9a",
       "band": "experienced"
     },
     {
@@ -581,6 +653,7 @@
       "french": "7a",
       "uiaa": "8",
       "ewbank": "23",
+      "saxon": "9b",
       "band": "experienced"
     },
     {
@@ -589,6 +662,7 @@
       "french": "7a",
       "uiaa": "8",
       "ewbank": "23",
+      "saxon": "9b",
       "band": "experienced"
     },
     {
@@ -597,6 +671,7 @@
       "french": "7a+",
       "uiaa": "8+",
       "ewbank": "24",
+      "saxon": "9c",
       "band": "experienced"
     },
     {
@@ -605,6 +680,7 @@
       "french": "7a+",
       "uiaa": "8+",
       "ewbank": "24",
+      "saxon": "9c",
       "band": "experienced"
     },
     {
@@ -613,6 +689,7 @@
       "french": "7b",
       "uiaa": "8+/9-",
       "ewbank": "25",
+      "saxon": "10a",
       "band": "expert"
     },
     {
@@ -621,6 +698,7 @@
       "french": "7b",
       "uiaa": "8+/9-",
       "ewbank": "25",
+      "saxon": "10a",
       "band": "expert"
     },
     {
@@ -629,6 +707,7 @@
       "french": "7b+",
       "uiaa": "9-",
       "ewbank": "26",
+      "saxon": "10a",
       "band": "expert"
     },
     {
@@ -637,6 +716,7 @@
       "french": "7b+",
       "uiaa": "9-",
       "ewbank": "26",
+      "saxon": "10a",
       "band": "expert"
     },
     {
@@ -645,6 +725,7 @@
       "french": "7c",
       "uiaa": "9",
       "ewbank": "27",
+      "saxon": "10b",
       "band": "expert"
     },
     {
@@ -653,6 +734,7 @@
       "french": "7c",
       "uiaa": "9",
       "ewbank": "27",
+      "saxon": "10b",
       "band": "expert"
     },
     {
@@ -661,6 +743,7 @@
       "french": "7c+",
       "uiaa": "9+",
       "ewbank": "28",
+      "saxon": "10c",
       "band": "expert"
     },
     {
@@ -669,6 +752,7 @@
       "french": "7c+",
       "uiaa": "9+",
       "ewbank": "28",
+      "saxon": "10c",
       "band": "expert"
     },
     {
@@ -677,6 +761,7 @@
       "french": "8a",
       "uiaa": "10-",
       "ewbank": "29",
+      "saxon": "10c",
       "band": "expert"
     },
     {
@@ -685,6 +770,7 @@
       "french": "8a",
       "uiaa": "10-",
       "ewbank": "29",
+      "saxon": "10c",
       "band": "expert"
     },
     {
@@ -693,6 +779,7 @@
       "french": "8a+",
       "uiaa": "10",
       "ewbank": "30",
+      "saxon": "11b",
       "band": "expert"
     },
     {
@@ -701,6 +788,7 @@
       "french": "8a+",
       "uiaa": "10",
       "ewbank": "30",
+      "saxon": "11b",
       "band": "expert"
     },
     {
@@ -709,6 +797,7 @@
       "french": "8b",
       "uiaa": "10+",
       "ewbank": "31",
+      "saxon": "11c",
       "band": "expert"
     },
     {
@@ -717,6 +806,7 @@
       "french": "8b",
       "uiaa": "10+",
       "ewbank": "31",
+      "saxon": "11c",
       "band": "expert"
     },
     {
@@ -725,6 +815,7 @@
       "french": "8b+",
       "uiaa": "10+/11-",
       "ewbank": "32",
+      "saxon": "11c",
       "band": "elite"
     },
     {
@@ -733,6 +824,7 @@
       "french": "8b+",
       "uiaa": "10+/11-",
       "ewbank": "32",
+      "saxon": "11c",
       "band": "elite"
     },
     {
@@ -741,6 +833,7 @@
       "french": "8c",
       "uiaa": "11-",
       "ewbank": "33",
+      "saxon": "12a",
       "band": "elite"
     },
     {
@@ -749,6 +842,7 @@
       "french": "8c",
       "uiaa": "11-",
       "ewbank": "33",
+      "saxon": "12a",
       "band": "elite"
     },
     {
@@ -757,6 +851,7 @@
       "french": "8c+",
       "uiaa": "11",
       "ewbank": "34",
+      "saxon": "12b",
       "band": "elite"
     },
     {
@@ -765,6 +860,7 @@
       "french": "8c+",
       "uiaa": "11",
       "ewbank": "34",
+      "saxon": "12b",
       "band": "elite"
     },
     {
@@ -773,6 +869,7 @@
       "french": "9a",
       "uiaa": "11",
       "ewbank": "35",
+      "saxon": "12c",
       "band": "elite"
     },
     {
@@ -781,6 +878,7 @@
       "french": "9a",
       "uiaa": "11",
       "ewbank": "35",
+      "saxon": "12c",
       "band": "elite"
     },
     {
@@ -789,6 +887,7 @@
       "french": "9a+",
       "uiaa": "11/11+",
       "ewbank": "36",
+      "saxon": "13a",
       "band": "elite"
     },
     {
@@ -797,6 +896,7 @@
       "french": "9a+",
       "uiaa": "11/11+",
       "ewbank": "36",
+      "saxon": "13a",
       "band": "elite"
     },
     {
@@ -805,6 +905,7 @@
       "french": "9b",
       "uiaa": "11+",
       "ewbank": "37",
+      "saxon": "13b",
       "band": "elite"
     },
     {
@@ -813,6 +914,7 @@
       "french": "9b",
       "uiaa": "11+",
       "ewbank": "37",
+      "saxon": "13b",
       "band": "elite"
     },
     {
@@ -821,6 +923,7 @@
       "french": "9b+",
       "uiaa": "11+/12-",
       "ewbank": "38",
+      "saxon": "13b",
       "band": "elite"
     },
     {
@@ -829,6 +932,7 @@
       "french": "9b+",
       "uiaa": "11+/12-",
       "ewbank": "38",
+      "saxon": "13b",
       "band": "elite"
     },
     {
@@ -837,6 +941,7 @@
       "french": "9c",
       "uiaa": "12-",
       "ewbank": "39",
+      "saxon": "13c",
       "band": "elite"
     },
     {
@@ -845,6 +950,7 @@
       "french": "9c",
       "uiaa": "12-",
       "ewbank": "39",
+      "saxon": "13c",
       "band": "elite"
     },
     {
@@ -853,6 +959,7 @@
       "french": "9c+",
       "uiaa": "12",
       "ewbank": "40",
+      "saxon": "13c",
       "band": "elite"
     },
     {
@@ -861,6 +968,7 @@
       "french": "9c+",
       "uiaa": "12",
       "ewbank": "40",
+      "saxon": "13c",
       "band": "elite"
     }
 ]

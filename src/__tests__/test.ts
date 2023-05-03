@@ -78,6 +78,18 @@ describe('Grades', function () {
           expect(actual).toStrictEqual(expected)
         })
       })
+      describe('Saxon', function () {
+        it('should have valid grades', function () {
+          const expected = [
+            '1', '2', '3', '4', '5', '6', '7a',
+            '7b', '7c', '8a', '8b', '8c', '9a',
+            '9b', '9c', '10a', '10b', '10c', '11a',
+            '11b', '11c', '12a', '12b'
+          ]
+          const actual = grades.freeClimbing.clean.Saxon
+          expect(actual).toStrictEqual(expected)
+        })
+      })
     })
   })
   describe('protection', function () {

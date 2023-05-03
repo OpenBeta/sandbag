@@ -27,6 +27,13 @@ const YDS_ARRAY = [
   '5.15a', '5.15b', '5.15c', '5.15d'
 ]
 
+const SAXON_ARRAY = [
+  '1', '2', '3', '4', '5', '6', '7a',
+  '7b', '7c', '8a', '8b', '8c', '9a',
+  '9b', '9c', '10a', '10b', '10c', '11a',
+  '11b', '11c', '12a', '12b'
+]
+
 const BRITISH_TECH_ARRAY = [
   '1', '2', '3', '4a', '4b', '4c',
   '5a', '5b', '5c', '6a', '6b', '6c', '7a',
@@ -88,7 +95,8 @@ export const freeClimbing = {
     britishAdj: BRITISH_ADJ_ARRAY,
     French: FRENCH_ARRAY,
     UIAA: UIAA_ARRAY,
-    Ewbank: EWBANK_ARRAY
+    Ewbank: EWBANK_ARRAY,
+    Saxon: SAXON_ARRAY
   },
   community: {
 
