@@ -1,3 +1,4 @@
+import { GradeBandTypes } from '../GradeBands'
 import VScale from './v'
 import YosemiteDecimal from './yds'
 import Font from './font'
@@ -14,7 +15,7 @@ export interface Boulder {
   score: number
   v: string
   font: string
-  band: 'beginner' | 'intermediate' | 'elite' | 'advanced'
+  band: GradeBandTypes
 }
 
 export interface Route {
@@ -24,7 +25,7 @@ export interface Route {
   uiaa: string
   ewbank: string
   saxon: string
-  band: 'beginner' | 'intermediate' | 'elite' | 'experienced'
+  band: GradeBandTypes
 }
 
 export interface IceGrade {
@@ -33,7 +34,10 @@ export interface IceGrade {
   wi: string
 }
 
-export const scales: Record<typeof GradeScales[keyof typeof GradeScales], GradeScale | null> = {
+export const scales: Record<
+  typeof GradeScales[keyof typeof GradeScales],
+GradeScale | null
+> = {
   [GradeScales.VSCALE]: VScale,
   [GradeScales.YDS]: YosemiteDecimal,
   [GradeScales.FONT]: Font,
