@@ -1,5 +1,4 @@
 // to run `ts-node ./csvtojson.ts`
-// Source sheet: https://docs.google.com/spreadsheets/d/1c0cZDNnj77UqXfJzvSE1MlwtTxmueqdlXG_RpcSzvqU/edit?usp=sharing
 
 import csv from 'csv-parser'
 import * as fs from 'fs'
@@ -7,6 +6,9 @@ import { Boulder, Route, IceGrade } from '../scales'
 
 const boulderGrades: Boulder[] = []
 const routeGrades: Route[] = []
+
+/* Use 'unknown' for default band property as grade band is assigned in each individual grade scale.
+ */
 
 fs.createReadStream('./boulder.csv')
   .pipe(csv())
@@ -18,7 +20,7 @@ fs.createReadStream('./boulder.csv')
       score: parseInt(data.Score, 10),
       v: data['V Scale'],
       font: data['Font Scale'],
-      band: data['Level Bands']
+      band: 'unknown'
     })
   })
   .on('end', () => {
@@ -43,16 +45,16 @@ fs.createReadStream('./routes.csv')
       uiaa: data.UIAA,
       ewbank: data.Ewbank,
       saxon: data.Saxon,
-      band: data['Level Bands']
+      band: 'unknown'
     })
   })
   .on('end', () => {
     const data = JSON.stringify(routeGrades)
     fs.writeFileSync('routes.json', data)
-  // [
-  //  { score: 26, yds: '5.10a', french: '3a+',saxon: '3', band: 'beginner' },
-  //  { score: 27, yds: '5.10a', french: '3b',saxon: '3', band: 'beginner' },
-  // ]
+    // [
+    //  { score: 26, yds: '5.10a', french: '3a+',saxon: '3', band: 'beginner' },
+    //  { score: 27, yds: '5.10a', french: '3b',saxon: '3', band: 'beginner' },
+    // ]
   })
 
 const iceGrades: IceGrade[] = []
