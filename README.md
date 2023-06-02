@@ -27,8 +27,6 @@ Javascript utilities for working with rock climbing grades.
 
 Code contributions are most welcome!
 
-We're also looking for a **project maintainer** to help us improve the API and expand support for other systems.  Email `viet at openbeta dot io` if interested.
-
 ### Questions?
 Join us on [Discord](https://discord.gg/fY9DbRav8h).
 
@@ -137,6 +135,10 @@ yarn test
 
 #### How to publish a new release to NPM
 Submit a PR with commit message `[npm publish]`
+
+### Project Maintainers
+- [Nathan Musoke](https://github.com/musoke)
+- [Viet Nguyen](https://github.com/vnugent)
 
 ### License
 
