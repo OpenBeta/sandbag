@@ -1,14 +1,19 @@
-// to run `ts-node ./csvtojson.ts`
-// Source sheet: https://docs.google.com/spreadsheets/d/1c0cZDNnj77UqXfJzvSE1MlwtTxmueqdlXG_RpcSzvqU/edit?usp=sharing
+// To run script, in project root directory,
+// run `yarn ts-node --esm src/data/csvtojson.ts`
 
 import csv from 'csv-parser'
 import * as fs from 'fs'
 import { Boulder, Route, IceGrade } from '../scales'
+import path from 'path'
 
 const boulderGrades: Boulder[] = []
 const routeGrades: Route[] = []
 
-fs.createReadStream('./boulder.csv')
+const writeDir = path.join(process.cwd(), 'src/data')
+/* Use 'unknown' for default band property as grade band is assigned in each individual grade scale.
+ */
+
+fs.createReadStream(path.join(process.cwd(), 'src/data/boulder.csv'))
   .pipe(csv())
   .on('data', (data) => {
     if (data['V Scale'] === '' && data['Font Scale'] === '') {
@@ -18,19 +23,15 @@ fs.createReadStream('./boulder.csv')
       score: parseInt(data.Score, 10),
       v: data['V Scale'],
       font: data['Font Scale'],
-      band: data['Level Bands']
+      band: 'unknown'
     })
   })
   .on('end', () => {
     const data = JSON.stringify(boulderGrades)
-    fs.writeFileSync('boulder.json', data)
-    // [
-    //  { score: 26, v: 'VB+', font: '3a+', band: 'beginner' },
-    //  { score: 27, v: 'VB+', font: '3a+', band: 'beginner' },
-    // ]
+    fs.writeFileSync(`${writeDir}/boulder.json`, data)
   })
 
-fs.createReadStream('./routes.csv')
+fs.createReadStream(path.join(process.cwd(), 'src/data/routes.csv'))
   .pipe(csv())
   .on('data', (data) => {
     if (data.Yosemite === '' && data.Yosemite === '') {
@@ -43,20 +44,16 @@ fs.createReadStream('./routes.csv')
       uiaa: data.UIAA,
       ewbank: data.Ewbank,
       saxon: data.Saxon,
-      band: data['Level Bands']
+      band: 'unknown'
     })
   })
   .on('end', () => {
     const data = JSON.stringify(routeGrades)
-    fs.writeFileSync('routes.json', data)
-  // [
-  //  { score: 26, yds: '5.10a', french: '3a+',saxon: '3', band: 'beginner' },
-  //  { score: 27, yds: '5.10a', french: '3b',saxon: '3', band: 'beginner' },
-  // ]
+    fs.writeFileSync(`${writeDir}/routes.json`, data)
   })
 
 const iceGrades: IceGrade[] = []
-fs.createReadStream('./ice.csv')
+fs.createReadStream(path.join(process.cwd(), 'src/data/ice.csv'))
   .pipe(csv())
   .on('data', (data) => {
     if (data.AI === '' && data.WI === '') {
@@ -70,5 +67,5 @@ fs.createReadStream('./ice.csv')
   })
   .on('end', () => {
     const data = JSON.stringify(iceGrades)
-    fs.writeFileSync('ice.json', data)
+    fs.writeFileSync(`${writeDir}/ice.json`, data)
   })

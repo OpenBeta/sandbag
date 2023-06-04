@@ -1,23 +1,25 @@
 {
   "compilerOptions": {
-    "types": [
-      "node",
-      "jest"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "target": "ES6",
-    "module": "es6",
-    "esModuleInterop": true,
-    "resolveJsonModule":true,
-    "moduleResolution": "Node",
-    "rootDir": "./src",
-    "outDir": "build",
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true
+                       "types": ["node", "jest"],
+                       "allowJs": true,
+                       "skipLibCheck": true,
+                       "target": "ES6",
+                       "module": "ESNext",
+                       "esModuleInterop": true,
+                       "resolveJsonModule": true,
+                       "moduleResolution": "Node",
+                       "rootDir": "./src",
+                       "outDir": "build",
+                       "sourceMap": true,
+                       "strictNullChecks": true,
+                       "allowSyntheticDefaultImports": true,
+                       "forceConsistentCasingInFileNames": true,
+                       "declaration": true
+                     },
+  "ts-node":{
+    "esm":true, 
+    "experimentalSpecifierResolution": "node",
+   
   },
   "include": [
     ".ts",
