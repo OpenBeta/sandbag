@@ -44,6 +44,7 @@ fs.createReadStream(path.join(process.cwd(), 'src/data/routes.csv'))
       uiaa: data.UIAA,
       ewbank: data.Ewbank,
       saxon: data.Saxon,
+      norwegian: data.Norwegian,
       band: 'unknown'
     })
   })

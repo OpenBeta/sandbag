@@ -5,11 +5,12 @@ import Font from './font'
 import French from './french'
 import Ewbank from './ewbank'
 import Saxon from './saxon'
+import Norway from './norwegian'
 import AI from './ai'
 import WI from './wi'
 import UIAA from './uiaa'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI }
+export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norway }
 
 export interface Boulder {
   score: number
@@ -25,6 +26,7 @@ export interface Route {
   uiaa: string
   ewbank: string
   saxon: string
+  norwegian: string
   band: GradeBandTypes
 }
 
@@ -45,6 +47,7 @@ GradeScale | null
   [GradeScales.UIAA]: UIAA,
   [GradeScales.EWBANK]: Ewbank,
   [GradeScales.SAXON]: Saxon,
+  [GradeScales.NORWAY]: Norway,
   [GradeScales.AI]: AI,
   [GradeScales.WI]: WI
 }
