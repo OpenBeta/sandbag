@@ -8,7 +8,7 @@ import {
   convertGrade
 } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
-import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank } from './scales'
+import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank, Norwegian } from './scales'
 
 // Free Climbing Grades
 // YDS
@@ -20,7 +20,6 @@ import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank } from './scales'
 // Ewbank (AUS, NZL)
 // Ewbank South Africa
 // Nordic - Finnish
-// Nordic - NOR
 // Brazilian
 // Kurtyka (Poland)
 
@@ -223,6 +222,45 @@ const EWBANK_ARRAY = [
   '40'
 ]
 
+const NORWAY_ARRAY = [
+  '1-',
+  '1',
+  '1+',
+  '2-',
+  '2',
+  '2+',
+  '3-',
+  '3',
+  '3+',
+  '4-',
+  '4',
+  '4+',
+  '5-',
+  '5',
+  '5+',
+  '6-',
+  '6',
+  '6+',
+  '7-',
+  '7',
+  '7+',
+  '8-',
+  '8',
+  '8+',
+  '9-',
+  '9',
+  '9+',
+  '10-',
+  '10',
+  '10+',
+  '11-',
+  '11',
+  '11+',
+  '12-',
+  '12',
+  '12+'
+]
+
 const CLASS_ARRAY = ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5']
 
 export const protection = ['G', 'PG', 'PG13', 'R', 'X']
@@ -241,7 +279,8 @@ export const freeClimbing = {
     French: FRENCH_ARRAY,
     UIAA: UIAA_ARRAY,
     Ewbank: EWBANK_ARRAY,
-    Saxon: SAXON_ARRAY
+    Saxon: SAXON_ARRAY,
+    Norwegian: NORWAY_ARRAY
   },
   community: {}
 }
@@ -264,5 +303,6 @@ export {
   UIAA,
   Font,
   VScale,
-  Ewbank
+  Ewbank,
+  Norwegian
 }
