@@ -11,7 +11,7 @@ const isNorwegian = (grade: string): RegExpMatchArray | null => grade.match(norw
 
 const Norwegian: GradeScale = {
   displayName: 'Norwegian Scale',
-  name: GradeScales.NORWAY,
+  name: GradeScales.NORWEGIAN,
   offset: 1000,
   allowableConversionType: [],
   isType: (grade: string): boolean => {

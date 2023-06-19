@@ -8,7 +8,7 @@ import {
   convertGrade
 } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
-import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank, Norway } from './scales'
+import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank, Norwegian } from './scales'
 
 // Free Climbing Grades
 // YDS
@@ -20,10 +20,8 @@ import { YosemiteDecimal, French, UIAA, Font, VScale, Ewbank, Norway } from './s
 // Ewbank (AUS, NZL)
 // Ewbank South Africa
 // Nordic - Finnish
-// Nordic - NOR
 // Brazilian
 // Kurtyka (Poland)
-// Norwegian (aka Scandinavian)
 
 const YDS_ARRAY = [
   '5.0',
@@ -282,7 +280,7 @@ export const freeClimbing = {
     UIAA: UIAA_ARRAY,
     Ewbank: EWBANK_ARRAY,
     Saxon: SAXON_ARRAY,
-    Norway: NORWAY_ARRAY
+    Norwegian: NORWAY_ARRAY
   },
   community: {}
 }
@@ -306,5 +304,5 @@ export {
   Font,
   VScale,
   Ewbank,
-  Norway
+  Norwegian
 }

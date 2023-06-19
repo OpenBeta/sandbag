@@ -5,12 +5,12 @@ import Font from './font'
 import French from './french'
 import Ewbank from './ewbank'
 import Saxon from './saxon'
-import Norway from './norwegian'
+import Norwegian from './norwegian'
 import AI from './ai'
 import WI from './wi'
 import UIAA from './uiaa'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norway }
+export { VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian }
 
 export interface Boulder {
   score: number
@@ -47,7 +47,7 @@ GradeScale | null
   [GradeScales.UIAA]: UIAA,
   [GradeScales.EWBANK]: Ewbank,
   [GradeScales.SAXON]: Saxon,
-  [GradeScales.NORWAY]: Norway,
+  [GradeScales.NORWEGIAN]: Norwegian,
   [GradeScales.AI]: AI,
   [GradeScales.WI]: WI
 }

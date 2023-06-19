@@ -23,7 +23,7 @@ export const GradeScales = {
   UIAA: 'uiaa',
   EWBANK: 'ewbank',
   SAXON: 'saxon',
-  NORWAY: 'norwegian'
+  NORWEGIAN: 'norwegian'
 } as const
 
 export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]
