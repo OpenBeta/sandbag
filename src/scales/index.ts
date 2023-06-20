@@ -1,4 +1,3 @@
-import { GradeBandTypes } from '../GradeBands'
 import VScale from './v'
 import YosemiteDecimal from './yds'
 import Font from './font'
@@ -17,7 +16,6 @@ export interface Boulder {
   score: number
   v: string
   font: string
-  band: GradeBandTypes
 }
 
 export interface Route {
@@ -28,7 +26,6 @@ export interface Route {
   ewbank: string
   saxon: string
   norwegian: string
-  band: GradeBandTypes
 }
 
 export interface IceGrade {

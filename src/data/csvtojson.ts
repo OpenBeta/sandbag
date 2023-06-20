@@ -7,8 +7,6 @@ import { AidGrade, Boulder, Route, IceGrade } from '../scales'
 import path from 'path'
 
 const dataDir = path.join(process.cwd(), 'src', 'data')
-/* Use 'unknown' for default band property as grade band is assigned in each individual grade scale.
- */
 
 async function getData<T> (pathCsv: any, pathJson, parseRow): Promise<T[]> {
   const data: T[] = []
@@ -37,8 +35,7 @@ function parseRowBoulder (row): Object {
   return {
     score: parseInt(row.Score, 10),
     v: row['V Scale'],
-    font: row['Font Scale'],
-    band: 'unknown'
+    font: row['Font Scale']
   }
 }
 export const BOULDER_GRADE_TABLE: Promise<Boulder[]> = getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, parseRowBoulder)
@@ -53,8 +50,7 @@ function parseRowRoutes (row): Object {
     uiaa: row.UIAA,
     ewbank: row.Ewbank,
     saxon: row.Saxon,
-    norwegian: row.Norwegian,
-    band: 'unknown'
+    norwegian: row.Norwegian
   }
 }
 export const ROUTE_GRADE_TABLE: Promise<Route[]> = getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, parseRowRoutes)
