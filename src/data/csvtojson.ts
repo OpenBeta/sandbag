@@ -6,84 +6,79 @@ import * as fs from 'fs'
 import { AidGrade, Boulder, Route, IceGrade } from '../scales'
 import path from 'path'
 
-const boulderGrades: Boulder[] = []
-const routeGrades: Route[] = []
-
-const writeDir = path.join(process.cwd(), 'src/data')
+const dataDir = path.join(process.cwd(), 'src', 'data')
 /* Use 'unknown' for default band property as grade band is assigned in each individual grade scale.
  */
 
-fs.createReadStream(path.join(process.cwd(), 'src/data/boulder.csv'))
-  .pipe(csv())
-  .on('data', (data) => {
-    if (data['V Scale'] === '' && data['Font Scale'] === '') {
-      return
-    }
-    boulderGrades.push({
-      score: parseInt(data.Score, 10),
-      v: data['V Scale'],
-      font: data['Font Scale'],
-      band: 'unknown'
-    })
-  })
-  .on('end', () => {
-    const data = JSON.stringify(boulderGrades)
-    fs.writeFileSync(`${writeDir}/boulder.json`, data)
-  })
+async function getData (pathCsv: any, pathJson, data, parseRow): Promise<any> {
+  return await new Promise((resolve, reject) => {
+    fs.createReadStream(pathCsv)
+      .on('error', error => {
+        console.warn('error in parsing:', error)
+        reject(error)
+      })
+      .pipe(csv())
+      .on('data', (row) => {
+        data.push(parseRow(row))
+      })
+      .on('end', () => {
+        const parsedData = JSON.stringify(data)
+        fs.writeFileSync(pathJson, parsedData)
 
-fs.createReadStream(path.join(process.cwd(), 'src/data/routes.csv'))
-  .pipe(csv())
-  .on('data', (data) => {
-    if (data.Yosemite === '' && data.Yosemite === '') {
-      return
-    }
-    routeGrades.push({
-      score: parseInt(data.Score, 10),
-      yds: data.Yosemite,
-      french: data.French,
-      uiaa: data.UIAA,
-      ewbank: data.Ewbank,
-      saxon: data.Saxon,
-      norwegian: data.Norwegian,
-      band: 'unknown'
-    })
+        resolve(data)
+      })
   })
-  .on('end', () => {
-    const data = JSON.stringify(routeGrades)
-    fs.writeFileSync(`${writeDir}/routes.json`, data)
-  })
+}
 
+const CSV_PATH_BOULDER = path.join(dataDir, 'boulder.csv')
+const JSON_PATH_BOULDER = path.join(dataDir, 'boulder.json')
+const boulderGrades: Boulder[] = []
+function parseRowBoulder (row): Object {
+  return {
+    score: parseInt(row.Score, 10),
+    v: row['V Scale'],
+    font: row['Font Scale'],
+    band: 'unknown'
+  }
+}
+void getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, boulderGrades, parseRowBoulder)
+
+const CSV_PATH_ROUTES = path.join(dataDir, 'routes.csv')
+const JSON_PATH_ROUTES = path.join(dataDir, 'routes.json')
+const routeGrades: Route[] = []
+function parseRowRoutes (row): Object {
+  return {
+    score: parseInt(row.Score, 10),
+    yds: row.Yosemite,
+    french: row.French,
+    uiaa: row.UIAA,
+    ewbank: row.Ewbank,
+    saxon: row.Saxon,
+    norwegian: row.Norwegian,
+    band: 'unknown'
+  }
+}
+void getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, routeGrades, parseRowRoutes)
+
+const CSV_PATH_ICE = path.join(dataDir, 'ice.csv')
+const JSON_PATH_ICE = path.join(dataDir, 'ice.json')
 const iceGrades: IceGrade[] = []
-fs.createReadStream(path.join(process.cwd(), 'src/data/ice.csv'))
-  .pipe(csv())
-  .on('data', (data) => {
-    if (data.AI === '' && data.WI === '') {
-      return
-    }
-    iceGrades.push({
-      score: parseInt(data.Score, 10),
-      wi: data.WI,
-      ai: data.AI
-    })
-  })
-  .on('end', () => {
-    const data = JSON.stringify(iceGrades)
-    fs.writeFileSync(`${writeDir}/ice.json`, data)
-  })
+function parseRowIce (row): Object {
+  return {
+    score: parseInt(row.Score, 10),
+    wi: row.WI,
+    ai: row.AI
+  }
+}
+void getData(CSV_PATH_ICE, JSON_PATH_ICE, iceGrades, parseRowIce)
 
+const CSV_PATH_AID = path.join(dataDir, 'aid.csv')
+const JSON_PATH_AID = path.join(dataDir, 'aid.json')
 const aidGrades: AidGrade[] = []
-fs.createReadStream(path.join(process.cwd(), 'src/data/aid.csv'))
-  .pipe(csv())
-  .on('data', (data) => {
-    if (data.Aid === '' && data.Aid === '') {
-      return
-    }
-    aidGrades.push({
-      score: parseInt(data.Score, 10),
-      aid: data.Aid
-    })
-  })
-  .on('end', () => {
-    const data = JSON.stringify(aidGrades)
-    fs.writeFileSync(`${writeDir}/aid.json`, data)
-  })
+function parseRowAid (row): Object {
+  return {
+    score: parseInt(row.Score, 10),
+    aid: row.Aid
+  }
+}
+void getData(CSV_PATH_AID, JSON_PATH_AID, aidGrades, parseRowAid)
