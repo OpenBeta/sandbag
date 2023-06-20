@@ -37,8 +37,7 @@ function parseRowBoulder (row): Object {
   return {
     score: parseInt(row.Score, 10),
     v: row['V Scale'],
-    font: row['Font Scale'],
-    band: 'unknown'
+    font: row['Font Scale']
   }
 }
 void getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, boulderGrades, parseRowBoulder)
@@ -54,8 +53,7 @@ function parseRowRoutes (row): Object {
     uiaa: row.UIAA,
     ewbank: row.Ewbank,
     saxon: row.Saxon,
-    norwegian: row.Norwegian,
-    band: 'unknown'
+    norwegian: row.Norwegian
   }
 }
 void getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, routeGrades, parseRowRoutes)
