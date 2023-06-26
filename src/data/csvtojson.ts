@@ -40,7 +40,8 @@ function parseRowBoulder (row): Object {
     font: row['Font Scale']
   }
 }
-void getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, boulderGrades, parseRowBoulder)
+const BOULDER_GRADE_TABLE = getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, boulderGrades, parseRowBoulder)
+export await BOULDER_GRADE_TABLE
 
 const CSV_PATH_ROUTES = path.join(dataDir, 'routes.csv')
 const JSON_PATH_ROUTES = path.join(dataDir, 'routes.json')
@@ -56,7 +57,8 @@ function parseRowRoutes (row): Object {
     norwegian: row.Norwegian
   }
 }
-void getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, routeGrades, parseRowRoutes)
+const ROUTE_GRADE_TABLE = getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, routeGrades, parseRowRoutes)
+export await ROUTE_GRADE_TABLE
 
 const CSV_PATH_ICE = path.join(dataDir, 'ice.csv')
 const JSON_PATH_ICE = path.join(dataDir, 'ice.json')
@@ -68,7 +70,8 @@ function parseRowIce (row): Object {
     ai: row.AI
   }
 }
-void getData(CSV_PATH_ICE, JSON_PATH_ICE, iceGrades, parseRowIce)
+const ICE_GRADE_TABLE = getData(CSV_PATH_ICE, JSON_PATH_ICE, iceGrades, parseRowIce)
+export await ICE_GRADE_TABLE
 
 const CSV_PATH_AID = path.join(dataDir, 'aid.csv')
 const JSON_PATH_AID = path.join(dataDir, 'aid.json')
@@ -79,4 +82,5 @@ function parseRowAid (row): Object {
     aid: row.Aid
   }
 }
-void getData(CSV_PATH_AID, JSON_PATH_AID, aidGrades, parseRowAid)
+const AID_GRADE_TABLE = getData(CSV_PATH_AID, JSON_PATH_AID, aidGrades, parseRowAid)
+export await AID_GRADE_TABLE

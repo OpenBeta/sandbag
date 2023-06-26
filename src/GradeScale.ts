@@ -1,4 +1,7 @@
 import { GradeBandTypes } from './GradeBands'
+import { BOULDER_GRADE_TABLE, ROUTE_GRADE_TABLE, ICE_GRADE_TABLE, AID_GRADE_TABLE } from './data/csvtojson'
+
+export { BOULDER_GRADE_TABLE, ROUTE_GRADE_TABLE, ICE_GRADE_TABLE, AID_GRADE_TABLE }
 
 export type Tuple = [number, number]
 
@@ -47,3 +50,4 @@ export const findScoreRange = (compareFn, list): number | Tuple => {
 export function getAvgScore (score: number | Tuple): number {
   return typeof score === 'number' ? score : (score[1] + score[0]) / 2
 }
+
