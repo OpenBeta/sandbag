@@ -9,6 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "lint": "ts-standard",
+    "fix": "yarn ts-standard --fix",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "clean": "rm -rf build/*",
     "build": "tsdx build  --tsconfig tsconfig.build.json"
