@@ -1,14 +1,14 @@
 {
   "name": "@openbeta/sandbag",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "Rock climbing grades and conversions",
   "repository": "https://github.com/OpenBeta/sandbag.git",
   "module": "./dist/sandbag.esm.js",
   "main": "./dist/index.js",
   "exports": {
     ".": {
-        "import": "./dist/sandbag.esm.js",
-        "require": "./dist/index.js"
+      "import": "./dist/sandbag.esm.js",
+      "require": "./dist/index.js"
     }
   },
   "types": "dist/index.d.ts",
