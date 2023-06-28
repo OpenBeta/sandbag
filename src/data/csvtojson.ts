@@ -8,7 +8,7 @@ import path from 'path'
 
 const dataDir = path.join(process.cwd(), 'src', 'data')
 
-async function getData<T> (pathCsv: any, pathJson, parseRow): Promise<T[]> {
+async function getData<T> (pathCsv: any, pathJson): Promise<T[]> {
   const data: T[] = []
   return await new Promise((resolve, reject) => {
     fs.createReadStream(pathCsv)
@@ -16,9 +16,11 @@ async function getData<T> (pathCsv: any, pathJson, parseRow): Promise<T[]> {
         console.warn('error in parsing:', error)
         reject(error)
       })
-      .pipe(csv())
+      .pipe(csv({
+        mapValues: ({ header, index, value }) => { return header === 'score' ? parseInt(value, 10) : value }
+      }))
       .on('data', (row) => {
-        data.push(parseRow(row))
+        data.push(row)
       })
       .on('end', () => {
         const parsedData = JSON.stringify(data)
@@ -31,47 +33,16 @@ async function getData<T> (pathCsv: any, pathJson, parseRow): Promise<T[]> {
 
 const CSV_PATH_BOULDER = path.join(dataDir, 'boulder.csv')
 const JSON_PATH_BOULDER = path.join(dataDir, 'boulder.json')
-function parseRowBoulder (row): Object {
-  return {
-    score: parseInt(row.Score, 10),
-    v: row['V Scale'],
-    font: row['Font Scale']
-  }
-}
-export const BOULDER_GRADE_TABLE: Promise<Boulder[]> = getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER, parseRowBoulder)
+export const BOULDER_GRADE_TABLE: Promise<Boulder[]> = getData(CSV_PATH_BOULDER, JSON_PATH_BOULDER)
 
 const CSV_PATH_ROUTES = path.join(dataDir, 'routes.csv')
 const JSON_PATH_ROUTES = path.join(dataDir, 'routes.json')
-function parseRowRoutes (row): Object {
-  return {
-    score: parseInt(row.Score, 10),
-    yds: row.Yosemite,
-    french: row.French,
-    uiaa: row.UIAA,
-    ewbank: row.Ewbank,
-    saxon: row.Saxon,
-    norwegian: row.Norwegian
-  }
-}
-export const ROUTE_GRADE_TABLE: Promise<Route[]> = getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES, parseRowRoutes)
+export const ROUTE_GRADE_TABLE: Promise<Route[]> = getData(CSV_PATH_ROUTES, JSON_PATH_ROUTES)
 
 const CSV_PATH_ICE = path.join(dataDir, 'ice.csv')
 const JSON_PATH_ICE = path.join(dataDir, 'ice.json')
-function parseRowIce (row): Object {
-  return {
-    score: parseInt(row.Score, 10),
-    wi: row.WI,
-    ai: row.AI
-  }
-}
-export const ICE_GRADE_TABLE: Promise<IceGrade[]> = getData(CSV_PATH_ICE, JSON_PATH_ICE, parseRowIce)
+export const ICE_GRADE_TABLE: Promise<IceGrade[]> = getData(CSV_PATH_ICE, JSON_PATH_ICE)
 
 const CSV_PATH_AID = path.join(dataDir, 'aid.csv')
 const JSON_PATH_AID = path.join(dataDir, 'aid.json')
-function parseRowAid (row): Object {
-  return {
-    score: parseInt(row.Score, 10),
-    aid: row.Aid
-  }
-}
-export const AID_GRADE_TABLE: Promise<AidGrade[]> = getData(CSV_PATH_AID, JSON_PATH_AID, parseRowAid)
+export const AID_GRADE_TABLE: Promise<AidGrade[]> = getData(CSV_PATH_AID, JSON_PATH_AID)
