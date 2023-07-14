@@ -29,5 +29,8 @@ jobs:
       - name: Run unit tests
         run: yarn test
 
+      - name: Check if JSON conversions changed by running tests
+        run: git diff --exit-code "src/data/*.json"
+
       - name: Generate production files
         run: yarn build
