@@ -32,7 +32,7 @@ const YosemiteDecimal: GradeScale = {
   },
   getGrade: (score: number | Tuple): string => {
     function validateScore (score: number): number {
-      return Math.min(Math.max(0, score), routes.length - 1)
+      return Math.min(Math.max(0, Math.floor(score)), routes.length - 1)
     }
 
     if (typeof score === 'number') {
