@@ -1,7 +1,6 @@
 import { getScale } from './GradeParser'
 import { GradeScales, GradeScalesTypes } from './GradeScale'
 import isoCountries from 'i18n-iso-countries'
-// import { DisciplineType, ClimbGradeContextType } from './db/ClimbTypes.js'
 import { DisciplineType } from './Disciplines'
 
 /**
