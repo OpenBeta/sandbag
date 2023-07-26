@@ -66,13 +66,16 @@ const getScore = (grade: string): number | Tuple => {
   }
   const [wholeMatch, basicGrade, number, letter, plusOrMinusOrSlash] = parse
   let normalizedGrade = basicGrade
-  const plusSlash = ['+', '/'].includes(plusOrMinusOrSlash)
+
+  const slash = plusOrMinusOrSlash?.startsWith('/')
   const minus = plusOrMinusOrSlash === '-'
+  const plus = plusOrMinusOrSlash === '+'
+
   let normalizedLetter = letter
   const isLargeNonLetter = parseInt(number, 10) > 9 && normalizedLetter === ''
   if (isLargeNonLetter) {
     // 11-, 13+, 12
-    normalizedLetter = minus ? 'a' : plusSlash ? 'c' : 'b'
+    normalizedLetter = minus ? 'a' : (plus || slash) ? 'c' : 'b'
   }
   normalizedGrade = basicGrade + normalizedLetter
   const basicScore = findScoreRange((r: Route) => {
@@ -80,18 +83,18 @@ const getScore = (grade: string): number | Tuple => {
   }, routes)
 
   if (wholeMatch !== normalizedGrade) {
-    let otherGrade
-    // 5.11+, 5.10a/b
-    if (plusSlash || isLargeNonLetter) {
-      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
+    let otherScore
+    if (plus || slash || isLargeNonLetter) {
+      // 5.11+, 5.10a/b
+      otherScore = (typeof basicScore === 'number' ? basicScore : basicScore[1]) + 1
     } else if (minus) {
       // 5.11-
-      otherGrade = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
+      otherScore = (typeof basicScore === 'number' ? basicScore : basicScore[0]) - 1
     }
 
-    if (otherGrade !== undefined) {
+    if (otherScore !== undefined) {
       const nextGrade = findScoreRange((r: Route) => {
-        return r.yds.toLowerCase() === routes[Math.max(otherGrade, 0)].yds.toLowerCase()
+        return r.yds.toLowerCase() === routes[Math.max(otherScore, 0)].yds.toLowerCase()
       }, routes)
       return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
     }

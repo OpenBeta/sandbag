@@ -70,6 +70,15 @@ describe('YosemiteDecimal', () => {
     test('grade with slash', () => {
       expect(YosemiteDecimal.isType('5.10a/b')).toBeTruthy()
     })
+    test.failing('grade with slash', () => {
+      expect(YosemiteDecimal.isType('5.10d/5.11a')).toBeTruthy()
+    })
+
+    test.failing('grade with non-consecutive slash grades', () => {
+      expect(YosemiteDecimal.isType('5.10d/c')).toBeFalsy()
+      expect(YosemiteDecimal.isType('5.10a/c')).toBeFalsy()
+      expect(YosemiteDecimal.isType('5.10c/5.11a')).toBeFalsy()
+    })
 
     test('incorrect type', () => {
       expect(YosemiteDecimal.isType('11+')).toBeFalsy()
@@ -110,6 +119,19 @@ describe('YosemiteDecimal', () => {
     test('gets Gradeband', () => {
       expect(YosemiteDecimal.getGradeBand('5.8')).toEqual(GradeBands.BEGINNER)
       expect(YosemiteDecimal.getGradeBand('5.15a')).toEqual(GradeBands.EXPERT)
+    })
+  })
+
+  describe('Slash scores', () => {
+    test('scores of slash grades should be subset of neighboring scores', () => {
+      const slashScore = YosemiteDecimal.getScore('5.10a/b')
+      const lowScore = YosemiteDecimal.getScore('5.10a')
+      const highScore = YosemiteDecimal.getScore('5.10b')
+
+      expect(slashScore[0]).toBeGreaterThan(lowScore[0])
+      expect(slashScore[1]).toBeGreaterThan(lowScore[1])
+      expect(slashScore[0]).toBeLessThan(highScore[0])
+      expect(slashScore[1]).toBeLessThan(highScore[1])
     })
   })
 })
