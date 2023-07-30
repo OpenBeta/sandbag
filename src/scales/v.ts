@@ -3,7 +3,7 @@ import boulder from '../data/boulder.json'
 import { Boulder } from '.'
 import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
-const vGradeRegex = /^(V[0-9]{1,2})([/+])?([/-])?([0-9]{1,2})?$/i
+const vGradeRegex = /^(V[0-9]{1,2}|VB(?![0-9]))([/+])?([/-])?([0-9]{1,2})?$/i
 const vGradeIrregular = /^V-([a-zA-Z]*)$/i
 
 const VScale: GradeScale = {

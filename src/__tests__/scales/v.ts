@@ -52,6 +52,15 @@ describe('V', () => {
     test('has extra characters', () => {
       expect(VScale.isType('v20a+')).toBeFalsy()
     })
+
+    test('allows VB irregular grades', () => {
+      expect(VScale.isType('VB')).toBeTruthy()
+      expect(VScale.isType('vb+')).toBeTruthy()
+    })
+    test('does not allow malformed vb grades', () => {
+      expect(VScale.isType('VB12/5')).toBeFalsy()
+      expect(VScale.isType('VB-9/8')).toBeFalsy()
+    })
   })
 
   describe('Get Grade', () => {
