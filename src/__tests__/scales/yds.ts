@@ -129,13 +129,13 @@ describe('YosemiteDecimal', () => {
 
   describe('Slash scores', () => {
     test('scores of slash grades should be subset of neighboring scores', () => {
-      const slashScore = YosemiteDecimal.getScore('5.10a/b')
-      const lowScore = YosemiteDecimal.getScore('5.10a')
-      const highScore = YosemiteDecimal.getScore('5.10b')
+      const slashScore = YosemiteDecimal.getScore('5.11a/b')
+      const lowScore = YosemiteDecimal.getScore('5.11a')
+      const highScore = YosemiteDecimal.getScore('5.11b')
       expect(slashScore[0]).toBeGreaterThan(lowScore[0])
       expect(slashScore[1]).toBeGreaterThan(lowScore[1])
       expect(slashScore[0]).toBeLessThan(highScore[0])
-      expect(slashScore[1]).toBeLessThanOrEqual(highScore[1])
+      expect(slashScore[1]).toBeLessThan(highScore[1])
     })
   })
 })

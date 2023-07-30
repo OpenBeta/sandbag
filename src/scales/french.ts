@@ -68,8 +68,8 @@ const getScore = (grade: string): number | Tuple => {
       )
       const basicAvg = getAvgScore(basicScore)
       const nextGradeAvg = getAvgScore(nextGrade)
-      const low = Math.floor(Math.min(basicAvg, nextGradeAvg))
-      const high = Math.ceil(Math.max(basicAvg, nextGradeAvg))
+      const low = Math.ceil(Math.min(basicAvg, nextGradeAvg))
+      const high = Math.floor(Math.max(basicAvg, nextGradeAvg))
       return [low, high] as Tuple
     }
   }

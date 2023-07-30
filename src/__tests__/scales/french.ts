@@ -26,7 +26,7 @@ describe('French', () => {
       const highGrade = French.getScore('4a')
       const lowGrade = French.getScore('3c+/4a')
       expect(highGrade[0] < lowGrade[1] && highGrade[0] > lowGrade[0])
-      expect(highGrade[1]).toBeGreaterThanOrEqual(lowGrade[1])
+      expect(highGrade[1]).toBeGreaterThan(lowGrade[1])
     })
   })
 
