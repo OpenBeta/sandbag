@@ -26,6 +26,7 @@ describe('YosemiteDecimal', () => {
       const highGrade = YosemiteDecimal.getScore('5.12a')
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
+
     describe('invalid grade format', () => {
       jest.spyOn(console, 'warn').mockImplementation()
       beforeEach(() => {
@@ -60,6 +61,10 @@ describe('YosemiteDecimal', () => {
 
     test('grade with letter uppercased', () => {
       expect(YosemiteDecimal.isType('5.11B')).toBeTruthy()
+    })
+
+    test('grade above 5.9 with no letter', () => {
+      expect(YosemiteDecimal.isType('5.11')).toBeTruthy()
     })
 
     test('grade plus modifier is accepted', () => {
@@ -127,11 +132,38 @@ describe('YosemiteDecimal', () => {
       const slashScore = YosemiteDecimal.getScore('5.10a/b')
       const lowScore = YosemiteDecimal.getScore('5.10a')
       const highScore = YosemiteDecimal.getScore('5.10b')
-
       expect(slashScore[0]).toBeGreaterThan(lowScore[0])
       expect(slashScore[1]).toBeGreaterThan(lowScore[1])
       expect(slashScore[0]).toBeLessThan(highScore[0])
-      expect(slashScore[1]).toBeLessThan(highScore[1])
+      expect(slashScore[1]).toBeLessThanOrEqual(highScore[1])
     })
+  })
+})
+
+// see related discussion regarding handling of non-letter'd grades: https://github.com/OpenBeta/sandbag/issues/137
+describe('grades above 5.9 with no letter', () => {
+  test('getScore returns an integer value', () => {
+    const score = YosemiteDecimal.getScore('5.11')
+    expect(Number.isInteger(score[0])).toBeTruthy()
+    expect(Number.isInteger(score[1])).toBeTruthy()
+    expect(score[1]).toBeGreaterThan(score[0])
+  })
+  test('5.11 > 5.11a', () => {
+    const lowGrade = YosemiteDecimal.getScore('5.11a')
+    const highGrade = YosemiteDecimal.getScore('5.11')
+    expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+  })
+  test('5.11d > 5.11', () => {
+    const lowGrade = YosemiteDecimal.getScore('5.11')
+    const highGrade = YosemiteDecimal.getScore('5.11d')
+    expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
+  })
+  test('getScore and getGrade agree on value of grade', () => {
+    const grade = '5.11'
+    const score = YosemiteDecimal.getScore(grade)
+    const reParsedGrade = YosemiteDecimal.getGrade(score)
+    const reScoredParsedGrade = YosemiteDecimal.getScore(reParsedGrade)
+    expect(reParsedGrade).toEqual('5.11b/c')
+    expect(reScoredParsedGrade).toEqual(score)
   })
 })

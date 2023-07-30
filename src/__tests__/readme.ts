@@ -11,8 +11,8 @@ import {
 describe('Convert grades to scores', () => {
   test('returns the correct score', () => {
     expect(French.getScore('8a')).toEqual([84, 85])
-    expect(French.getScore('7c+/8a')).toEqual([82.5, 84.5])
-    expect(YosemiteDecimal.getScore('5.12+')).toEqual([78.5, 80.5])
+    expect(French.getScore('7c+/8a')).toEqual([82, 85])
+    expect(YosemiteDecimal.getScore('5.12+')).toEqual([78, 81])
   })
 })
 

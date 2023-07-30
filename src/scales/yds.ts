@@ -32,7 +32,7 @@ const YosemiteDecimal: GradeScale = {
   },
   getGrade: (score: number | Tuple): string => {
     function validateScore (score: number): number {
-      return Math.min(Math.max(0, Math.floor(score)), routes.length - 1)
+      return Math.min(Math.max(0, score), routes.length - 1)
     }
 
     if (typeof score === 'number') {
@@ -96,7 +96,11 @@ const getScore = (grade: string): number | Tuple => {
       const nextGrade = findScoreRange((r: Route) => {
         return r.yds.toLowerCase() === routes[Math.max(otherScore, 0)].yds.toLowerCase()
       }, routes)
-      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+      const basicAvg = getAvgScore(basicScore)
+      const nextGradeAvg = getAvgScore(nextGrade)
+      const low = Math.floor(Math.min(basicAvg, nextGradeAvg))
+      const high = Math.ceil(Math.max(basicAvg, nextGradeAvg))
+      return [low, high] as Tuple
     }
   }
   return basicScore

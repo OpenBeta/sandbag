@@ -66,7 +66,11 @@ const getScore = (grade: string): number | Tuple => {
         (r: Route) => r.french.toLowerCase() === routes[otherGrade].french.toLowerCase(),
         routes
       )
-      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+      const basicAvg = getAvgScore(basicScore)
+      const nextGradeAvg = getAvgScore(nextGrade)
+      const low = Math.floor(Math.min(basicAvg, nextGradeAvg))
+      const high = Math.ceil(Math.max(basicAvg, nextGradeAvg))
+      return [low, high] as Tuple
     }
   }
   return basicScore
