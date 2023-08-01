@@ -1,6 +1,6 @@
 [![Develop branch](https://github.com/openbeta/climbing-grades/actions/workflows/nodejs.yml/badge.svg?branch=develop)](https://github.com/OpenBeta/climbing-grades/actions/workflows/nodejs.yml?query=develop)  [![License](https://img.shields.io/github/license/openbeta/climbing-grades?style=flat-square)](./LICENSE)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 # What is this?
 
@@ -170,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/TaliaMalia"><img src="https://avatars.githubusercontent.com/u/131688085?v=4?s=100" width="100px;" alt="Talia Aleyna Hortac"/><br /><sub><b>Talia Aleyna Hortac</b></sub></a><br /><a href="https://github.com/OpenBeta/sandbag/commits?author=TaliaMalia" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/actuallyyun"><img src="https://avatars.githubusercontent.com/u/87448230?v=4?s=100" width="100px;" alt="Yun Ji"/><br /><sub><b>Yun Ji</b></sub></a><br /><a href="https://github.com/OpenBeta/sandbag/commits?author=actuallyyun" title="Code">💻</a> <a href="#ideas-actuallyyun" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/josh610"><img src="https://avatars.githubusercontent.com/u/72105948?v=4?s=100" width="100px;" alt="Josh Zimmerman"/><br /><sub><b>Josh Zimmerman</b></sub></a><br /><a href="https://github.com/OpenBeta/sandbag/commits?author=josh610" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://johnny.sh/"><img src="https://avatars.githubusercontent.com/u/11850362?v=4?s=100" width="100px;" alt="John Roberts"/><br /><sub><b>John Roberts</b></sub></a><br /><a href="https://github.com/OpenBeta/sandbag/commits?author=johncalvinroberts" title="Code">💻</a> <a href="#ideas-johncalvinroberts" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
