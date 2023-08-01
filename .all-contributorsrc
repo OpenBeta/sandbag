@@ -100,6 +100,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "johncalvinroberts",
+      "name": "John Roberts",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11850362?v=4",
+      "profile": "https://johnny.sh/",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
