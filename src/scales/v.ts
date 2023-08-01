@@ -4,7 +4,6 @@ import { Boulder } from '.'
 import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
 const vGradeRegex = /^(V[0-9]{1,2}|VB(?![0-9]))([/+])?([/-])?([0-9]{1,2})?$/i
-const vGradeIrregular = /^V-([a-zA-Z]*)$/i
 
 const VScale: GradeScale = {
   displayName: 'V Scale',
@@ -12,7 +11,7 @@ const VScale: GradeScale = {
   offset: 1000,
   allowableConversionType: [GradeScales.FONT],
   isType: (grade: string): boolean => {
-    const isVGrade = grade.match(vGradeRegex) !== null || grade.match(vGradeIrregular)
+    const isVGrade = grade.match(vGradeRegex)
     // If there isn't a match sort it to the bottom
     if (isVGrade === null) {
       return false
