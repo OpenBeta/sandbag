@@ -1,5 +1,5 @@
 import boulder from '../data/boulder.json'
-import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
+import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple, getRoundedScoreTuple } from '../GradeScale'
 
 import { Boulder } from '.'
 import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
@@ -67,7 +67,10 @@ const getScore = (grade: string): number | Tuple => {
         (r: Boulder) => r.font.toLowerCase() === boulder[otherGrade].font.toLowerCase(),
         boulder
       )
-      return [getAvgScore(basicScore), getAvgScore(nextGrade)].sort((a, b) => a - b) as Tuple
+      const basicAvg = getAvgScore(basicScore)
+      const nextGradeAvg = getAvgScore(nextGrade)
+      const tuple = getRoundedScoreTuple(basicAvg, nextGradeAvg)
+      return tuple
     }
   }
   return basicScore

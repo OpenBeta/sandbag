@@ -1,4 +1,4 @@
-import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple } from '../GradeScale'
+import GradeScale, { findScoreRange, getAvgScore, GradeScales, Tuple, getRoundedScoreTuple } from '../GradeScale'
 import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
@@ -98,9 +98,8 @@ const getScore = (grade: string): number | Tuple => {
       }, routes)
       const basicAvg = getAvgScore(basicScore)
       const nextGradeAvg = getAvgScore(nextGrade)
-      const low = Math.ceil(Math.min(basicAvg, nextGradeAvg))
-      const high = Math.floor(Math.max(basicAvg, nextGradeAvg))
-      return [low, high] as Tuple
+      const tuple = getRoundedScoreTuple(basicAvg, nextGradeAvg)
+      return tuple
     }
   }
   return basicScore

@@ -32,10 +32,10 @@ describe('Norwegian', () => {
     })
 
     test('Slash grade provided', () => {
-      expect(Norwegian.getScore('4-/4')).toStrictEqual([30.5, 33.5])
-      expect(Norwegian.getScore('5/5+')).toStrictEqual([45.5, 51.5])
-      expect(Norwegian.getScore('7+/8-')).toStrictEqual([72.5, 75.5])
-      expect(Norwegian.getScore('7+/7')).toStrictEqual([72.5, 75.5])
+      expect(Norwegian.getScore('4-/4')).toStrictEqual([31, 33])
+      expect(Norwegian.getScore('5/5+')).toStrictEqual([46, 51])
+      expect(Norwegian.getScore('7+/8-')).toStrictEqual([73, 75])
+      expect(Norwegian.getScore('7+/7')).toStrictEqual([73, 75])
     })
   })
 
