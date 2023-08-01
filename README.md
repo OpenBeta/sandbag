@@ -60,10 +60,10 @@ import { French, YosemiteDecimal } from '@openbeta/sandbag'
 const score = French.getScore('8a') // Output [ 84, 85 ]
 
 // Support slash grade
-const slashGradeScore=French.getScore('7c+/8a') // Output [ 82.5, 84.5 ]
+const slashGradeScore=French.getScore('7c+/8a') // Output [ 83, 84 ]
 
 // Accept +/- modifier
-const plusGrade= YosemiteDecimal.getScore('5.12+') // Output [ 78.5, 80.5 ]
+const plusGrade= YosemiteDecimal.getScore('5.12+') // Output [ 79, 80 ]
 ```
 
 - Convert Scores to Grades
