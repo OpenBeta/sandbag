@@ -44,6 +44,18 @@ export const findScoreRange = (compareFn, list): number | Tuple => {
   }
   return [low, high]
 }
+
 export function getAvgScore (score: number | Tuple): number {
   return typeof score === 'number' ? score : (score[1] + score[0]) / 2
+}
+
+/**
+ * For getting a whole number/integer tuple of a grade which resides between two adjacent grades.
+ * Returns an integer tuple, rounded EXCLUSIVELY of the adjacent grade scores.
+ * Related discussion: https://github.com/OpenBeta/sandbag/issues/137
+ */
+export const getRoundedScoreTuple = (gradeAverage: number, nextGradeAverage: number): Tuple => {
+  const low = Math.ceil(Math.min(gradeAverage, nextGradeAverage))
+  const high = Math.floor(Math.max(gradeAverage, nextGradeAverage))
+  return [low, high]
 }
