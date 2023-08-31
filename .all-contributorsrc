@@ -110,6 +110,16 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "marinojoey",
+      "name": "Joey Marino",
+      "avatar_url": "https://avatars.githubusercontent.com/u/87674525?v=4",
+      "profile": "https://github.com/marinojoey",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
