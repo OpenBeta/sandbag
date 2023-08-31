@@ -137,6 +137,20 @@ yarn install
 yarn test
 ```
 
+#### Generating Test Coverage Report
+
+To generate a test coverage report using Jest run the following command in your terminal:
+
+```sh
+npx jest --coverage
+```
+
+If you're using macOS, you can directly access the coverage report in your browser by opening the following URL:
+
+```
+file:///Users/<userName>/sandbag/coverage/lcov-report/index.html
+```
+
 #### How to publish a new release to NPM
 Submit a PR with commit message `[npm publish]`
 
