@@ -40,4 +40,11 @@ describe('SAXON', () => {
       expect(isValid).toBe(false)
     })
   })
+
+  describe('getScore', () => {
+    test('should handle grade format with slash "7a/7b"', () => {
+      const score = SaxonScale.getScore('7a/7b')
+      expect(score).not.toEqual(-1)
+    })
+  })
 })
