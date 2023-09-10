@@ -4,6 +4,7 @@ import {
   getScale,
   getScore,
   getScoreForSort,
+  inferScale,
   isVScale,
   convertGrade
 } from './GradeParser'
@@ -294,6 +295,7 @@ export {
   getScoreForSort,
   isVScale,
   getScale,
+  inferScale,
   GradeScales,
   GradeScalesTypes,
   GradeBands,

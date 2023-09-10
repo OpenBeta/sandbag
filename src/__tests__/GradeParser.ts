@@ -1,4 +1,4 @@
-import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
+import { getScoreForSort, convertGrade, getScale, inferScale } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
 import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI } from '../scales'
 
@@ -320,6 +320,17 @@ describe('Grade Scales', () => {
           "Scale: WI Grade doesn't support converting to Scale: French"
         )
       )
+    })
+  })
+
+  describe('inferScale', () => {
+    test.each([
+      [GradeScales.YDS, '5.10'],
+      [null, '6a'],
+      [null, 'abcdef'],
+      [GradeScales.VSCALE, 'V7']
+    ])('detects %s scale for %s', (scale, grade) => {
+      expect(inferScale(grade)).toEqual(scale)
     })
   })
 })

@@ -9,7 +9,7 @@ import AI from './ai'
 import Aid from './aid'
 import WI from './wi'
 import UIAA from './uiaa'
-import GradeScale, { GradeScales } from '../GradeScale'
+import { GradeScales } from '../GradeScale'
 export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian }
 
 export interface Boulder {
@@ -39,10 +39,7 @@ export interface AidGrade {
   aid: string
 }
 
-export const scales: Record<
-  typeof GradeScales[keyof typeof GradeScales],
-GradeScale | null
-> = {
+export const scales = {
   [GradeScales.VSCALE]: VScale,
   [GradeScales.YDS]: YosemiteDecimal,
   [GradeScales.FONT]: Font,
@@ -54,4 +51,4 @@ GradeScale | null
   [GradeScales.AI]: AI,
   [GradeScales.WI]: WI,
   [GradeScales.AID]: Aid
-}
+} as const

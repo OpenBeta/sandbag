@@ -67,6 +67,14 @@ export const convertGrade = (
   return toScale.getGrade(toScore)
 }
 
+export const inferScale = (grade: string): GradeScalesTypes | null => {
+  const matchedScales = Object.values(scales)
+    .map(scale => [scale.name, scale.isType(grade)] as const)
+    .filter(v => v[1])
+  if (matchedScales.length === 1) return matchedScales[0][0]
+  return null
+}
+
 export const isVScale = (grade: string): boolean => {
   const scale = scales[GradeScales.VSCALE]
   if (scale == null) {
