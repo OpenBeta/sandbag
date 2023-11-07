@@ -14,6 +14,7 @@ Javascript utilities for working with rock climbing grades.
 - [x] UIAA
 - [x] Ewbanks
 - [x] Saxon
+- [x] Brazilian
 
 **Bouldering**
 - [x] Vermin (V-scale)

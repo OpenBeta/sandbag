@@ -11,6 +11,7 @@ export default interface GradeScale {
   name: GradeScalesTypes
   offset: number
   allowableConversionType: GradeScalesTypes[]
+  grades?: string[]
 }
 
 export const GradeScales = {
@@ -24,7 +25,8 @@ export const GradeScales = {
   UIAA: 'uiaa',
   EWBANK: 'ewbank',
   SAXON: 'saxon',
-  NORWEGIAN: 'norwegian'
+  NORWEGIAN: 'norwegian',
+  BRAZILIAN_CRUX: 'brazilian_crux'
 } as const
 
 export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]

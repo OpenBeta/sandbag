@@ -8,7 +8,7 @@ import {
   convertGrade
 } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
-import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal } from './scales'
+import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal, BrazilianCrux } from './scales'
 
 // Free Climbing Grades
 // YDS
@@ -268,7 +268,6 @@ export const protection = ['G', 'PG', 'PG13', 'R', 'X']
 // Bouldering
 // Hueco
 // Fontainebleau
-// Brazilian
 
 export const freeClimbing = {
   clean: {
@@ -280,7 +279,8 @@ export const freeClimbing = {
     UIAA: UIAA_ARRAY,
     Ewbank: EWBANK_ARRAY,
     Saxon: SAXON_ARRAY,
-    Norwegian: NORWAY_ARRAY
+    Norwegian: NORWAY_ARRAY,
+    BrazilianCrux: BrazilianCrux.grades
   },
   community: {}
 }
@@ -311,5 +311,6 @@ export {
   UIAA,
   VScale,
   WI,
-  YosemiteDecimal
+  YosemiteDecimal,
+  BrazilianCrux
 }
