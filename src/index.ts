@@ -1,4 +1,3 @@
-
 import { GradeScales, GradeScalesTypes } from './GradeScale'
 import {
   getScale,
@@ -9,6 +8,8 @@ import {
 } from './GradeParser'
 import { GradeBands, GradeBandTypes } from './GradeBands'
 import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal, BrazilianCrux } from './scales'
+
+import { GradeContexts, gradeContextToGradeScales, getCountriesDefaultGradeContext } from './GradeContexts'
 
 // Free Climbing Grades
 // YDS
@@ -314,3 +315,5 @@ export {
   YosemiteDecimal,
   BrazilianCrux
 }
+
+export { GradeContexts, gradeContextToGradeScales, getCountriesDefaultGradeContext }
