@@ -1,4 +1,4 @@
-import { GradeScales, type GradeScalesTypes } from './GradeScale'
+import { GradeScales, GradeScalesTypes } from './GradeScale'
 import {
   getScale,
   getScore,
@@ -6,7 +6,7 @@ import {
   isVScale,
   convertGrade
 } from './GradeParser'
-import { GradeBands, type GradeBandTypes } from './GradeBands'
+import { GradeBands, GradeBandTypes } from './GradeBands'
 import {
   AI,
   Aid,
