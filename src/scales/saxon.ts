@@ -3,6 +3,8 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const SAXON_ARRAY = Array.from(new Set(routes.map((r) => r[GradeScales.SAXON])))
+
 const saxonGradeRegex = /^((([7-9]|1[0-3])([a-c]))|([1-6]))$/i
 // Saxon grading system, predominant in Central Europe (esp. Germany, Austria, Switzerland)
 // Supports 1 -> 13c, slash grades i.e. 7a/7b
@@ -13,6 +15,7 @@ const isSaxon = (grade: string): RegExpMatchArray | null => grade.match(saxonGra
 const SaxonScale: GradeScale = {
   displayName: 'Saxon Scale',
   name: GradeScales.SAXON,
+  grades: SAXON_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {

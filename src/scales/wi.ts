@@ -3,6 +3,8 @@ import ice_table from '../data/ice.json'
 import { IceGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const WI_ARRAY = Array.from(new Set(ice_table.map((r) => r.wi)))
+
 // Supports WI1 -> WI13, with + grades on WI3 -> WI13 and no slash grades
 // https://en.wikipedia.org/wiki/Grade_(climbing)#Ice_and_mixed_climbing
 const wiGradeRegex = /^(WI)([1-2]|[3-9]\+?|1[0-3]\+?)$/
@@ -12,6 +14,7 @@ const isWI = (grade: string): RegExpMatchArray | null => grade.match(wiGradeRege
 const WIScale: GradeScale = {
   displayName: 'WI Grade',
   name: GradeScales.WI,
+  grades: WI_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.ICE,
   isType: (grade: string): boolean => {

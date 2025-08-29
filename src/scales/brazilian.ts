@@ -67,9 +67,9 @@ const getScore = (grade: string): number | Tuple => {
 // https://www.cap.com.br/post/sistema-brasileiro-de-gradua%C3%A7%C3%A3o-de-vias-de-escalada
 // alt mirror: https://web.archive.org/web/20220125022634/https://www.cap.com.br/post/sistema-brasileiro-de-gradua%C3%A7%C3%A3o-de-vias-de-escalada
 const BrazilianCrux: GradeScale = {
-  grades: BRAZILIAN_ARRAY,
   displayName: 'Brazilian Crux Scale',
   name: GradeScales.BRAZILIAN_CRUX,
+  grades: BRAZILIAN_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => isBrazilianCrux(grade) !== null,

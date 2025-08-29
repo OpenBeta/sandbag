@@ -3,6 +3,8 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const NORWEGIAN_ARRAY = Array.from(new Set(routes.map((r) => r[GradeScales.NORWEGIAN])))
+
 // Supports 1- -> 11+, slash grades i.e. 6-/6 or 7+/8-
 // NOTE: this currently assumes "incorrect" slash grades follow the normal pattern
 // i.e. 6-/5 => 6-/6
@@ -12,6 +14,7 @@ const isNorwegian = (grade: string): RegExpMatchArray | null => grade.match(norw
 const Norwegian: GradeScale = {
   displayName: 'Norwegian Scale',
   name: GradeScales.NORWEGIAN,
+  grades: NORWEGIAN_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {

@@ -1,5 +1,4 @@
-
-import { GradeScales, GradeScalesTypes } from './GradeScale'
+import { GradeScales, type GradeScalesTypes } from './GradeScale'
 import {
   getScale,
   getScore,
@@ -7,8 +6,21 @@ import {
   isVScale,
   convertGrade
 } from './GradeParser'
-import { GradeBands, GradeBandTypes } from './GradeBands'
-import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, YosemiteDecimal, BrazilianCrux } from './scales'
+import { GradeBands, type GradeBandTypes } from './GradeBands'
+import {
+  AI,
+  Aid,
+  Ewbank,
+  Font,
+  French,
+  Norwegian,
+  Saxon,
+  UIAA,
+  VScale,
+  WI,
+  YosemiteDecimal,
+  BrazilianCrux
+} from './scales'
 
 // Free Climbing Grades
 // YDS
@@ -22,6 +34,51 @@ import { AI, Aid, Ewbank, Font, French, Norwegian, Saxon, UIAA, VScale, WI, Yose
 // Nordic - Finnish
 // Brazilian
 // Kurtyka (Poland)
+
+const CLASS_ARRAY = [
+  'Class 1',
+  'Class 2',
+  'Class 3',
+  'Class 4',
+  'Class 5'
+] as const
+
+const BRITISH_TECH_ARRAY = [
+  '1',
+  '2',
+  '3',
+  '4a',
+  '4b',
+  '4c',
+  '5a',
+  '5b',
+  '5c',
+  '6a',
+  '6b',
+  '6c',
+  '7a',
+  '7b'
+] as const
+
+const BRITISH_ADJ_ARRAY = [
+  'M',
+  'D',
+  'VD',
+  'S',
+  'HS',
+  'HVS',
+  'E1',
+  'E2',
+  'E3',
+  'E4',
+  'E5',
+  'E6',
+  'E7',
+  'E8',
+  'E9',
+  'E10',
+  'E11'
+] as const
 
 const YDS_ARRAY = [
   '5.0',
@@ -58,50 +115,6 @@ const YDS_ARRAY = [
   '5.15b',
   '5.15c',
   '5.15d'
-]
-
-const SAXON_ARRAY = [
-  '1', '2', '3', '4', '5', '6', '7a',
-  '7b', '7c', '8a', '8b', '8c', '9a',
-  '9b', '9c', '10a', '10b', '10c', '11a',
-  '11b', '11c', '12a', '12b'
-]
-
-const BRITISH_TECH_ARRAY = [
-  '1',
-  '2',
-  '3',
-  '4a',
-  '4b',
-  '4c',
-  '5a',
-  '5b',
-  '5c',
-  '6a',
-  '6b',
-  '6c',
-  '7a',
-  '7b'
-]
-
-const BRITISH_ADJ_ARRAY = [
-  'M',
-  'D',
-  'VD',
-  'S',
-  'HS',
-  'HVS',
-  'E1',
-  'E2',
-  'E3',
-  'E4',
-  'E5',
-  'E6',
-  'E7',
-  'E8',
-  'E9',
-  'E10',
-  'E11'
 ]
 
 const FRENCH_ARRAY = [
@@ -222,6 +235,32 @@ const EWBANK_ARRAY = [
   '40'
 ]
 
+const SAXON_ARRAY = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7a',
+  '7b',
+  '7c',
+  '8a',
+  '8b',
+  '8c',
+  '9a',
+  '9b',
+  '9c',
+  '10a',
+  '10b',
+  '10c',
+  '11a',
+  '11b',
+  '11c',
+  '12a',
+  '12b'
+]
+
 const NORWAY_ARRAY = [
   '1-',
   '1',
@@ -261,20 +300,13 @@ const NORWAY_ARRAY = [
   '12+'
 ]
 
-const CLASS_ARRAY = ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5']
-
-export const protection = ['G', 'PG', 'PG13', 'R', 'X']
-
-// Bouldering
-// Hueco
-// Fontainebleau
-
 export const freeClimbing = {
   clean: {
-    yds: YDS_ARRAY,
     class: CLASS_ARRAY,
     britishTech: BRITISH_TECH_ARRAY,
     britishAdj: BRITISH_ADJ_ARRAY,
+
+    yds: YDS_ARRAY,
     French: FRENCH_ARRAY,
     UIAA: UIAA_ARRAY,
     Ewbank: EWBANK_ARRAY,
@@ -285,7 +317,7 @@ export const freeClimbing = {
   community: {}
 }
 
-export const bouldering = {}
+export const protection = ['G', 'PG', 'PG13', 'R', 'X'] as const
 
 export { convertGrade }
 

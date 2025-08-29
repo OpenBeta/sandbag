@@ -11,7 +11,7 @@ export default interface GradeScale {
   name: GradeScalesTypes
   offset: number
   conversionGroup: ConversionGroupsTypes
-  grades?: string[]
+  grades: string[]
 }
 
 export const GradeScales = {

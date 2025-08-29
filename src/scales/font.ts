@@ -4,6 +4,8 @@ import GradeScale, { findScoreRange, getAvgScore, GradeScales, ConversionGroups,
 import { Boulder } from '.'
 import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
+const FONT_ARRAY = Array.from(new Set(boulder.map((b) => b.font)))
+
 const fontGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
 // NOTE: this currently assumes "incorrect" slash grades follows the normal pattern
@@ -13,6 +15,7 @@ const isFont = (grade: string): RegExpMatchArray | null => grade.match(fontGrade
 const FontScale: GradeScale = {
   displayName: 'Fontainebleau',
   name: GradeScales.FONT,
+  grades: FONT_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.BOULDERING,
   isType: (grade: string): boolean => {
