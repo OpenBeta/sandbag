@@ -300,6 +300,9 @@ const NORWAY_ARRAY = [
   '12+'
 ]
 
+/**
+ * @deprecated - grades can now be accessed as a property of each GradeScale
+ */
 export const freeClimbing = {
   clean: {
     class: CLASS_ARRAY,
