@@ -1,6 +1,6 @@
 import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
-import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI } from '../scales'
+import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI, IRCRA } from '../scales'
 
 describe('Grade Scales', () => {
   beforeAll(() => {
@@ -320,6 +320,55 @@ describe('Grade Scales', () => {
           "Scale: WI Grade doesn't support converting to Scale: French"
         )
       )
+    })
+  })
+
+  describe('IRCRA', () => {
+    test('32 > 1', () => {
+      expect(getScoreForSort('32', GradeScales.IRCRA)).toBeGreaterThan(
+        getScoreForSort('1', GradeScales.IRCRA)
+      )
+    })
+
+    test('15 > 10', () => {
+      expect(getScoreForSort('15', GradeScales.IRCRA)).toBeGreaterThan(
+        getScoreForSort('10', GradeScales.IRCRA)
+      )
+    })
+
+    test('25 > 20', () => {
+      expect(getScoreForSort('25', GradeScales.IRCRA)).toBeGreaterThan(
+        getScoreForSort('20', GradeScales.IRCRA)
+      )
+    })
+
+    test('returns a GradeScale given the name', () => {
+      expect(getScale(GradeScales.IRCRA)).toEqual(IRCRA)
+    })
+
+    test('convert IRCRA to FONT', () => {
+      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.FONT)).toEqual('5b+/5c')
+    })
+
+    test('convert IRCRA to VSCALE', () => {
+      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.VSCALE)).toEqual('V2')
+    })
+
+    test('convert IRCRA to YDS', () => {
+      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.YDS)).toEqual('5.10a')
+    })
+
+    test('convert IRCRA to French', () => {
+      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.FRENCH)).toEqual('5c+/6a')
+    })
+
+    // Test reverse conversions
+    test('convert FONT to IRCRA', () => {
+      expect(convertGrade('6a', GradeScales.FONT, GradeScales.IRCRA)).toEqual('15/16')
+    })
+
+    test('convert VSCALE to IRCRA', () => {
+      expect(convertGrade('V2', GradeScales.VSCALE, GradeScales.IRCRA)).toEqual('13/14')
     })
   })
 })

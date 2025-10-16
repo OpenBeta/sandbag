@@ -57,7 +57,8 @@ export const convertGrade = (
     return ''
   }
   const sameConversionGroup: boolean = fromScale.conversionGroup === toScale.conversionGroup
-  if (!sameConversionGroup) {
+  const isResearchConversion: boolean = fromScale.conversionGroup === 'research' || toScale.conversionGroup === 'research'
+  if (!sameConversionGroup && !isResearchConversion) {
     console.warn(
       `Scale: ${fromScale.displayName} doesn't support converting to Scale: ${toScale.displayName}`
     )

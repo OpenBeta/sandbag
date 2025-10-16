@@ -46,3 +46,7 @@ export const ICE_GRADE_TABLE: Promise<IceGrade[]> = getData(CSV_PATH_ICE, JSON_P
 const CSV_PATH_AID = path.join(dataDir, 'aid.csv')
 const JSON_PATH_AID = path.join(dataDir, 'aid.json')
 export const AID_GRADE_TABLE: Promise<AidGrade[]> = getData(CSV_PATH_AID, JSON_PATH_AID)
+
+const CSV_PATH_RESEARCH = path.join(dataDir, 'research.csv')
+const JSON_PATH_RESEARCH = path.join(dataDir, 'research.json')
+export const RESEARCH_GRADE_TABLE: Promise<any[]> = getData(CSV_PATH_RESEARCH, JSON_PATH_RESEARCH)
