@@ -3,6 +3,8 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const UIAA_ARRAY = Array.from(new Set(routes.map((r) => r[GradeScales.UIAA])))
+
 const uiaaGradeRegex = /^(\d{1,2}[+-]?\/?\d?[+-]?)$/
 const isUIAA = (grade: string): RegExpMatchArray | null => grade.match(uiaaGradeRegex)
 
@@ -13,6 +15,7 @@ const isUIAA = (grade: string): RegExpMatchArray | null => grade.match(uiaaGrade
 const UIAAScale: GradeScale = {
   displayName: 'UIAA Scale',
   name: GradeScales.UIAA,
+  grades: UIAA_ARRAY,
   offset: 2000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {

@@ -6,6 +6,8 @@ import { ResearchGrade } from '.'
 const ircraGradeRegex = /^(\d{1,2})$/
 const isIRCRA = (grade: string): RegExpMatchArray | null => grade.match(ircraGradeRegex)
 
+const IRCRA_ARRAY = Array.from(new Set(research.map((r) => r.ircra)))
+
 // IRCRA (International Rock Climbing Research Association) grading system
 // Uses simple numeric values from 1-32 representing difficulty levels
 // This is a relatively new grading system designed to be more precise than traditional systems
@@ -13,6 +15,7 @@ const isIRCRA = (grade: string): RegExpMatchArray | null => grade.match(ircraGra
 const IRCRAScale: GradeScale = {
   displayName: 'IRCRA Scale',
   name: GradeScales.IRCRA,
+  grades: IRCRA_ARRAY,
   offset: 3000,
   conversionGroup: ConversionGroups.RESEARCH,
   isType: (grade: string): boolean => {

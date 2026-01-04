@@ -3,11 +3,14 @@ import boulder from '../data/boulder.json'
 import { Boulder } from '.'
 import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
+const V_ARRAY = Array.from(new Set(boulder.map((b) => b.v)))
+
 const vGradeRegex = /^(V[0-9]{1,2}|VB(?![0-9]))([/+])?([/-])?([0-9]{1,2})?$/i
 
 const VScale: GradeScale = {
   displayName: 'V Scale',
   name: GradeScales.VSCALE,
+  grades: V_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.BOULDERING,
   isType: (grade: string): boolean => {

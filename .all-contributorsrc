@@ -130,6 +130,15 @@
         "code",
         "ideas"
       ]
+    },
+    {
+      "login": "kevin8181",
+      "name": "kevin8181",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66894759?v=4",
+      "profile": "https://github.com/kevin8181",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

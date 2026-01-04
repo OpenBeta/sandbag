@@ -3,6 +3,8 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const FRENCH_ARRAY = Array.from(new Set(routes.map((r) => r[GradeScales.FRENCH])))
+
 const frenchGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
 // NOTE: this currently assumes "incorrect" slash grades follows the normal pattern
@@ -12,6 +14,7 @@ const isFrench = (grade: string): RegExpMatchArray | null => grade.match(frenchG
 const FrenchScale: GradeScale = {
   displayName: 'French Scale',
   name: GradeScales.FRENCH,
+  grades: FRENCH_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {

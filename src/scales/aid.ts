@@ -3,6 +3,8 @@ import aid_table from '../data/aid.json'
 import { AidGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const AID_ARRAY = Array.from(new Set(aid_table.map((r) => r.aid)))
+
 // Supports [AC]0 -> [AC]5, with + grades on [AC]2 -> [AC]4 and no slash grades
 // https://en.wikipedia.org/wiki/Grade_(climbing)#Clean_scale
 const aidGradeRegex = /^([AC])([0-5]|[2-4]\+)$/i
@@ -11,6 +13,7 @@ const isAid = (grade: string): RegExpMatchArray | null => grade.match(aidGradeRe
 const AidScale: GradeScale = {
   displayName: 'Aid Grade',
   name: GradeScales.AID,
+  grades: AID_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.AID,
   isType: (grade: string): boolean => {

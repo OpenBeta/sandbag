@@ -3,6 +3,8 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const EWBANK_ARRAY = Array.from(new Set(routes.map((r) => r[GradeScales.EWBANK])))
+
 // Supports 1 -> 40, slash grades i.e. 25/26
 // NOTE: this currently assumes "incorrect" slash grades follows the normal pattern
 // i.e. 26/35 => 26/27
@@ -14,6 +16,7 @@ const isEwbank = (grade: string): RegExpMatchArray | null => grade.match(ewbankG
 const EwbankScale: GradeScale = {
   displayName: 'Ewbank Grade',
   name: GradeScales.EWBANK,
+  grades: EWBANK_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {

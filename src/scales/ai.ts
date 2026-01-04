@@ -3,6 +3,8 @@ import ice_table from '../data/ice.json'
 import { IceGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const AI_ARRAY = Array.from(new Set(ice_table.map((r) => r.ai)))
+
 // Supports AI1 -> AI13, aith + grades on AI3 -> AI13 and no slash grades
 // https://en.aikipedia.org/aiki/Grade_(climbing)#Ice_and_mixed_climbing
 const aiGradeRegex = /^(AI)([1-2]|[3-9]\+?|1[0-3]\+?)$/
@@ -12,6 +14,7 @@ const isAI = (grade: string): RegExpMatchArray | null => grade.match(aiGradeRege
 const AIScale: GradeScale = {
   displayName: 'AI Grade',
   name: GradeScales.AI,
+  grades: AI_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.ICE,
   isType: (grade: string): boolean => {

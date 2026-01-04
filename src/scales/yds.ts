@@ -3,6 +3,10 @@ import routes from '../data/routes.json'
 import { Route } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
+const YDS_ARRAY = Array.from(
+  new Set(routes.map((r) => r[GradeScales.YDS]))
+)
+
 const REGEX_5_X = /(^5\.([0-9]|1[0-6]))()([+-])?$/i
 // Support 5.0 to 5.16 with + and -
 const REGEX_5_10_LETTER = /(^5\.(1[0-6]))([abcd])(\/[abcd])?$/i
@@ -18,6 +22,7 @@ const isYds = (grade: string): RegExpMatchArray | null =>
 const YosemiteDecimal: GradeScale = {
   displayName: 'Yosemite Decimal System',
   name: GradeScales.YDS,
+  grades: YDS_ARRAY,
   offset: 1000,
   conversionGroup: ConversionGroups.FREE,
   isType: (grade: string): boolean => {
