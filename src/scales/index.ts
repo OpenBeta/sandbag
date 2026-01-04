@@ -10,8 +10,9 @@ import Aid from './aid'
 import WI from './wi'
 import BrazilianCrux from './brazilian'
 import UIAA from './uiaa'
+import IRCRA from './ircra'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian, BrazilianCrux }
+export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian, BrazilianCrux, IRCRA }
 
 export interface Boulder {
   score: number
@@ -41,6 +42,11 @@ export interface AidGrade {
   aid: string
 }
 
+export interface ResearchGrade {
+  score: number
+  ircra: string
+}
+
 export const scales: Record<
   typeof GradeScales[keyof typeof GradeScales],
 GradeScale | null
@@ -56,5 +62,6 @@ GradeScale | null
   [GradeScales.BRAZILIAN_CRUX]: BrazilianCrux,
   [GradeScales.AI]: AI,
   [GradeScales.WI]: WI,
-  [GradeScales.AID]: Aid
+  [GradeScales.AID]: Aid,
+  [GradeScales.IRCRA]: IRCRA
 }

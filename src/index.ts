@@ -19,7 +19,8 @@ import {
   VScale,
   WI,
   YosemiteDecimal,
-  BrazilianCrux
+  BrazilianCrux,
+  IRCRA
 } from './scales'
 
 // Free Climbing Grades
@@ -347,5 +348,6 @@ export {
   VScale,
   WI,
   YosemiteDecimal,
-  BrazilianCrux
+  BrazilianCrux,
+  IRCRA
 }

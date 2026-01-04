@@ -26,7 +26,8 @@ export const GradeScales = {
   EWBANK: 'ewbank',
   SAXON: 'saxon',
   NORWEGIAN: 'norwegian',
-  BRAZILIAN_CRUX: 'brazilian_crux'
+  BRAZILIAN_CRUX: 'brazilian_crux',
+  IRCRA: 'ircra'
 } as const
 
 export type GradeScalesTypes = typeof GradeScales[keyof typeof GradeScales]
@@ -35,7 +36,8 @@ export const ConversionGroups = {
   AID: 'aid',
   FREE: 'free',
   BOULDERING: 'bouldering',
-  ICE: 'ice'
+  ICE: 'ice',
+  RESEARCH: 'research'
 } as const
 
 export type ConversionGroupsTypes = typeof ConversionGroups[keyof typeof ConversionGroups]
