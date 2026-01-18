@@ -16,12 +16,12 @@ describe('Convert grades to scores', () => {
   })
 })
 
-describe('Convert scores to greades', () => {
+describe('Convert scores to grades', () => {
   test('supports single score', () => {
-    expect(Font.getGrade(80)).toEqual('7c')
+    expect(Font.getGrade(49)).toEqual('7c')
   })
   test('supports a range of scores', () => {
-    expect(Font.getGrade([79, 81])).toEqual('7b+/7c')
+    expect(Font.getGrade([47, 48])).toEqual('7b+/7c')
   })
 })
 
