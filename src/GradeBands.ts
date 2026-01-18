@@ -45,9 +45,9 @@ export const boulderScoreToBand = (score: number): GradeBandTypes => {
   const distribution = {
     [GradeBands.UNKNOWN]: -1,
     [GradeBands.BEGINNER]: 0,
-    [GradeBands.INTERMEDIATE]: 50,
-    [GradeBands.ADVANCED]: 60,
-    [GradeBands.EXPERT]: 72
+    [GradeBands.INTERMEDIATE]: 24,
+    [GradeBands.ADVANCED]: 28,
+    [GradeBands.EXPERT]: 38
   }
   return scoreToBand(score, distribution)
 }
