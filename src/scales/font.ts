@@ -6,7 +6,7 @@ import { boulderScoreToBand, GradeBandTypes } from '../GradeBands'
 
 const FONT_ARRAY = Array.from(new Set(boulder.map((b) => b.font)))
 
-const fontGradeRegex = /^([1-9][a-c][+]?){1}(?:(\/)([1-9][a-c][+]?))?$/i
+const fontGradeRegex = /^((?:[1-5][+-]?)|(?:[6-9][a-c][+]?))(?:(\/)((?:[1-5][+-]?)|(?:[6-9][a-c][+]?)))?$/i
 // Supports 1a -> 9c+, slash grades i.e. 5a/5a+ or 6a+/6b
 // NOTE: this currently assumes "incorrect" slash grades follows the normal pattern
 // i.e. 6b+/5a => 6b+/6c

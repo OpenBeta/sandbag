@@ -106,27 +106,27 @@ describe('Grade Scales', () => {
   })
 
   describe('FONT', () => {
-    test('2a > 1a', () => {
-      expect(getScoreForSort('2a', GradeScales.FONT)).toBeGreaterThan(
-        getScoreForSort('1a', GradeScales.FONT)
+    test('2 > 1', () => {
+      expect(getScoreForSort('2', GradeScales.FONT)).toBeGreaterThan(
+        getScoreForSort('1', GradeScales.FONT)
       )
     })
 
-    test('2a+ > 2a', () => {
-      expect(getScoreForSort('2a+', GradeScales.FONT)).toBeGreaterThan(
-        getScoreForSort('2a', GradeScales.FONT)
+    test('2+ > 2', () => {
+      expect(getScoreForSort('2+', GradeScales.FONT)).toBeGreaterThan(
+        getScoreForSort('2', GradeScales.FONT)
       )
     })
 
-    test('3a/3a+ > 3a', () => {
-      expect(getScoreForSort('3a/3a+', GradeScales.FONT)).toBeGreaterThan(
-        getScoreForSort('3a', GradeScales.FONT)
+    test('3/3+ > 3', () => {
+      expect(getScoreForSort('3/3+', GradeScales.FONT)).toBeGreaterThan(
+        getScoreForSort('3', GradeScales.FONT)
       )
     })
 
-    test('4a > 3a+/4a', () => {
-      expect(getScoreForSort('4a', GradeScales.FONT)).toBeGreaterThan(
-        getScoreForSort('3a+/4a', GradeScales.FONT)
+    test('4 > 3+/4', () => {
+      expect(getScoreForSort('4', GradeScales.FONT)).toBeGreaterThan(
+        getScoreForSort('3+/4', GradeScales.FONT)
       )
     })
 
@@ -135,11 +135,11 @@ describe('Grade Scales', () => {
     })
 
     test('convert FONT to VSCALE', () => {
-      expect(convertGrade('3a', GradeScales.FONT, GradeScales.VSCALE)).toEqual('VB+')
+      expect(convertGrade('3', GradeScales.FONT, GradeScales.VSCALE)).toEqual('VB')
     })
 
     test('convert FONT to YDS is not allowed', () => {
-      expect(convertGrade('3a', GradeScales.FONT, GradeScales.YDS)).toEqual('')
+      expect(convertGrade('3', GradeScales.FONT, GradeScales.YDS)).toEqual('')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining(
           "Scale: Fontainebleau doesn't support converting to Scale: Yosemite Decimal System"
@@ -148,7 +148,7 @@ describe('Grade Scales', () => {
     })
 
     test('convert FONT to FRENCH is not allowed', () => {
-      expect(convertGrade('3a', GradeScales.FONT, GradeScales.FRENCH)).toEqual('')
+      expect(convertGrade('3', GradeScales.FONT, GradeScales.FRENCH)).toEqual('')
       expect(console.warn).toHaveBeenCalledWith(
         expect.stringContaining(
           "Scale: Fontainebleau doesn't support converting to Scale: French Scale"
