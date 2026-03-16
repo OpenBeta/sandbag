@@ -37,7 +37,9 @@
   "engines": {
     "node": ">=14"
   },
-  "dependencies": {},
+  "dependencies": {
+    "i18n-iso-countries": "^7.6.0"
+  },
   "keywords": [
     "rock climbing",
     "climbing grades"

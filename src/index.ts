@@ -22,6 +22,8 @@ import {
   BrazilianCrux
 } from './scales'
 
+import { GradeContexts, gradeContextToGradeScales, getCountriesDefaultGradeContext } from './GradeContexts'
+
 // Free Climbing Grades
 // YDS
 // French
@@ -349,3 +351,5 @@ export {
   YosemiteDecimal,
   BrazilianCrux
 }
+
+export { GradeContexts, gradeContextToGradeScales, getCountriesDefaultGradeContext }
