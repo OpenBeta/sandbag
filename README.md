@@ -4,7 +4,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 # What is this?
 
-Javascript utilities for working with rock climbing grades.
+Sandbag is a TypeScript library that translates climbing grades across the world's major grading systems by mapping every grade to a shared internal score — letting you convert, compare, and sort grades that would otherwise be incompatible strings.
 
 ### Supported systems
 
@@ -105,6 +105,7 @@ const sportToBoulder=convertGrade('5.11a',GradeScales.YDS,GradeScales.VSCALE)
 ```
 
 - Get Gradeband
+Named skill tiers (Beginner, Intermediate, Advanced, Expert) — using fixed score thresholds per discipline.
 
 ```javascript
 import { Ewbank } from '@openbeta/sandbag'
@@ -127,9 +128,43 @@ console.log('Is 8a harder than 5.13a?',harder > easier) // Output: true
 
 ```
 
-
-
 See [unit tests](./src/__tests__) for more examples.
+
+---
+### How it works (in depth)
+**The core idea: a universal internal score**
+\
+In climbing, we have many different _systems_ for grading - for example, the Yosemite Decimal System (5.14d), or the French system (9a) to name a few. 
+
+Every grade in every supported system maps to an integer score (0–107 for routes and bouldering). These mappings live in lookup tables (src/data/routes.json, src/data/boulder.json, etc.), where each row equates grades across systems at the same difficulty. Score 54 maps to 5.9 (YDS), 5b+ (French), 6- (UIAA), and 17 (Ewbank) simultaneously.
+
+**The GradeScale interface**
+\
+Each grading system is implemented as a `GradeScale` (src/GradeScale.ts) with three key responsibilities:
+- `isType(grade)` — validates whether a string belongs to this grading system
+- `getScore(grade)` — converts a grade string to a score or [low, high] tuple
+- `getGrade(score)` — converts a score back to a grade string
+
+**Conversion of grades**
+\
+Every grading system (`GradeScale`) has a field called `conversionGroup`, which declares the climbing discipline it belongs to: [`FREE`, `BOULDERING`, `ICE`, `AID`]. A grading system can only be part of one `conversionGroup`. 
+| Conversion Group | GradeScales |
+|---|:---|
+| FREE (sport/trad) | YDS, French, UIAA, Ewbank, Saxon, Norwegian, Brazilian |
+| BOULDERING | V-Scale, Fontainebleau |
+| ICE | Winter Ice (WI), Alpine Ice (AI) |
+| AID | A-grade, C-grade |
+
+\
+`convertGrade(fromGrade, fromScale, toScale)` is a two-step lookup: grade → standardized Score → grade (on the target scale). Critically, conversions are gated by conversionGroup — 5.11a (YDS, FREE group) can convert to a French grade, but not to a V-scale grade, since sport climbing and bouldering are separate disciplines with incompatible score ranges.
+
+**Fuzzy grades become score ranges**
+\
+Grades like 5.12+ or V3-4 don't sit at a single point — they span between two adjacent scores. getScore returns a tuple [low, high] for these, and the library can return the average or either bound depending on the use case (e.g. sorting uses getScoreForSort which collapses the range to a single number).
+
+**Grade bands**
+\
+Scores also bucket into skill tiers via getGradeBand (src/GradeBands.ts): Beginner, Intermediate, Advanced, Expert — using fixed score thresholds per discipline.
 
 ### Development (TBD)
 
