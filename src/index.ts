@@ -1,13 +1,15 @@
-import { GradeScales, GradeScalesTypes } from './GradeScale'
-import {
+import { BrazilianCrux } from './scales';
+
+export { GradeScales, GradeScalesTypes, ConversionGroups, ConversionGroupsTypes, getAvgScore } from './GradeScale'
+export {
   getScale,
   getScore,
   getScoreForSort,
   isVScale,
-  convertGrade
+  convertGrade,
 } from './GradeParser'
-import { GradeBands, GradeBandTypes } from './GradeBands'
-import {
+export { GradeBands, GradeBandTypes, boulderScoreToBand, routeScoreToBand } from './GradeBands'
+export {
   AI,
   Aid,
   Ewbank,
@@ -321,31 +323,3 @@ export const freeClimbing = {
 }
 
 export const protection = ['G', 'PG', 'PG13', 'R', 'X'] as const
-
-export { convertGrade }
-
-export {
-  getScore,
-  getScoreForSort,
-  isVScale,
-  getScale,
-  GradeScales,
-  GradeScalesTypes,
-  GradeBands,
-  GradeBandTypes
-}
-
-export {
-  AI,
-  Aid,
-  Ewbank,
-  Font,
-  French,
-  Norwegian,
-  Saxon,
-  UIAA,
-  VScale,
-  WI,
-  YosemiteDecimal,
-  BrazilianCrux
-}
