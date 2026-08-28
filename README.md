@@ -1,30 +1,39 @@
-[![Develop branch](https://github.com/openbeta/climbing-grades/actions/workflows/nodejs.yml/badge.svg?branch=develop)](https://github.com/OpenBeta/climbing-grades/actions/workflows/nodejs.yml?query=develop)  [![License](https://img.shields.io/github/license/openbeta/climbing-grades?style=flat-square)](./LICENSE)
+[![Develop branch](https://github.com/openbeta/climbing-grades/actions/workflows/nodejs.yml/badge.svg?branch=develop)](https://github.com/OpenBeta/climbing-grades/actions/workflows/nodejs.yml?query=develop) [![License](https://img.shields.io/github/license/openbeta/climbing-grades?style=flat-square)](./LICENSE)
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 # What is this?
 
-Javascript utilities for working with rock climbing grades.
+Typescript utilities for working with rock climbing grades.
 
 ### Supported systems
 
 **Sport & Traditional climbing**
+
 - [x] Yosemite Decimal System
 - [x] French
 - [x] UIAA
 - [x] Ewbanks
 - [x] Saxon
 - [x] Brazilian
+- [x] Norwegian
 
 **Bouldering**
+
 - [x] Vermin (V-scale)
 - [x] Fontainebleau
 
 **Aid**
+
 - [x] A# & C#
-- [ ] Aid  with mandatory free climbing (5.8 A0, etc)
+- [ ] Aid with mandatory free climbing (5.8 A0, etc)
 
 **Ice**
+
 - [x] Winter Ice (WI#)
 - [x] Alpine Ice (AI#)
 
@@ -33,101 +42,101 @@ Javascript utilities for working with rock climbing grades.
 Code contributions are most welcome!
 
 ### Questions?
+
 Join us on [Discord](https://discord.gg/fY9DbRav8h).
 
----
+## How to use the library
 
-### How to use the library
-
-#### Install the package
+### Install the package
 
 Using NPM
 
 ```
 npm install @openbeta/sandbag
 ```
+
 Using Yarn
+
 ```
 yarn add @openbeta/sandbag
 ```
 
-#### Sample Usage
+### Sample Usage
 
-- Convert Grades to Scores
+#### Convert Grades to Scores
 
-```javascript
-import { French, YosemiteDecimal } from '@openbeta/sandbag'
+```typescript
+import { French, YosemiteDecimal } from "@openbeta/sandbag";
 
-const score = French.getScore('8a') // Output [ 84, 85 ]
+const score = French.getScore("8a"); // Output [ 84, 85 ]
 
 // Support slash grade
-const slashGradeScore=French.getScore('7c+/8a') // Output [ 83, 84 ]
+const slashGradeScore = French.getScore("7c+/8a"); // Output [ 83, 84 ]
 
 // Accept +/- modifier
-const plusGrade= YosemiteDecimal.getScore('5.12+') // Output [ 79, 80 ]
+const plusGrade = YosemiteDecimal.getScore("5.12+"); // Output [ 79, 80 ]
 ```
 
-- Convert Scores to Grades
+#### Convert Scores to Grades
 
-```javascript
-import { Font } from '@openbeta/sandbag'
+```typescript
+import { Font } from "@openbeta/sandbag";
 
 // Single score provided
-Font.getGrade(80) // Output '7c'
+Font.getGrade(80); // Output '7c'
 
-// Support a range of scores 
-Font.getGrade([79,81]) // Output'7b+/7c'
-
+// Support a range of scores
+Font.getGrade([79, 81]); // Output'7b+/7c'
 ```
 
-- Validate Grading Scales
-``` javascript
-import { VScale , Font }from '@openbeta/sandbag'
+#### Validate Grading Scales
 
-console.log('Is 6A a V Scale?',VScale.isType('6A'))  // Output false
-console.log('Is 6A a Font Scale?',Font.isType('6A')) // Output true
+```typescript
+import { VScale, Font } from "@openbeta/sandbag";
 
+console.log("Is 6A a V Scale?", VScale.isType("6A")); // Output false
+console.log("Is 6A a Font Scale?", Font.isType("6A")); // Output true
 ```
 
-- Convert Grades Across Scales
+#### Convert Grades Across Scales
 
-``` javascript
-import {convertGrade , GradeScales }from '@openbeta/sandbag'
+```typescript
+import { convertGrade, GradeScales } from "@openbeta/sandbag";
 
-const ydsInFrench=convertGrade('5.11a',GradeScales.YDS,GradeScales.FRENCH) // Output '6b+/6c'
+const ydsInFrench = convertGrade("5.11a", GradeScales.YDS, GradeScales.FRENCH); // Output '6b+/6c'
 
-const fontInVScale=convertGrade('6a',GradeScales.FONT,GradeScales.VSCALE) //OutPut 'V3'
+const fontInVScale = convertGrade("6a", GradeScales.FONT, GradeScales.VSCALE); //OutPut 'V3'
 
 // Conversions across different disciplines are not allowed
-const sportToBoulder=convertGrade('5.11a',GradeScales.YDS,GradeScales.VSCALE)
+const sportToBoulder = convertGrade(
+	"5.11a",
+	GradeScales.YDS,
+	GradeScales.VSCALE,
+);
 // Output: Scale: Yosemite Decimal System doesn't support converting to Scale: V Scale
 // ''
 ```
 
-- Get Gradeband
+#### Get Gradeband
 
-```javascript
-import { Ewbank } from '@openbeta/sandbag'
+```typescript
+import { Ewbank } from "@openbeta/sandbag";
 
-Ewbank.getGradeBand('10') // Output: 'beginner'
-Ewbank.getGradeBand('30') // Output: 'expert'
-Ewbank.getGradeBand('6a') // Output: Unexpected grade format: 6a for grade scale Ewbank 'unknown'
-
-```
-- Compare Grades
-
-```javascript
-
-import { French, YosemiteDecimal } from '@openbeta/sandbag'
-
-const harder = French.getScore('8a')  // Output: [ 84, 85 ]
-const easier = YosemiteDecimal.getScore('5.13a') // Output: [ 82, 83 ]
-
-console.log('Is 8a harder than 5.13a?',harder > easier) // Output: true
-
+Ewbank.getGradeBand("10"); // Output: 'beginner'
+Ewbank.getGradeBand("30"); // Output: 'expert'
+Ewbank.getGradeBand("6a"); // Output: Unexpected grade format: 6a for grade scale Ewbank 'unknown'
 ```
 
+#### Compare Grades
 
+```typescript
+import { French, YosemiteDecimal } from "@openbeta/sandbag";
+
+const harder = French.getScore("8a"); // Output: [ 84, 85 ]
+const easier = YosemiteDecimal.getScore("5.13a"); // Output: [ 82, 83 ]
+
+console.log("Is 8a harder than 5.13a?", harder > easier); // Output: true
+```
 
 See [unit tests](./src/__tests__) for more examples.
 
@@ -153,9 +162,11 @@ file:///Users/<userName>/sandbag/coverage/lcov-report/index.html
 ```
 
 #### How to publish a new release to NPM
+
 Submit a PR with commit message `[npm publish]`
 
 ### Project Maintainers
+
 - [Nathan Musoke](https://github.com/musoke)
 - [Viet Nguyen](https://github.com/vnugent)
 

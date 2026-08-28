@@ -3,14 +3,21 @@ import { GradeBandTypes } from './GradeBands'
 export type Tuple = [number, number]
 
 export default interface GradeScale {
+  /** Return true if the passed string is a valid grade for this scale */
   isType: (grade: string) => boolean
+  /** Convert a grade to a difficult score or score range */
   getScore: (grade: string) => number | Tuple
+  /** Convert a difficulty score or score range to a grade */
   getGrade: (score: number | Tuple) => string
+  /** Return the difficulty band for this grade, e.g. "beginner" */
   getGradeBand: (grade: string) => GradeBandTypes
+  /** Human-readable name of this rating scale */
   displayName: string
+  /** Slug name of this rating scale */
   name: GradeScalesTypes
   offset: number
   conversionGroup: ConversionGroupsTypes
+  /** List of all grades in this scale */
   grades: string[]
 }
 
