@@ -82,6 +82,9 @@ const BRITISH_ADJ_ARRAY = [
   'E11'
 ] as const
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const YDS_ARRAY = [
   '5.0',
   '5.1',
@@ -119,6 +122,9 @@ const YDS_ARRAY = [
   '5.15d'
 ]
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const FRENCH_ARRAY = [
   '1a',
   '1b',
@@ -164,6 +170,9 @@ const FRENCH_ARRAY = [
   '9c+'
 ]
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const UIAA_ARRAY = [
   '1',
   '2',
@@ -194,6 +203,9 @@ const UIAA_ARRAY = [
   '12'
 ]
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const EWBANK_ARRAY = [
   '1',
   '2',
@@ -237,6 +249,9 @@ const EWBANK_ARRAY = [
   '40'
 ]
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const SAXON_ARRAY = [
   '1',
   '2',
@@ -263,6 +278,9 @@ const SAXON_ARRAY = [
   '12b'
 ]
 
+/**
+ * @deprecated grades can now be accessed as a property of each GradeScale
+ */
 const NORWAY_ARRAY = [
   '1-',
   '1',
@@ -303,7 +321,7 @@ const NORWAY_ARRAY = [
 ]
 
 /**
- * @deprecated - grades can now be accessed as a property of each GradeScale
+ * @deprecated grades can now be accessed as a property of each GradeScale
  */
 export const freeClimbing = {
   clean: {

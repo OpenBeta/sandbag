@@ -67,6 +67,9 @@ export const convertGrade = (
   return toScale.getGrade(toScore)
 }
 
+/**
+ * @deprecated use VScale.isType instead
+ */
 export const isVScale = (grade: string): boolean => {
   const scale = scales[GradeScales.VSCALE]
   if (scale == null) {
