@@ -73,15 +73,15 @@ describe('V', () => {
     })
 
     test('single score provided', () => {
-      expect(VScale.getGrade(62)).toBe('V3')
-      expect(VScale.getGrade(61)).toBe('V3')
-      expect(VScale.getGrade(63)).toBe('V4')
+      expect(VScale.getGrade(28)).toBe('V3')
+      expect(VScale.getGrade(33)).toBe('V4')
+      expect(VScale.getGrade(62)).toBe('V16')
     })
 
     test('range of scores provided', () => {
-      expect(VScale.getGrade([51, 56])).toBe('V1-V2')
-      expect(VScale.getGrade([77, 80])).toBe('V8-V9')
-      expect(VScale.getGrade([66, 72])).toBe('V4-V6')
+      expect(VScale.getGrade([20, 25])).toBe('V0+-V1')
+      expect(VScale.getGrade([51, 56])).toBe('V10-V13')
+      expect(VScale.getGrade([77, 80])).toBe('V22')
     })
   })
 

@@ -3,28 +3,28 @@ import { Font } from '../../scales'
 
 describe('Font', () => {
   describe('Get Score', () => {
-    test('9a > 5c', () => {
-      const lowGrade = Font.getScore('5c')
+    test('9a > 5+', () => {
+      const lowGrade = Font.getScore('5+')
       const highGrade = Font.getScore('9a')
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
 
-    test('1c > 1a+', () => {
-      const highGrade = Font.getScore('1c')
-      const lowGrade = Font.getScore('1a+')
+    test('1+ > 1', () => {
+      const highGrade = Font.getScore('1+')
+      const lowGrade = Font.getScore('1')
       expect(highGrade[0]).toBeGreaterThan(lowGrade[1])
     })
 
-    test('1a/1a+ > 1a, one grade away', () => {
-      const highGrade = Font.getScore('1a/1a+')
-      const lowGrade = Font.getScore('1a')
+    test('2/2+ > 1, one grade away', () => {
+      const highGrade = Font.getScore('2/2+')
+      const lowGrade = Font.getScore('1')
       expect(highGrade[0] < lowGrade[1] && highGrade[0] > lowGrade[0])
       expect(highGrade[1]).toBeGreaterThan(lowGrade[1])
     })
 
-    test('4a > 3c+/4a, one grade away', () => {
-      const highGrade = Font.getScore('4a')
-      const lowGrade = Font.getScore('3c+/4a')
+    test('4 > 3+/4-, one grade away', () => {
+      const highGrade = Font.getScore('4')
+      const lowGrade = Font.getScore('3+/4-')
       expect(highGrade[0] < lowGrade[1] && highGrade[0] > lowGrade[0])
       expect(highGrade[1]).toBeGreaterThan(lowGrade[1])
     })
@@ -45,14 +45,14 @@ describe('Font', () => {
         expect(invalidGrade).toEqual(-1)
       })
       test('extra slash grade', () => {
-        const invalidGrade = Font.getScore('5a/5a+/5b+')
-        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/5a+/5b+ for grade scale font')
+        const invalidGrade = Font.getScore('5/5+/6-')
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5/5+/6- for grade scale font')
 
         expect(invalidGrade).toEqual(-1)
       })
       test('extra slash', () => {
-        const invalidGrade = Font.getScore('5a/')
-        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5a/ for grade scale font')
+        const invalidGrade = Font.getScore('5+/')
+        expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 5+/ for grade scale font')
 
         expect(invalidGrade).toEqual(-1)
       })
@@ -67,7 +67,7 @@ describe('Font', () => {
 
   describe('Get Grade', () => {
     test('bottom of range', () => {
-      expect(Font.getGrade(0)).toBe('1a')
+      expect(Font.getGrade(0)).toBe('1')
     })
 
     test('top of range', () => {
@@ -75,20 +75,20 @@ describe('Font', () => {
     })
 
     test('single score provided', () => {
-      expect(Font.getGrade(34)).toBe('3c+')
-      expect(Font.getGrade(34.5)).toBe('3c+')
-      expect(Font.getGrade(35)).toBe('3c+')
+      expect(Font.getGrade(34)).toBe('6b+')
+      expect(Font.getGrade(34.5)).toBe('6b+')
+      expect(Font.getGrade(35)).toBe('6b+')
     })
     test('range of scores provided', () => {
-      expect(Font.getGrade([0.5, 2])).toBe('1a/1a+')
-      expect(Font.getGrade([8, 12])).toBe('1c/2a')
-      expect(Font.getGrade([16, 17])).toBe('2b')
+      expect(Font.getGrade([0.5, 2])).toBe('1/1+')
+      expect(Font.getGrade([8, 12])).toBe('2+/3')
+      expect(Font.getGrade([16, 17])).toBe('4-')
     })
   })
 
   describe('Get Grade Band', () => {
     test('gets Gradeband', () => {
-      expect(Font.getGradeBand('1a')).toEqual(GradeBands.BEGINNER)
+      expect(Font.getGradeBand('1')).toEqual(GradeBands.BEGINNER)
       expect(Font.getGradeBand('9c+')).toEqual(GradeBands.EXPERT)
     })
   })
