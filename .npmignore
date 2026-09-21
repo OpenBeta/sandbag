@@ -3,3 +3,10 @@ src
 tsconfig.*
 jest.config.cjs
 .github
+coverage
+.all-contributorsrc
+.node-version
+eslint.config.mjs
+flake.nix
+flake.lock
+tsup.config.ts

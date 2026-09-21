@@ -1,9 +1,9 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, ConversionGroups, Tuple } from '../GradeScale'
-import ice_table from '../data/ice.json'
+import iceTable from '../data/ice.json'
 import { IceGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
-const WI_ARRAY = Array.from(new Set(ice_table.map((r) => r.wi)))
+const WI_ARRAY = Array.from(new Set(iceTable.map((r) => r.wi)))
 
 // Supports WI1 -> WI13, with + grades on WI3 -> WI13 and no slash grades
 // https://en.wikipedia.org/wiki/Grade_(climbing)#Ice_and_mixed_climbing
@@ -29,15 +29,15 @@ const WIScale: GradeScale = {
   getGrade: (score: number | Tuple): string => {
     const validateScore = (score: number): number => {
       const validScore = Number.isInteger(score) ? score : Math.ceil(score)
-      return Math.min(Math.max(0, validScore), ice_table.length - 1)
+      return Math.min(Math.max(0, validScore), iceTable.length - 1)
     }
 
     if (typeof score === 'number') {
-      return ice_table[validateScore(score)].wi
+      return iceTable[validateScore(score)].wi
     }
 
-    const low: string = ice_table[validateScore(score[0])].wi
-    const high: string = ice_table[validateScore(score[1])].wi
+    const low: string = iceTable[validateScore(score[0])].wi
+    const high: string = iceTable[validateScore(score[1])].wi
     if (low === high) return low
     return `${low}/${high}`
   },
@@ -57,7 +57,7 @@ const getScore = (grade: string): number | Tuple => {
 
   const score = findScoreRange((r: IceGrade) => {
     return r.wi === (wholeMatch)
-  }, ice_table)
+  }, iceTable)
 
   return score
 }

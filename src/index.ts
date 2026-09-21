@@ -1,4 +1,4 @@
-import { BrazilianCrux } from './scales';
+import { BrazilianCrux } from './scales'
 
 export { GradeScales, GradeScalesTypes, ConversionGroups, ConversionGroupsTypes, getAvgScore } from './GradeScale'
 export {

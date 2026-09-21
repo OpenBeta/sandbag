@@ -1,9 +1,9 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, ConversionGroups, Tuple } from '../GradeScale'
-import aid_table from '../data/aid.json'
+import aidTable from '../data/aid.json'
 import { AidGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
-const AID_ARRAY = Array.from(new Set(aid_table.map((r) => r.aid)))
+const AID_ARRAY = Array.from(new Set(aidTable.map((r) => r.aid)))
 
 // Supports [AC]0 -> [AC]5, with + grades on [AC]2 -> [AC]4 and no slash grades
 // https://en.wikipedia.org/wiki/Grade_(climbing)#Clean_scale
@@ -28,15 +28,15 @@ const AidScale: GradeScale = {
   getGrade: (score: number | Tuple): string => {
     const validateScore = (score: number): number => {
       const validScore = Number.isInteger(score) ? score : Math.ceil(score)
-      return Math.min(Math.max(0, validScore), aid_table.length - 1)
+      return Math.min(Math.max(0, validScore), aidTable.length - 1)
     }
 
     if (typeof score === 'number') {
-      return aid_table[validateScore(score)].aid
+      return aidTable[validateScore(score)].aid
     }
 
-    const low: string = aid_table[validateScore(score[0])].aid
-    const high: string = aid_table[validateScore(score[1])].aid
+    const low: string = aidTable[validateScore(score[0])].aid
+    const high: string = aidTable[validateScore(score[1])].aid
     if (low === high) return low
     return `${low}/${high}`
   },
@@ -56,7 +56,7 @@ const getScore = (grade: string): number | Tuple => {
 
   const score = findScoreRange((r: AidGrade) => {
     return r.aid === ('A' + gradeNum)
-  }, aid_table)
+  }, aidTable)
 
   return score
 }

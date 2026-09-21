@@ -14,7 +14,7 @@
       system:
       let
         pkgs = import nixpkgs { inherit system; };
-        nodejs = pkgs.nodejs_22;
+        nodejs = pkgs.nodejs_24;
         yarn = pkgs.yarn.override { inherit nodejs; };
       in
       {

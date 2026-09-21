@@ -1,9 +1,9 @@
 import GradeScale, { findScoreRange, getAvgScore, GradeScales, ConversionGroups, Tuple } from '../GradeScale'
-import ice_table from '../data/ice.json'
+import iceTable from '../data/ice.json'
 import { IceGrade } from '.'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
 
-const AI_ARRAY = Array.from(new Set(ice_table.map((r) => r.ai)))
+const AI_ARRAY = Array.from(new Set(iceTable.map((r) => r.ai)))
 
 // Supports AI1 -> AI13, aith + grades on AI3 -> AI13 and no slash grades
 // https://en.aikipedia.org/aiki/Grade_(climbing)#Ice_and_mixed_climbing
@@ -29,15 +29,15 @@ const AIScale: GradeScale = {
   getGrade: (score: number | Tuple): string => {
     const validateScore = (score: number): number => {
       const validScore = Number.isInteger(score) ? score : Math.ceil(score)
-      return Math.min(Math.max(0, validScore), ice_table.length - 1)
+      return Math.min(Math.max(0, validScore), iceTable.length - 1)
     }
 
     if (typeof score === 'number') {
-      return ice_table[validateScore(score)].ai
+      return iceTable[validateScore(score)].ai
     }
 
-    const low: string = ice_table[validateScore(score[0])].ai
-    const high: string = ice_table[validateScore(score[1])].ai
+    const low: string = iceTable[validateScore(score[0])].ai
+    const high: string = iceTable[validateScore(score[1])].ai
     if (low === high) return low
     return `${low}/${high}`
   },
@@ -57,7 +57,7 @@ const getScore = (grade: string): number | Tuple => {
 
   const score = findScoreRange((r: IceGrade) => {
     return r.ai === (wholeMatch)
-  }, ice_table)
+  }, iceTable)
 
   return score
 }

@@ -3,9 +3,15 @@ on:
   pull_request_target:
     branches:
       - develop
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
 jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
+        with:
+          allow-unsafe-pr-checkout: true
       - uses: ArtiomTr/jest-coverage-report-action@v2
