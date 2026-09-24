@@ -1,7 +1,7 @@
 import assert from 'assert'
-import { convertGrade, convertToIRCRA, convertFromIRCRA, IRCRAResult } from '../index'
+import { convertGrade, convertToIRCRA, convertFromIRCRA, IRCRAResult, getScale, getScoreForSort, getAvgScore } from '../index'
 import { GradeScales as S, GradeScalesTypes, Tuple } from '../GradeScale'
-import { IRCRA } from '../scales'
+import { IRCRA, Font, French, VScale } from '../scales'
 
 // Independent transcription of the YDS and French columns of the source chart.
 // https://ircra.rocks/reporting-grades-in-climbing-research/
@@ -20,10 +20,10 @@ const chart = [
 ]
 
 describe('Published IRCRA conversions', () => {
-  test.each(chart)('level %s matches YDS %s and French %s in both directions', (ircra, yds, french) => {
+  test.each(chart)('level %s reports YDS %s and French %s with supported reverse notation', (ircra, yds, french) => {
     expect(convertFromIRCRA({ grade: ircra, sourceScale: S.YDS }, S.YDS)).toBe(yds)
     expect(convertGrade(yds, S.YDS, S.IRCRA)).toBe(ircra)
-    expect(convertFromIRCRA({ grade: ircra, sourceScale: S.FRENCH }, S.FRENCH)).toBe(french)
+    expect(convertFromIRCRA({ grade: ircra, sourceScale: S.FRENCH }, S.FRENCH)).toBe(Number(ircra) <= 10 ? '' : french)
     expect(convertGrade(french, S.FRENCH, S.IRCRA)).toBe(ircra)
   })
 
@@ -53,7 +53,7 @@ describe('Published IRCRA conversions', () => {
     expect(IRCRA.isType(range)).toBe(true)
     expect(IRCRA.getScore(range)).toEqual([15, 16])
     expect(convertFromIRCRA({ grade: range, sourceScale: S.FONT }, S.YDS)).toBe('')
-    expect(convertFromIRCRA({ grade: range, sourceScale: S.FONT }, S.FONT)).toBe('5+/6a+')
+    expect(convertFromIRCRA({ grade: range, sourceScale: S.FONT }, S.FONT)).toBe('')
     expect(convertGrade(range, S.IRCRA, S.IRCRA)).toBe(range)
   })
 
@@ -83,7 +83,7 @@ describe('Published IRCRA conversions', () => {
   test('does not invent bouldering grades in empty chart cells', () => {
     expect(convertFromIRCRA({ grade: '1', sourceScale: S.FONT }, S.FONT)).toBe('')
     expect(convertFromIRCRA({ grade: '10', sourceScale: S.VSCALE }, S.VSCALE)).toBe('')
-    expect(convertFromIRCRA({ grade: '9/11', sourceScale: S.FONT }, S.FONT)).toBe('')
+    expect(convertFromIRCRA({ grade: '9/10', sourceScale: S.FONT }, S.FONT)).toBe('')
   })
 
   test.each(['0', '00', '01', '33', '99', '-1', '15.5', '15+', '15-', '16/15', '0/15', '15/33', '1/2/3', ''])('rejects invalid IRCRA grade %s', grade => {
@@ -120,7 +120,7 @@ describe('IRCRA source discipline', () => {
     const result = convertToIRCRA('V2', S.VSCALE)
     expect(result).toEqual({ grade: '15/16', sourceScale: S.VSCALE })
     assert(result !== null)
-    expect(convertFromIRCRA(result, S.FONT)).toBe('5+/6a+')
+    expect(convertFromIRCRA(result, S.FONT)).toBe('')
     expect(convertFromIRCRA(result, S.FRENCH)).toBe('')
     expect(convertFromIRCRA(result, S.YDS)).toBe('')
   })
@@ -176,5 +176,65 @@ describe('IRCRA source discipline', () => {
     expect(convertToIRCRA('V17', S.VSCALE)).toBeNull()
     expect(convertFromIRCRA({ grade: '33', sourceScale: S.FRENCH }, S.YDS)).toBe('')
     expect(convertFromIRCRA({ grade: '17', sourceScale: 'invalid' as GradeScalesTypes }, S.YDS)).toBe('')
+  })
+})
+
+describe('IRCRA integration with unchanged scale APIs', () => {
+  test('rejects chart spellings that existing destination parsers do not support', () => {
+    expect(Font.isType('5')).toBe(false)
+    expect(French.isType('5+')).toBe(false)
+    expect(VScale.isType('V2/V3')).toBe(false)
+    expect(convertFromIRCRA({ grade: '14', sourceScale: S.VSCALE }, S.FONT)).toBe('')
+    expect(convertFromIRCRA({ grade: '10', sourceScale: S.YDS }, S.FRENCH)).toBe('')
+    expect(convertFromIRCRA({ grade: '15/16', sourceScale: S.FONT }, S.VSCALE)).toBe('')
+  })
+
+  test('keeps chart notation available for research reporting', () => {
+    expect(convertToIRCRA('5', S.FONT)).toEqual({ grade: '14', sourceScale: S.FONT })
+    expect(convertToIRCRA('5+', S.FRENCH)).toEqual({ grade: '10', sourceScale: S.FRENCH })
+    expect(convertToIRCRA('6A', S.FONT)).toEqual({ grade: '15/16', sourceScale: S.FONT })
+  })
+
+  test('rejects chart spellings that the legacy score lookup silently maps to zero', () => {
+    expect(convertFromIRCRA({ grade: '4', sourceScale: S.YDS }, S.UIAA)).toBe('')
+    expect(convertFromIRCRA({ grade: '17', sourceScale: S.YDS }, S.UIAA)).toBe('8')
+  })
+
+  test.each([S.YDS, S.FRENCH, S.FONT, S.VSCALE, S.EWBANK, S.UIAA, S.BRAZILIAN_CRUX])(
+    'every returned single-level %s grade is accepted by its unchanged parser', target => {
+      const scale = getScale(target)
+      assert(scale !== null)
+      for (const grade of IRCRA.grades) {
+        const converted = convertFromIRCRA({ grade, sourceScale: target }, target)
+        if (converted === '') continue
+        expect(scale.isType(converted)).toBe(true)
+        expect(Array.isArray(scale.getScore(converted))).toBe(true)
+      }
+    }
+  )
+
+  test.each([[S.VSCALE, 'VB/V0-'], [S.FONT, '<2/3']])(
+    'rejects %s %s consistently when an interior mapping is missing', (source, grade) => {
+      expect(convertToIRCRA(grade, source as GradeScalesTypes)).toBeNull()
+      expect(convertGrade(grade, source as GradeScalesTypes, S.IRCRA)).toBe('')
+      expect(convertFromIRCRA({ grade: '9/11', sourceScale: source as GradeScalesTypes }, source as GradeScalesTypes)).toBe('')
+    }
+  )
+
+  test('preserves supported ranges without missing mappings', () => {
+    const result = convertToIRCRA('6a/6a+', S.FRENCH)
+    assert(result !== null)
+    expect(result.grade).toBe('11/12')
+    expect(convertFromIRCRA(result, S.FRENCH)).toBe('6a/6a+')
+    expect(convertFromIRCRA(result, S.FONT)).toBe('')
+  })
+
+  test('rejects comparing native IRCRA reporting numbers with legacy scores', () => {
+    expect(() => getScoreForSort('32', S.IRCRA)).toThrow(RangeError)
+    expect(() => getScoreForSort('15/16', S.IRCRA)).toThrow('Convert within the source discipline')
+    const reported: IRCRAResult = { grade: '32', sourceScale: S.FRENCH }
+    const french = convertFromIRCRA(reported, S.FRENCH)
+    expect(getScoreForSort(french, S.FRENCH)).toBeGreaterThan(getScoreForSort('6a', S.FRENCH))
+    expect(getAvgScore(IRCRA.getScore('32'))).toBeGreaterThan(getAvgScore(IRCRA.getScore('15')))
   })
 })

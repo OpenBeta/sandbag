@@ -25,6 +25,8 @@ const chartRange = (grade: string, scale: ChartScale): Tuple | null => {
   const low = lookup(parts[0])
   const high = lookup(parts[1])
   if (low === null || high === null || low[0] > high[0] || low[1] > high[1]) return null
+  // Reject a source range if the same column cannot represent it on return.
+  if (research.slice(low[0] - 1, high[1]).some(row => row[scale] === '')) return null
   return [low[0], high[1]]
 }
 

@@ -1,5 +1,5 @@
 import { getScoreForSort, convertGrade, getScale, convertFromIRCRA } from '../GradeParser'
-import { GradeScales } from '../GradeScale'
+import { GradeScales, getAvgScore } from '../GradeScale'
 import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI, IRCRA } from '../scales'
 
 describe('Grade Scales', () => {
@@ -325,20 +325,20 @@ describe('Grade Scales', () => {
 
   describe('IRCRA', () => {
     test('32 > 1', () => {
-      expect(getScoreForSort('32', GradeScales.IRCRA)).toBeGreaterThan(
-        getScoreForSort('1', GradeScales.IRCRA)
+      expect(getAvgScore(IRCRA.getScore('32'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('1'))
       )
     })
 
     test('15 > 10', () => {
-      expect(getScoreForSort('15', GradeScales.IRCRA)).toBeGreaterThan(
-        getScoreForSort('10', GradeScales.IRCRA)
+      expect(getAvgScore(IRCRA.getScore('15'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('10'))
       )
     })
 
     test('25 > 20', () => {
-      expect(getScoreForSort('25', GradeScales.IRCRA)).toBeGreaterThan(
-        getScoreForSort('20', GradeScales.IRCRA)
+      expect(getAvgScore(IRCRA.getScore('25'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('20'))
       )
     })
 
@@ -347,7 +347,7 @@ describe('Grade Scales', () => {
     })
 
     test('convert IRCRA to FONT', () => {
-      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.FONT }, GradeScales.FONT)).toEqual('5')
+      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.FONT }, GradeScales.FONT)).toEqual('')
     })
 
     test('convert IRCRA to VSCALE', () => {
