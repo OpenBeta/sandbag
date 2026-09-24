@@ -1,4 +1,4 @@
-import { BrazilianCrux } from './scales';
+import { BrazilianCrux } from './scales'
 
 export { GradeScales, GradeScalesTypes, ConversionGroups, ConversionGroupsTypes, getAvgScore } from './GradeScale'
 export {
@@ -7,6 +7,9 @@ export {
   getScoreForSort,
   isVScale,
   convertGrade,
+  convertToIRCRA,
+  convertFromIRCRA,
+  IRCRAResult
 } from './GradeParser'
 export { GradeBands, GradeBandTypes, boulderScoreToBand, routeScoreToBand } from './GradeBands'
 export {
@@ -21,7 +24,8 @@ export {
   VScale,
   WI,
   YosemiteDecimal,
-  BrazilianCrux
+  BrazilianCrux,
+  IRCRA
 } from './scales'
 
 // Free Climbing Grades

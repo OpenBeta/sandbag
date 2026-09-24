@@ -1,6 +1,6 @@
-import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
-import { GradeScales } from '../GradeScale'
-import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI } from '../scales'
+import { getScoreForSort, convertGrade, getScale, convertFromIRCRA } from '../GradeParser'
+import { GradeScales, getAvgScore } from '../GradeScale'
+import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI, IRCRA } from '../scales'
 
 describe('Grade Scales', () => {
   beforeAll(() => {
@@ -320,6 +320,55 @@ describe('Grade Scales', () => {
           "Scale: WI Grade doesn't support converting to Scale: French"
         )
       )
+    })
+  })
+
+  describe('IRCRA', () => {
+    test('32 > 1', () => {
+      expect(getAvgScore(IRCRA.getScore('32'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('1'))
+      )
+    })
+
+    test('15 > 10', () => {
+      expect(getAvgScore(IRCRA.getScore('15'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('10'))
+      )
+    })
+
+    test('25 > 20', () => {
+      expect(getAvgScore(IRCRA.getScore('25'))).toBeGreaterThan(
+        getAvgScore(IRCRA.getScore('20'))
+      )
+    })
+
+    test('returns a GradeScale given the name', () => {
+      expect(getScale(GradeScales.IRCRA)).toEqual(IRCRA)
+    })
+
+    test('convert IRCRA to FONT', () => {
+      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.FONT }, GradeScales.FONT)).toEqual('')
+    })
+
+    test('convert IRCRA to VSCALE', () => {
+      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.VSCALE }, GradeScales.VSCALE)).toEqual('V1')
+    })
+
+    test('convert IRCRA to YDS', () => {
+      expect(convertFromIRCRA({ grade: '15', sourceScale: GradeScales.YDS }, GradeScales.YDS)).toEqual('5.11b')
+    })
+
+    test('convert IRCRA to French', () => {
+      expect(convertFromIRCRA({ grade: '15', sourceScale: GradeScales.FRENCH }, GradeScales.FRENCH)).toEqual('6c')
+    })
+
+    // Test reverse conversions
+    test('convert FONT to IRCRA', () => {
+      expect(convertGrade('6a', GradeScales.FONT, GradeScales.IRCRA)).toEqual('15/16')
+    })
+
+    test('convert VSCALE to IRCRA', () => {
+      expect(convertGrade('V2', GradeScales.VSCALE, GradeScales.IRCRA)).toEqual('15/16')
     })
   })
 })
