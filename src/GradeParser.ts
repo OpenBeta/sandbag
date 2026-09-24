@@ -45,6 +45,8 @@ export const getScoreForSort = (grade: string, gradeScaleType: GradeScalesTypes)
  * @param fromGrade grade based on grade scale type
  * @param fromGradeScaleType grade scale type to convert grade from
  * @param toGradeScaleType grade scale type to convert grade to
+ * @remarks Converting to IRCRA returns a reporting value without provenance.
+ * Use convertToIRCRA and convertFromIRCRA to retain the source discipline.
  * @returns A scale's grade converted to a different scale's grade
  */
 export const convertGrade = (
@@ -57,7 +59,12 @@ export const convertGrade = (
   if (fromScale === null || toScale === null) {
     return ''
   }
-  if (fromGradeScaleType === GradeScales.IRCRA || toGradeScaleType === GradeScales.IRCRA) {
+  if (fromGradeScaleType === GradeScales.IRCRA) {
+    return toGradeScaleType === GradeScales.IRCRA
+      ? convertIRCRAGrade(fromGrade, fromGradeScaleType, toGradeScaleType)
+      : ''
+  }
+  if (toGradeScaleType === GradeScales.IRCRA) {
     return convertIRCRAGrade(fromGrade, fromGradeScaleType, toGradeScaleType)
   }
   const sameConversionGroup: boolean = fromScale.conversionGroup === toScale.conversionGroup
@@ -69,6 +76,31 @@ export const convertGrade = (
   }
   const toScore = fromScale.getScore(fromGrade)
   return toScale.getGrade(toScore)
+}
+
+/** An IRCRA reporting value with the scale from which it was obtained. */
+export interface IRCRAResult {
+  readonly grade: string
+  readonly sourceScale: GradeScalesTypes
+}
+
+/** Preserve the source scale so a later conversion can enforce its group. */
+export const convertToIRCRA = (grade: string, sourceScale: GradeScalesTypes): IRCRAResult | null => {
+  if (sourceScale === GradeScales.IRCRA) return null
+  const result = convertIRCRAGrade(grade, sourceScale, GradeScales.IRCRA)
+  return result === '' ? null : { grade: result, sourceScale }
+}
+
+/** Convert within the recorded source group; a reporting number alone is insufficient. */
+export const convertFromIRCRA = (result: IRCRAResult, targetScale: GradeScalesTypes): string => {
+  const source = getScale(result.sourceScale)
+  const target = getScale(targetScale)
+  if (source == null || target == null || source.conversionGroup !== target.conversionGroup) return ''
+  // Require a published source column as well as a target column. This also
+  // rejects a context whose source is IRCRA itself rather than a local scale.
+  if (result.sourceScale === GradeScales.IRCRA ||
+      convertIRCRAGrade(result.grade, GradeScales.IRCRA, result.sourceScale) === '') return ''
+  return convertIRCRAGrade(result.grade, GradeScales.IRCRA, targetScale)
 }
 
 /**

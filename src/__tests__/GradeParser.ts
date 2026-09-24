@@ -1,4 +1,4 @@
-import { getScoreForSort, convertGrade, getScale } from '../GradeParser'
+import { getScoreForSort, convertGrade, getScale, convertFromIRCRA } from '../GradeParser'
 import { GradeScales } from '../GradeScale'
 import { VScale, Font, YosemiteDecimal, French, Saxon, AI, WI, IRCRA } from '../scales'
 
@@ -347,19 +347,19 @@ describe('Grade Scales', () => {
     })
 
     test('convert IRCRA to FONT', () => {
-      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.FONT)).toEqual('5')
+      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.FONT }, GradeScales.FONT)).toEqual('5')
     })
 
     test('convert IRCRA to VSCALE', () => {
-      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.VSCALE)).toEqual('V1')
+      expect(convertFromIRCRA({ grade: '14', sourceScale: GradeScales.VSCALE }, GradeScales.VSCALE)).toEqual('V1')
     })
 
     test('convert IRCRA to YDS', () => {
-      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.YDS)).toEqual('5.11b')
+      expect(convertFromIRCRA({ grade: '15', sourceScale: GradeScales.YDS }, GradeScales.YDS)).toEqual('5.11b')
     })
 
     test('convert IRCRA to French', () => {
-      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.FRENCH)).toEqual('6c')
+      expect(convertFromIRCRA({ grade: '15', sourceScale: GradeScales.FRENCH }, GradeScales.FRENCH)).toEqual('6c')
     })
 
     // Test reverse conversions
