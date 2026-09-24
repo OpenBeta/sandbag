@@ -47,9 +47,9 @@ describe('IRCRA', () => {
       expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 15- for grade scale IRCRA')
       expect(invalidGrade).toEqual(-1)
     })
-    test('invalid grade with slash', () => {
-      const invalidGrade = IRCRA.getScore('15/16')
-      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 15/16 for grade scale IRCRA')
+    test('descending grade range', () => {
+      const invalidGrade = IRCRA.getScore('16/15')
+      expect(console.warn).toHaveBeenCalledWith('Unexpected grade format: 16/15 for grade scale IRCRA')
       expect(invalidGrade).toEqual(-1)
     })
     test('not IRCRA scale', () => {
@@ -69,14 +69,14 @@ describe('IRCRA', () => {
     })
 
     test('single score provided', () => {
-      expect(IRCRA.getGrade(34)).toBe('9')
-      expect(IRCRA.getGrade(34.5)).toBe('9')
-      expect(IRCRA.getGrade(35)).toBe('9')
+      expect(IRCRA.getGrade(15)).toBe('15')
+      expect(IRCRA.getGrade(15.5)).toBe('16')
+      expect(IRCRA.getGrade(16)).toBe('16')
     })
     test('range of scores provided', () => {
-      expect(IRCRA.getGrade([0.5, 2])).toBe('1')
-      expect(IRCRA.getGrade([8, 12])).toBe('2/4')
-      expect(IRCRA.getGrade([16, 17])).toBe('5')
+      expect(IRCRA.getGrade([0.5, 2])).toBe('1/2')
+      expect(IRCRA.getGrade([8, 12])).toBe('8/12')
+      expect(IRCRA.getGrade([16, 17])).toBe('16/17')
     })
   })
 
@@ -99,7 +99,7 @@ describe('IRCRA', () => {
       expect(IRCRA.isType('15.5')).toBe(false)
       expect(IRCRA.isType('15+')).toBe(false)
       expect(IRCRA.isType('15-')).toBe(false)
-      expect(IRCRA.isType('15/16')).toBe(false)
+      expect(IRCRA.isType('16/15')).toBe(false)
       expect(IRCRA.isType('v11')).toBe(false)
     })
   })

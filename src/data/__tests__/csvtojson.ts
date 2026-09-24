@@ -5,14 +5,16 @@ import {
   BOULDER_GRADE_TABLE,
   ROUTE_GRADE_TABLE,
   ICE_GRADE_TABLE,
-  AID_GRADE_TABLE
+  AID_GRADE_TABLE,
+  RESEARCH_GRADE_TABLE
 } from '../csvtojson'
 
 describe.each([
   { table: BOULDER_GRADE_TABLE },
   { table: ROUTE_GRADE_TABLE },
   { table: ICE_GRADE_TABLE },
-  { table: AID_GRADE_TABLE }
+  { table: AID_GRADE_TABLE },
+  { table: RESEARCH_GRADE_TABLE }
 ])('Grade tables are parsable', ({ table }) => {
   test('each table is an array', async () => {
     expect.hasAssertions() // double check that async tests run

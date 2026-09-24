@@ -347,19 +347,19 @@ describe('Grade Scales', () => {
     })
 
     test('convert IRCRA to FONT', () => {
-      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.FONT)).toEqual('5b+/5c')
+      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.FONT)).toEqual('5')
     })
 
     test('convert IRCRA to VSCALE', () => {
-      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.VSCALE)).toEqual('V2')
+      expect(convertGrade('14', GradeScales.IRCRA, GradeScales.VSCALE)).toEqual('V1')
     })
 
     test('convert IRCRA to YDS', () => {
-      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.YDS)).toEqual('5.10a')
+      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.YDS)).toEqual('5.11b')
     })
 
     test('convert IRCRA to French', () => {
-      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.FRENCH)).toEqual('5c+/6a')
+      expect(convertGrade('15', GradeScales.IRCRA, GradeScales.FRENCH)).toEqual('6c')
     })
 
     // Test reverse conversions
@@ -368,7 +368,7 @@ describe('Grade Scales', () => {
     })
 
     test('convert VSCALE to IRCRA', () => {
-      expect(convertGrade('V2', GradeScales.VSCALE, GradeScales.IRCRA)).toEqual('13/14')
+      expect(convertGrade('V2', GradeScales.VSCALE, GradeScales.IRCRA)).toEqual('15/16')
     })
   })
 })

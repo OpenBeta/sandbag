@@ -45,6 +45,13 @@ export interface AidGrade {
 export interface ResearchGrade {
   score: number
   ircra: string
+  yds: string
+  french: string
+  font: string
+  vscale: string
+  ewbank: string
+  uiaa: string
+  brazilian_crux: string
 }
 
 export const scales: Record<

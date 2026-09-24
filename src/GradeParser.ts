@@ -1,5 +1,6 @@
 import GradeScale, { GradeScales, GradeScalesTypes, Tuple } from './GradeScale'
 import { scales } from './scales'
+import { convertIRCRAGrade } from './ircra-conversion'
 
 /**
  *
@@ -56,9 +57,11 @@ export const convertGrade = (
   if (fromScale === null || toScale === null) {
     return ''
   }
+  if (fromGradeScaleType === GradeScales.IRCRA || toGradeScaleType === GradeScales.IRCRA) {
+    return convertIRCRAGrade(fromGrade, fromGradeScaleType, toGradeScaleType)
+  }
   const sameConversionGroup: boolean = fromScale.conversionGroup === toScale.conversionGroup
-  const isResearchConversion: boolean = fromScale.conversionGroup === 'research' || toScale.conversionGroup === 'research'
-  if (!sameConversionGroup && !isResearchConversion) {
+  if (!sameConversionGroup) {
     console.warn(
       `Scale: ${fromScale.displayName} doesn't support converting to Scale: ${toScale.displayName}`
     )

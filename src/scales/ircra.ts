@@ -1,65 +1,50 @@
-import GradeScale, { findScoreRange, getAvgScore, GradeScales, ConversionGroups, Tuple } from '../GradeScale'
+import GradeScale, { getAvgScore, GradeScales, ConversionGroups, Tuple } from '../GradeScale'
 import research from '../data/research.json'
 import { GradeBandTypes, routeScoreToBand } from '../GradeBands'
-import { ResearchGrade } from '.'
+import YosemiteDecimal from './yds'
 
-const ircraGradeRegex = /^(\d{1,2})$/
-const isIRCRA = (grade: string): RegExpMatchArray | null => grade.match(ircraGradeRegex)
+const IRCRA_ARRAY = research.map((row) => row.ircra)
 
-const IRCRA_ARRAY = Array.from(new Set(research.map((r) => r.ircra)))
+/** Parse a published IRCRA level or an ascending, inclusive range of levels. */
+export const parseIRCRA = (grade: string): Tuple | null => {
+  const match = /^([1-9]|[12]\d|3[0-2])(?:\/([1-9]|[12]\d|3[0-2]))?$/.exec(grade)
+  if (match === null) return null
+  const low = Number(match[1])
+  const high = Number(match[2] ?? match[1])
+  return low <= high ? [low, high] : null
+}
 
-// IRCRA (International Rock Climbing Research Association) grading system
-// Uses simple numeric values from 1-32 representing difficulty levels
-// This is a relatively new grading system designed to be more precise than traditional systems
-
+// IRCRA scores use the published 1-32 coordinate, independently of Sandbag's
+// route/boulder scores. GradeParser uses the chart for conversions between them.
 const IRCRAScale: GradeScale = {
   displayName: 'IRCRA Scale',
   name: GradeScales.IRCRA,
   grades: IRCRA_ARRAY,
   offset: 3000,
   conversionGroup: ConversionGroups.RESEARCH,
-  isType: (grade: string): boolean => {
-    if (isIRCRA(grade) === null) {
-      return false
-    }
-    return true
-  },
+  isType: (grade: string): boolean => parseIRCRA(grade) !== null,
   getScore: (grade: string): number | Tuple => {
-    return getScore(grade)
+    const range = parseIRCRA(grade)
+    if (range === null) {
+      console.warn(`Unexpected grade format: ${grade} for grade scale IRCRA`)
+      return -1
+    }
+    return range
   },
   getGrade: (score: number | Tuple): string => {
-    const validateScore = (score: number): number => {
-      const validScore = Number.isInteger(score) ? score : Math.ceil(score)
-      return Math.min(Math.max(0, validScore), research.length - 1)
-    }
-
-    if (typeof score === 'number') {
-      return research[validateScore(score)].ircra
-    }
-
-    const low: string = research[validateScore(score[0])].ircra
-    const high: string = research[validateScore(score[1])].ircra
-    if (low === high) return low
-    return `${low}/${high}`
+    const [low, high] = typeof score === 'number' ? [score, score] : score
+    if (!Number.isFinite(low) || !Number.isFinite(high) || low < 0 || low > high) return ''
+    const clamp = (value: number): number => Math.min(32, Math.max(1, Math.ceil(value)))
+    return clamp(low) === clamp(high) ? `${clamp(low)}` : `${clamp(low)}/${clamp(high)}`
   },
   getGradeBand: (grade: string): GradeBandTypes => {
-    const score = getScore(grade)
-    return routeScoreToBand(getAvgScore(score))
+    const range = parseIRCRA(grade)
+    if (range === null) return routeScoreToBand(-1)
+    // Keep Sandbag's existing bands; these are not IRCRA's sex-specific groups.
+    const low = YosemiteDecimal.getScore(research[range[0] - 1].yds)
+    const high = YosemiteDecimal.getScore(research[range[1] - 1].yds)
+    return routeScoreToBand((getAvgScore(low) + getAvgScore(high)) / 2)
   }
-}
-
-const getScore = (grade: string): number | Tuple => {
-  const parse = isIRCRA(grade)
-  if (parse == null) {
-    console.warn(`Unexpected grade format: ${grade} for grade scale IRCRA`)
-    return -1
-  }
-  const [, basicGrade] = parse
-  const basicScore = findScoreRange((r: ResearchGrade) => {
-    return r.ircra === basicGrade
-  }, research)
-
-  return basicScore
 }
 
 export default IRCRAScale
