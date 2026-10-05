@@ -1,4 +1,4 @@
-import { BrazilianCrux } from './scales';
+import { BrazilianCrux } from './scales'
 
 export { GradeScales, GradeScalesTypes, ConversionGroups, ConversionGroupsTypes, getAvgScore } from './GradeScale'
 export {
@@ -6,7 +6,7 @@ export {
   getScore,
   getScoreForSort,
   isVScale,
-  convertGrade,
+  convertGrade
 } from './GradeParser'
 export { GradeBands, GradeBandTypes, boulderScoreToBand, routeScoreToBand } from './GradeBands'
 export {
