@@ -6,7 +6,10 @@ export {
   getScore,
   getScoreForSort,
   isVScale,
-  convertGrade
+  convertGrade,
+  convertToIRCRA,
+  convertFromIRCRA,
+  IRCRAResult
 } from './GradeParser'
 export { GradeBands, GradeBandTypes, boulderScoreToBand, routeScoreToBand } from './GradeBands'
 export {
@@ -21,7 +24,8 @@ export {
   VScale,
   WI,
   YosemiteDecimal,
-  BrazilianCrux
+  BrazilianCrux,
+  IRCRA
 } from './scales'
 
 // Free Climbing Grades
