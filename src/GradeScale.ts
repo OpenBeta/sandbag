@@ -33,6 +33,7 @@ export const GradeScales = {
   EWBANK: 'ewbank',
   SAXON: 'saxon',
   NORWEGIAN: 'norwegian',
+  SWEDISH: 'swedish',
   BRAZILIAN_CRUX: 'brazilian_crux'
 } as const
 

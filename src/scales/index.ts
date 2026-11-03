@@ -5,13 +5,14 @@ import French from './french'
 import Ewbank from './ewbank'
 import Saxon from './saxon'
 import Norwegian from './norwegian'
+import Swedish from './swedish'
 import AI from './ai'
 import Aid from './aid'
 import WI from './wi'
 import BrazilianCrux from './brazilian'
 import UIAA from './uiaa'
 import GradeScale, { GradeScales } from '../GradeScale'
-export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian, BrazilianCrux }
+export { Aid, VScale, Font, YosemiteDecimal, French, Saxon, UIAA, Ewbank, AI, WI, Norwegian, Swedish, BrazilianCrux }
 
 export interface Boulder {
   score: number
@@ -27,6 +28,7 @@ export interface Route {
   ewbank: string
   saxon: string
   norwegian: string
+  swedish: string
   brazilian: string
 }
 
@@ -53,6 +55,7 @@ GradeScale | null
   [GradeScales.EWBANK]: Ewbank,
   [GradeScales.SAXON]: Saxon,
   [GradeScales.NORWEGIAN]: Norwegian,
+  [GradeScales.SWEDISH]: Swedish,
   [GradeScales.BRAZILIAN_CRUX]: BrazilianCrux,
   [GradeScales.AI]: AI,
   [GradeScales.WI]: WI,

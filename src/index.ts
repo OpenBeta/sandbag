@@ -16,6 +16,7 @@ export {
   Font,
   French,
   Norwegian,
+  Swedish,
   Saxon,
   UIAA,
   VScale,

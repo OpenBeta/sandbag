@@ -21,6 +21,7 @@ Typescript utilities for working with rock climbing grades.
 - [x] Saxon
 - [x] Brazilian
 - [x] Norwegian
+- [x] Swedish
 
 **Bouldering**
 
